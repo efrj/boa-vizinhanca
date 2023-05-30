@@ -1,0 +1,43 @@
+version: '3'
+
+services:
+  php:
+    build:
+      context: ./php
+    ports:
+      - 8000:8000
+    restart: unless-stopped
+
+  ruby:
+    build:
+      context: ./ruby
+    ports:
+      - 8001:8000
+    restart: unless-stopped
+
+  node:
+    build:
+      context: ./node
+    ports:
+      - 8002:8000
+    restart: unless-stopped
+
+  python:
+    build:
+      context: ./python
+    ports:
+      - 8003:8000
+    restart: unless-stopped
+
+  go:
+    build:
+      context: ./go
+    ports:
+      - 8004:8080
+    restart: unless-stopped
+  
+  java:
+    build:
+      context: ./java
+    ports:
+      - 8005:8080
