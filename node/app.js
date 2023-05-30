@@ -1,5 +1,4 @@
-const express = require('express');
-const app = express();
+var http = require('http');
 
 const frases = [
   'Que que foi, que que foi, que que há?',
@@ -20,12 +19,11 @@ const frases = [
   'Somente um idiota responde uma pergunta com outra pergunta'
 ];
 
-app.get('/', (req, res) => {
+http.createServer(function (req, res) {
   const indice = Math.floor(Math.random() * frases.length);
   const fraseAleatoria = frases[indice];
-  res.send(fraseAleatoria);
-});
-
-app.listen(3000, () => {
-  console.log('Servidor rodando em http://localhost:3000/');
+  res.write(fraseAleatoria);
+  res.end();
+}).listen(3000, function(){
+  console.log("server start at port 3000");
 });

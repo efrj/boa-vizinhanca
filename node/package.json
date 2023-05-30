@@ -1,10 +1,7 @@
 {
-  "name": "frases",
+  "name": "chaves",
   "version": "1.0.0",
-  "description": "Descrição do seu projeto",
-  "dependencies": {
-    "express": "^4.17.1"
-  },
+  "description": "No Sense Web Application to display random phrases from the characters from the series Chaves.",
   "scripts": {
     "start": "node app.js"
   }
