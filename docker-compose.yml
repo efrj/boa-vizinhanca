@@ -19,7 +19,7 @@ services:
     build:
       context: ./node
     ports:
-      - 8002:8000
+      - 8002:3000
     restart: unless-stopped
 
   python:
@@ -28,16 +28,3 @@ services:
     ports:
       - 8003:8000
     restart: unless-stopped
-
-  go:
-    build:
-      context: ./go
-    ports:
-      - 8004:8080
-    restart: unless-stopped
-  
-  java:
-    build:
-      context: ./java
-    ports:
-      - 8005:8080
