@@ -1,0 +1,26 @@
+import spark.Spark;
+
+import java.util.Random;
+
+public class FraseAleatoria {
+
+    public static void main(String[] args) {1
+        String[] frases = {
+                "Fique sabendo que eu vou mandar minha mãe vender o seu pai (Chiquinha). Ah, mas quem vai querer aquele velho? De graça já é muito caro.",
+                "Chaves, você parece mais cego que um juiz de futebol.",
+                "Não grita comigo que eu não sou cego.",
+                "Você não sabe que é falta de edução ficar dormindo enquanto se está acordado?",
+                "A bola pegou a bola e me bateu com a bola.",
+                "No primeiro dia de aula, as crianças devem ir à escola acompanhadas da mãe, ou pela porcaria do pai.",
+                "Mais 45 xícaras de café e eu vou ter um papai novo.",
+                "Minha mãe não está brincando, as mulheres brincam quando são meninas, não quando são anciãs.",
+                "Alguma vez eu já disse alguma mentira que não fosse verdade?"
+        };
+
+        Spark.get("/", (req, res) -> {
+            Random random = new Random();
+            int indice = random.nextInt(frases.length);
+            return "Frase aleatória: " + frases[indice];
+        });
+    }
+}

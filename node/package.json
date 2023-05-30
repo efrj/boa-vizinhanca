@@ -1,0 +1,11 @@
+{
+  "name": "frases",
+  "version": "1.0.0",
+  "description": "Descrição do seu projeto",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "scripts": {
+    "start": "node app.js"
+  }
+}
