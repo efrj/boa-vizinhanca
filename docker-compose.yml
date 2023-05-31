@@ -7,6 +7,7 @@ services:
     ports:
       - 8000:8000
     restart: unless-stopped
+    container_name: chaves.php
 
   ruby:
     build:
@@ -14,6 +15,7 @@ services:
     ports:
       - 8001:8000
     restart: unless-stopped
+    container_name: chaves.ruby
 
   node:
     build:
@@ -21,6 +23,7 @@ services:
     ports:
       - 8002:3000
     restart: unless-stopped
+    container_name: chaves.node
 
   python:
     build:
@@ -28,3 +31,11 @@ services:
     ports:
       - 8003:8000
     restart: unless-stopped
+    container_name: chaves.python
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "8000:80"
+    volumes:
+      - ./frontend:/usr/share/nginx/html
+    container_name: chaves.frontend
