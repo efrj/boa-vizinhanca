@@ -1,5 +1,6 @@
 var http = require('http');
 
+// Frases do Seu Madruga
 const frases = [
   'Que que foi, que que foi, que que há?',
   'Tinha que ser o Chaves mesmo!',
@@ -22,8 +23,12 @@ const frases = [
 http.createServer(function (req, res) {
   const indice = Math.floor(Math.random() * frases.length);
   const fraseAleatoria = frases[indice];
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET');
+  res.setHeader('Access-Control-Max-Age', '86400');
+  res.writeHead(200, {'Content-Type': 'text/html;charset=UTF-8'});
   res.write(fraseAleatoria);
   res.end();
 }).listen(3000, function(){
-  console.log("server start at port 3000");
+  console.log('Servidor rodando em http://localhost:3000}');
 });
