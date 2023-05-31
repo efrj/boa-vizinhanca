@@ -1,37 +1,6 @@
 version: '3'
 
 services:
-  php:
-    build:
-      context: ./php
-    ports:
-      - 8000:8000
-    restart: unless-stopped
-    container_name: chaves.php
-
-  ruby:
-    build:
-      context: ./ruby
-    ports:
-      - 8001:8000
-    restart: unless-stopped
-    container_name: chaves.ruby
-
-  node:
-    build:
-      context: ./node
-    ports:
-      - 8002:3000
-    restart: unless-stopped
-    container_name: chaves.node
-
-  python:
-    build:
-      context: ./python
-    ports:
-      - 8003:8000
-    restart: unless-stopped
-    container_name: chaves.python
   nginx:
     image: nginx:alpine
     ports:
@@ -39,3 +8,35 @@ services:
     volumes:
       - ./frontend:/usr/share/nginx/html
     container_name: chaves.frontend
+
+  php:
+    build:
+      context: ./php
+    ports:
+      - 8001:8000
+    restart: unless-stopped
+    container_name: chaves.php
+
+  ruby:
+    build:
+      context: ./ruby
+    ports:
+      - 8002:8000
+    restart: unless-stopped
+    container_name: chaves.ruby
+
+  node:
+    build:
+      context: ./node
+    ports:
+      - 8003:3000
+    restart: unless-stopped
+    container_name: chaves.node
+
+  python:
+    build:
+      context: ./python
+    ports:
+      - 8004:8000
+    restart: unless-stopped
+    container_name: chaves.python
