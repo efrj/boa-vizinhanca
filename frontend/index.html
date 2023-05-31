@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>A Boa Vizinhança</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <style type="text/css">
+      body{margin-top:20px;}
+      .testimonials-v-2 {
+      padding: 100px 0;
+      overflow: hidden;
+      }
+      .testi-slide {
+      text-align: center;
+      }
+      .testi-slide img {
+      width: 92px;
+      height: 92px;
+      -webkit-border-radius: 50%;
+      -moz-border-radius: 50%;
+      -ms-border-radius: 50%;
+      border-radius: 50%;
+      }
+      .testi-slide p {
+      margin: 20px 0;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 30px;
+      font-style: italic;
+      }
+      .testi-slide i {
+      color: #32c5d2;
+      margin-right: 10px;
+      }
+      .testi-slide h4 {
+      font-weight: 400;
+      font-size: 16px;
+      font-family: "Lato", sans-serif !important;
+      font-style: italic;
+      }
+      .testi-slide .flex-control-paging li a {
+      -webkit-box-shadow: none;
+      -moz-box-shadow: none;
+      -ms-box-shadow: none;
+      box-shadow: none;
+      background: transparent !important;
+      border: 2px solid #ccc;
+      width: 8px;
+      height: 8px;
+      }
+      .testi-slide .flex-control-paging li a.flex-active {
+      background: transparent !important;
+      border: 2px solid #32c5d2;
+      }
+      .quote {
+      position: relative;
+      }
+      .quote blockquote {
+      padding: 0px;
+      border: 0;
+      margin: 0;
+      font-size: 20px;
+      font-style: italic;
+      -webkit-border-radius: 8px;
+      -moz-border-radius: 8px;
+      -ms-border-radius: 8px;
+      border-radius: 8px;
+      }
+      .quote blockquote p {
+      color: #fff;
+      padding-top: 25px;
+      padding-bottom: 45px;
+      padding-left: 30px;
+      padding-right: 30px;
+      }
+      .quote blockquote:before {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 90px;
+      width: 0;
+      height: 0;
+      border-top: 0.83333em solid #ccc;
+      border-right: 0.86667em solid transparent;
+      }
+      .quote.green blockquote {
+      background-color: #32c5d2;
+      }
+      .quote.green blockquote:before {
+      border-top-color: #32c5d2;
+      }
+      .quote.dark blockquote {
+      background-color: #555;
+      }
+      .quote.dark blockquote:before {
+      border-top-color: #555;
+      }
+      .quote-footer {
+      margin: 10px 0;
+      }
+      .quote-footer .quote-author-img img {
+      float: left;
+      max-width: 200px;
+      width: 200px;
+      height: 200px;
+      -webkit-border-radius: 50%;
+      -moz-border-radius: 50%;
+      -ms-border-radius: 50%;
+      border-radius: 50%;
+      margin-left: -5px;
+      margin-top: -40px;
+      position: relative;
+      z-index: 1;
+      padding: 5px;
+      background-color: #fff;
+      }
+      .quote-footer h4 {
+      font-size: 14px;
+      font-weight: bold;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      }
+      .quote-footer p {
+      font-style: italic;
+      font-size: 14px;
+      }
+
+      @media (max-width: 991px) {
+        .margin-btm-150 {
+          margin-bottom: 150px;
+        }
+      }
+
+    </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios@0.21.1/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <h1>Vila das API's do Chaves</h1>
+        </div>
+        <div class="col-md-6">
+          <h4>Mostrando que as linguagens de programação podem conviver lado a lado em harmonia</h4>
+          <h5 id="alertMessage"></h5>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 margin-btm-150">
+          <div class="quote dark">
+            <blockquote>
+              <p id="person1"></p>
+            </blockquote>
+          </div>
+          <div class="quote-footer text-right">
+            <div class="quote-author-img">
+              <img src="img/chaves.png" alt>
+            </div>
+            <h4>Chaves</h4>
+            <p>humildemente representado pelo PHP</p>
+          </div>
+        </div>
+        <div class="col-md-6 margin-btm-150">
+          <div class="quote green">
+            <blockquote>
+              <p id="person2"></p>
+            </blockquote>
+          </div>
+          <div class="quote-footer text-right">
+            <div class="quote-author-img">
+              <img src="img/dona-florinda.png" alt>
+            </div>
+            <h4>Dona Florinda</h4>
+            <p>elegantemente representada pelo Ruby</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 margin-btm-150">
+          <div class="quote green">
+            <blockquote>
+              <p id="person4"></p>
+            </blockquote>
+          </div>
+          <div class="quote-footer text-right">
+            <div class="quote-author-img">
+              <img src="img/professor-girafales.png" alt>
+            </div>
+            <h4>Professor Girafales</h4>
+            <p>sabiamente representado pelo Python</p>
+          </div>
+        </div>
+        <div class="col-md-6 margin-btm-150">
+          <div class="quote dark">
+            <blockquote>
+              <p id="person3"></p>
+            </blockquote>
+          </div>
+          <div class="quote-footer text-right">
+            <div class="quote-author-img">
+              <img src="img/seu-madruga.png" alt>
+            </div>
+            <h4>Seu Madruga</h4>
+            <p>vulgarmente representado pelo Node.js</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        function loadPhrase(url, element) {
+          axios.get(url).then(function(response) {
+            let phrase = response.data;
+            let targetElement = document.getElementById(element);
+
+            if (targetElement) {
+              targetElement.innerText = phrase;
+            }
+          })
+          .catch(function(error) {
+            console.log(error);
+          });
+        }
+
+        function updatePhrases() {
+          loadPhrase("http://localhost:8001/", "person1");
+          loadPhrase("http://localhost:8002/", "person2");
+          loadPhrase("http://localhost:8003/", "person3");
+          loadPhrase("http://localhost:8004/", "person4");
+        }
+
+        let countdown = 7;
+
+        function updateMessage() {
+          let messageElement = document.getElementById("alertMessage");
+          if (messageElement) {
+            messageElement.innerText = `Novas frases serão exibidas em ${countdown} segundos.`;
+          }
+
+          countdown--;
+
+          if (countdown < 0) {
+            countdown = 7;
+            updatePhrases();
+          }
+        }
+
+        updateMessage();
+
+        setInterval(function() {
+          updateMessage();
+        }, 1000);
+
+        updatePhrases()
+      });
+    </script>    
+  </body>
+</html>
