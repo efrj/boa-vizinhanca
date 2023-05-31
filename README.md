@@ -1,2 +1,5 @@
-# la-vem-o-chaves
-Aplicativo Web No Sense para exibir frases aleatórias dos personagens do seriado Chaves
+# A Boa Vizinhança
+
+Aplicação totalment No Sense feita apenas para fazer um simples arquivo html ser provido de um conteúdo de frases aletórias oriundas de API's desenvolvidas em diferentes linguagens de programação.
+
+Para rodar o projeto basta executar o comando "docker-compose up".  
