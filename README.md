@@ -1,8 +1,8 @@
 # A Boa Vizinhança
 
-Aplicação totalmente nonsense feita para fazer um simples arquivo html ser provido de um conteúdo de frases aletórias oriundas de API's desenvolvidas em diferentes linguagens de programação. 
+Página web totalmente nonsense feita para mostrar frases aletórias dos personagens da série Chaves oriundas de aplicações simples desenvolvidas em diferentes linguagens de programação. 
 
-Cada personagem do seriado "Chaves" exibe uma frase retornada de uma API diferente. 
+Cada personagem do seriado "Chaves" exibe uma frase retornada de uma aplicação diferente. 
 
 Para rodar o projeto basta executar o comando "docker-compose up". Você pode visualizar a página na url "http://localhost:8000/".
 
