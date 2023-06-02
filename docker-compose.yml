@@ -40,3 +40,11 @@ services:
       - 8004:8000
     restart: unless-stopped
     container_name: chaves.python
+
+  lua:
+    build:
+      context: ./lua
+    ports:
+      - 8005:8000
+    restart: unless-stopped
+    container_name: chaves.lua
