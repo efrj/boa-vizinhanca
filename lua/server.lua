@@ -1,25 +1,24 @@
 local socket = require("socket")
-local cjson = require("cjson")
 
-local function lerFrasesDeArquivo()
-    local arquivo = io.open("/app/frases.json", "r")
-    if not arquivo then
-        return nil
-    end
-
-    local conteudo = arquivo:read("*all")
-    arquivo:close()
-
-    local frases = cjson.decode(conteudo)
-    return frases
-end
+local frases = {
+    "Cale-se, cale-se, cale-se, você me deixa looooouco!",
+    "Você não vai com a minha cara?",
+    "Gentalha, Gentalha.",
+    "Me chamou de Frederico?",
+    "Diz que sim, diz que sim, vai, sim?",
+    "Você vai ver, eu vou contar tudo pra minha mãe!",
+    "Mamãããããããããããããããããe!!!",
+    "Você quer? Compra!",
+    "Da parte de quem?",
+    "Que coisa, não?",
+    "Tá legal!",
+    "Espere só até eu ganhar minha bola quadrada.",
+    "Não deu!",
+    "Ah bom, então assim, sim!",
+    "O que será que ele quis dizer?",
+}
 
 local function fraseAleatoria()
-    local frases = lerFrasesDeArquivo()
-    if not frases then
-        return "Erro ao ler o arquivo de frases."
-    end
-
     local indice = math.random(1, #frases)
     return frases[indice]
 end
@@ -35,9 +34,10 @@ while true do
         local request = client:receive()
 
         local response = "HTTP/1.1 200 OK\r\n"
+        response = response .. "Access-Control-Allow-Origin: *\r\n" -- Adiciona o cabeçalho CORS
         response = response .. "Content-Type: text/html;charset=UTF-8\r\n"
         response = response .. "\r\n"
-        response = response .. "<html><body>" .. fraseAleatoria() .. "</body></html>\r\n"
+        response = response .. fraseAleatoria()
 
         client:send(response)
 
