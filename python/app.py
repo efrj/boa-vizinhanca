@@ -18,7 +18,6 @@ frases = [
     'Gooooooooooooooooooooool de Peléeeeeeeeeeeeeeeeeee ! Ele rebateu de cabeça, quando não havia esperança.',
     'A criança que amanhã será homem, a semente que amanhã será fruto, ao casulo que amanhã será mariposa.',
     'Saiba que tudo que se vende pelas ruas faz mal. Por exemplo : churrasquinho, os refrescos, sanduíches daqueles que vem com maionese, com tomate, cachorro quente, empadas, os pastéis, coxinhas, risoles, etc, etc...',
-    'Bem, esta representação teatral foi montada e dirigida pelo Seu Madruga, mas, por favor, não caçoem dele. Talvez a vocês o trabalho dele pareça tolo, inútil, comum, vulgar. Sim, concordo. Mas é que devem levar em conta que se trata de um indivíduo sem nenhum preparo. De um pobre diabo que nem sequer concluiu o primário. De um pobre infeliz que mal aprendeu a ler e a escrever. De um reles... deixe me continuar, Seu Madruga, de um João Ninguém...',
     'Acapulco me espera, Acapulco me espera...',
     'Eu já tive alunos bons, regulares, ruins, péssimos e o Quico. Mas não se preocupe, é provável que haja piores.',
     'Dona Florinda não está acostumada a ser paquerada pelos velhos gordos.',
