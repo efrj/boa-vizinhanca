@@ -48,3 +48,11 @@ services:
       - 8005:8000
     restart: unless-stopped
     container_name: chaves.lua
+  
+  perl:
+    build:
+      context: ./perl
+    ports:
+      - 8006:8000
+    restart: unless-stopped
+    container_name: chaves.perl
