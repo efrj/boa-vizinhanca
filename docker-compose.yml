@@ -64,3 +64,11 @@ services:
       - 8007:8000
     restart: unless-stopped
     container_name: chaves.go
+  
+  java:
+    build:
+      context: ./java
+    ports:
+      - 8008:8000
+    restart: unless-stopped
+    container_name: chaves.java
