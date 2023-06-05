@@ -56,3 +56,11 @@ services:
       - 8006:8000
     restart: unless-stopped
     container_name: chaves.perl
+  
+  go:
+    build:
+      context: ./go
+    ports:
+      - 8007:8000
+    restart: unless-stopped
+    container_name: chaves.go
