@@ -2,7 +2,7 @@ use strict;
 use warnings;
 use IO::Socket::INET;
 
-my @frases = (
+my @phrases = (
     "Ai, Chaves, você só não é mais burro por falta de vitaminas.",
     "Pois é, pois é, pois é.",
     "O que você tem de burro, você tem de burro!",
@@ -15,9 +15,9 @@ my @frases = (
     "Velha coroca."
 );
 
-sub fraseAleatoria {
-    my $indice = int(rand(scalar @frases));
-    return $frases[$indice];
+sub randomPhrase {
+    my $indice = int(rand(scalar @phrases));
+    return $phrases[$indice];
 }
 
 my $server = IO::Socket::INET->new(
@@ -28,7 +28,7 @@ my $server = IO::Socket::INET->new(
     Listen    => 10,
 ) or die "Could not create socket: $!\n";
 
-print "Servidor rodando em http://localhost:8000/\n";
+print "Server running at http://localhost:8000/\n";
 
 while (1) {
     my $client = $server->accept();
@@ -40,7 +40,7 @@ while (1) {
         $response .= "Access-Control-Allow-Origin: *\r\n";
         $response .= "Content-Type: text/html;charset=UTF-8\r\n";
         $response .= "\r\n";
-        $response .= fraseAleatoria();
+        $response .= randomPhrase();
 
         print $client $response;
 

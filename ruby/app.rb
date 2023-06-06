@@ -1,7 +1,6 @@
 require 'webrick'
 
-# Frases da Dona Florinda
-FRASES = [
+PHRASES = [
   'Professor Girafales! Que milagre o senhor por aqui',
   'Não gostaria de entrar para tomar uma xícara de café?',
   'Vamos, Tesouro, não se misture com essa gentalha!',
@@ -17,12 +16,12 @@ FRASES = [
 server = WEBrick::HTTPServer.new(Port: 8000)
 
 server.mount_proc '/' do |request, response|
-  frase_aleatoria = FRASES.sample
+  random_phrase = PHRASES.sample
   response['Content-Type'] = 'text/html;charset=UTF-8'
   response['Access-Control-Allow-Origin'] = '*'
   response['Access-Control-Allow-Methods'] = 'GET'
   response['Access-Control-Max-Age'] = '86400'
-  response.body = frase_aleatoria
+  response.body = random_phrase
 end
 
 trap('INT') { server.shutdown }

@@ -1,8 +1,7 @@
 import random
 from http.server import BaseHTTPRequestHandler, HTTPServer
 
-# Frases do Professor Girafales
-frases = [
+phrases = [
     'Se não for incômodo.',
     'Vim lhe trazer este humilde presente.',
     'Depois da senhora.',
@@ -33,8 +32,7 @@ class RequestHandler(BaseHTTPRequestHandler):
         self.send_header('Access-Control-Allow-Origin', '*')
         self.end_headers()
 
-        # Selecionar uma frase aleatória
-        frase = random.choice(frases)
+        frase = random.choice(phrases)
         self.wfile.write(frase.encode())
 
 def run_server():
@@ -42,7 +40,7 @@ def run_server():
     port = 8000
     server_address = (host, port)
     httpd = HTTPServer(server_address, RequestHandler)
-    print(f'Servidor rodando em http://{host}:{port}/')
+    print(f'Server running at http://{host}:{port}/')
     httpd.serve_forever()
 
 if __name__ == '__main__':

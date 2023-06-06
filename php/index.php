@@ -2,8 +2,7 @@
 
 header("Access-Control-Allow-Origin: *");
 
-# Frases do Chaves do 8
-$frases = [
+$phrases = [
     'Foi sem querer querendo',
     'Volta o cão arrependido, com suas orelhas tão fartas, com seu osso roído e com o rabo entre as patas.',
     'Ninguém tem paciência comigo.',
@@ -39,10 +38,10 @@ $frases = [
     'Boa noite, meus amigos. Boa noite, vizinhança! Prometemos despedirmos sem dizer adeus jamais.'
 ];
 
-$indice = array_rand($frases);
+$indice = array_rand($phrases);
 
-$fraseAleatoria = $frases[$indice];
+$randomphrase = $phrases[$indice];
 
-echo $fraseAleatoria;
+echo $randomphrase;
 
 ?>
