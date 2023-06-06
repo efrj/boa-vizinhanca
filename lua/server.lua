@@ -1,6 +1,6 @@
 local socket = require("socket")
 
-local frases = {
+local phrases = {
     "Cale-se, cale-se, cale-se, você me deixa looooouco!",
     "Você não vai com a minha cara?",
     "Gentalha, Gentalha.",
@@ -18,14 +18,14 @@ local frases = {
     "O que será que ele quis dizer?",
 }
 
-local function fraseAleatoria()
-    local indice = math.random(1, #frases)
-    return frases[indice]
+local function randomPhrase()
+    local indice = math.random(1, #phrases)
+    return phrases[indice]
 end
 
 local server = assert(socket.bind("*", 8000))
 
-print("Servidor rodando em http://localhost:8000/")
+print("Server running at http://localhost:8000/")
 
 while true do
     local client, err = server:accept()
@@ -34,10 +34,10 @@ while true do
         local request = client:receive()
 
         local response = "HTTP/1.1 200 OK\r\n"
-        response = response .. "Access-Control-Allow-Origin: *\r\n" -- Adiciona o cabeçalho CORS
+        response = response .. "Access-Control-Allow-Origin: *\r\n"
         response = response .. "Content-Type: text/html;charset=UTF-8\r\n"
         response = response .. "\r\n"
-        response = response .. fraseAleatoria()
+        response = response .. randomPhrase()
 
         client:send(response)
 
