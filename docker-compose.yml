@@ -72,3 +72,11 @@ services:
       - 8008:8000
     restart: unless-stopped
     container_name: chaves.java
+  
+  swift:
+    build:
+      context: ./swift
+    ports:
+      - 8009:8000
+    restart: unless-stopped
+    container_name: chaves.swift
