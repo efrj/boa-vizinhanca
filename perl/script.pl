@@ -12,7 +12,10 @@ my @phrases = (
     "“Ué, ué, ué, ué, ué!!!",
     "Diga, papi…",
     "Só podia ser o Chaves de novo!",
-    "Velha coroca."
+    "Velha coroca!",
+    "Entre DIFERENÇA e DINFERENCIA há muita poca DINFERENCIA!!!",
+    "Ah se não fosse a ajuda espiritual que eu dou a esse meninos.",
+    "Ele toma mais distância"
 );
 
 sub randomPhrase {
