@@ -80,3 +80,11 @@ services:
       - 8009:8000
     restart: unless-stopped
     container_name: chaves.swift
+
+  shell-script:
+    build:
+      context: ./shell-script
+    ports:
+      - "8010:80"
+    restart: unless-stopped
+    container_name: chaves.shell-script
