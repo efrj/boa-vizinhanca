@@ -20,11 +20,15 @@ public class Main {
             "Pague o aluguel!",
             "Pague o meu aluguel!",
             "Basta!",
+            "Basta! Você não sabe o que é basta!",
             "É melhor eu ir embora porque pode ser contagioso!",
             "Não tem dinheiro para pagar o aluguel, mas tem dinheiro para ir a Acapulco!",
             "Afaste-se!!",
             "Você não sabe que só os idiotas respondem uma pergunta com outra pergunta?",
-            "Eles existem, os discos voadores existem!"
+            "Eles existem, os discos voadores existem!",
+            "Completa 15 meses de aluguel atrasado hoje??? E ao invés de fazer uma festa me coloca pra fora???",
+            "É a primeira vez que eu chego nesta vila sem que o chaves me receba com uma pancada.",
+            "A vingança nunca é plena:mata a alma e a envenena"
         };
 
         @Override
@@ -32,9 +36,11 @@ public class Main {
             String response = getRandomPhrase();
             exchange.getResponseHeaders().set("Content-Type", "text/html; charset=UTF-8");
             exchange.getResponseHeaders().set("Access-Control-Allow-Origin", "*");
-            exchange.sendResponseHeaders(200, response.length());
+            exchange.getResponseHeaders().set("Cache-Control", "no-cache, no-store, must-revalidate");
+            byte[] responseBytes = response.getBytes("UTF-8");
+            exchange.sendResponseHeaders(200, responseBytes.length);
             OutputStream os = exchange.getResponseBody();
-            os.write(response.getBytes());
+            os.write(responseBytes);
             os.close();
         }
 
