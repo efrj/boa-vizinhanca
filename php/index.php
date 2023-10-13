@@ -9,6 +9,8 @@ $phrases = [
     'Eu prefiro morrer do que perder a vida.',
     'Ai, que burro. Dá zero pra ele!',
     'Já chegou o disco voador!',
+    'Esse é de limão que parece tamarindo mais tem gosto de laranja',
+    'Esse é de tamarindo que parece laranja e tem gosto de limão',
     'Esse é de laranja que parece de limão, mas tem gosto de tamarindo.',
     'Quem dá e tira com o diabo fica, sua mão se danifica, sua vó será maldita, e sua sogra ressuscita.',
     'Teria sido melhor ir ver o filme do Pelé!',
@@ -35,7 +37,8 @@ $phrases = [
     'Pipipipipipipipipi...',
     'Mamãe querida... Meu coração por ti bate, como caroço de abacate!',
     'Mas para ter uma mãe, me conformaria até com a mãe do Quico.',
-    'Boa noite, meus amigos. Boa noite, vizinhança! Prometemos despedirmos sem dizer adeus jamais.'
+    'Boa noite, meus amigos. Boa noite, vizinhança! Prometemos despedirmos sem dizer adeus jamais.',
+    'Esse é mais burro do que eu.'
 ];
 
 $indice = array_rand($phrases);
