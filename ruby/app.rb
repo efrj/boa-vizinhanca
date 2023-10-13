@@ -10,7 +10,8 @@ PHRASES = [
   'Fredericooo.',
   'Porque se a gentalha vai para Acapulco, eu também vou!',
   'Tesouro, por favor! Lembre-se que estamos num hotel de categoria. Não na casa do Seu Madruga...',
-  'O que a Maitê Proença tem que eu não tenho?!'
+  'O que a Maitê Proença tem que eu não tenho?!',
+  'Todo mundo chora com cebola.'
 ]
 
 server = WEBrick::HTTPServer.new(Port: 8000)
