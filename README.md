@@ -17,6 +17,7 @@ Cada personagem do seriado "Chaves" exibe uma frase retornada de uma aplicação
 | Nhonho              | Go                       | http://localhost:8007 |
 | Seu Barriga         | Java                     | http://localhost:8008 |
 | Dona Clotilde       | Swift                    | http://localhost:8009 |
+| Carteiro Jaiminho   | Shell Script             | http://localhost:8010 |
 
 
 &nbsp;
