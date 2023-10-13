@@ -16,7 +16,9 @@ const phrases = [
   'Eu, mesmo sem um centavo no bolso, sempre trago no rosto um sorriso franco e espontâneo.',
   'Devemos perdoar as ofensas... Devemos perdoar as afrontas... Devemos perdoar os aluguéis atrasados...',
   'Às vezes temos que sacrificar algumas coisas para conseguir outras.',
-  'Somente um idiota responde uma pergunta com outra pergunta'
+  'Somente um idiota responde uma pergunta com outra pergunta',
+  'Só um idiota iria martela os dedos.',
+  'Preciso saber se aquela velha vai devolver o meu violão.'
 ];
 
 http.createServer(function (req, res) {
