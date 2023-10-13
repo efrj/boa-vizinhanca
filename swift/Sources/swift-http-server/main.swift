@@ -3,12 +3,14 @@ import Kitura
 let phrases = [
     "Quem é bruxa? Eu não sou nenhuma bruxa!",
     "Como? Chamou quem de bruxa?",
-    "Boneco, simpático! Madruguinha lindo!",
+    "Boneco, simpático!",
+    "Madruguinha lindo!",
     "O quê? É melhor não dizer nada!",
     "Ai, Seu Madruga, o senhor me encabula!",
     "Drudru, Gatão, Galã!",
     "Tinha que ser o Chaves!",
-    "Eu vou para Acapulco tomar banho de mar..."
+    "Eu vou para Acapulco tomar banho de mar...",
+    "Satanás! Cadê você Satanás? Satanááááááás!"
 ]
 
 let router = Router()
