@@ -7,6 +7,7 @@ services:
       - "8000:80"
     volumes:
       - ./frontend:/usr/share/nginx/html
+      - ./phrases:/app/phrases
     container_name: chaves.frontend
 
   php:
@@ -16,6 +17,8 @@ services:
       - 8001:8000
     restart: unless-stopped
     container_name: chaves.php
+    volumes:
+      - ./phrases:/app/phrases
 
   ruby:
     build:
@@ -24,6 +27,8 @@ services:
       - 8002:8000
     restart: unless-stopped
     container_name: chaves.ruby
+    volumes:
+      - ./phrases:/app/phrases
 
   node:
     build:
