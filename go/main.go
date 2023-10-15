@@ -1,34 +1,53 @@
 package main
 
 import (
-	"fmt"
-	"math/rand"
-	"net/http"
-	"time"
+    "encoding/json"
+    "fmt"
+    "io/ioutil"
+    "math/rand"
+    "net/http"
+    "time"
 )
 
-var phrases = []string{
-	"Olha ele, hein! Olha ele, hein!",
-	"O que será que ele quis dizer?",
-	"É assim, né? É assim , né?",
-	"Tinha que ser o Chaves de novo!",
-	"Você vai ver, Chaves, vou contar tudo pro meu papai!",
-	"Gavião em inglês é gaviaion.",
+type Frases struct {
+    Nhonho []string `json:"nhonho"`
 }
 
+var phrases []string
+
 func randomPhrase() string {
-	rand.Seed(time.Now().UnixNano())
-	index := rand.Intn(len(phrases))
-	return phrases[index]
+    rand.Seed(time.Now().UnixNano())
+    index := rand.Intn(len(phrases))
+    return phrases[index]
+}
+
+func loadPhrases() {
+    file, err := ioutil.ReadFile("phrases/phrases.json")
+    if err != nil {
+        fmt.Println("Erro ao ler o arquivo JSON:", err)
+        return
+    }
+
+    var data Frases
+    err = json.Unmarshal(file, &data)
+    if err != nil {
+        fmt.Println("Erro ao decodificar o JSON:", err)
+        return
+    }
+
+    phrases = data.Nhonho
 }
 
 func handleRequest(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Access-Control-Allow-Origin", "*")
-	fmt.Fprintf(w, randomPhrase())
+    w.Header().Set("Access-Control-Allow-Origin", "*")
+    fmt.Fprintf(w, randomPhrase())
 }
 
 func main() {
-	http.HandleFunc("/", handleRequest)
-	fmt.Println("Servidor rodando em http://localhost:8000/")
-	http.ListenAndServe(":8000", nil)
+    loadPhrases()
+
+    http.HandleFunc("/", handleRequest)
+
+    fmt.Println("Servidor rodando em http://localhost:8000/")
+    http.ListenAndServe(":8000", nil)
 }
