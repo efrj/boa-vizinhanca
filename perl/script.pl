@@ -1,27 +1,19 @@
 use strict;
 use warnings;
 use IO::Socket::INET;
+use JSON::XS;
+use Encode;
 
-my @phrases = (
-    "Ai, Chaves, você só não é mais burro por falta de vitaminas.",
-    "Pois é, pois é, pois é.",
-    "O que você tem de burro, você tem de burro!",
-    "Papaizinho lindo, meu amor!",
-    "A filhinha do Madruguinha disse com licencinha.",
-    "Você vai ver! Eu vou contar tudo pro meu pai que você me bateu, me…",
-    "“Ué, ué, ué, ué, ué!!!",
-    "Diga, papi…",
-    "Só podia ser o Chaves de novo!",
-    "Velha coroca!",
-    "Entre DIFERENÇA e DINFERENCIA há muita poca DINFERENCIA!!!",
-    "Ah se não fosse a ajuda espiritual que eu dou a esse meninos.",
-    "Ele toma mais distância"
-);
+my $json_file = 'phrases/phrases.json';
 
-sub randomPhrase {
-    my $indice = int(rand(scalar @phrases));
-    return $phrases[$indice];
-}
+my $json_text = do {
+    open my $json_fh, '<', $json_file
+        or die("Can't open $json_file: $!");
+    local $/;
+    <$json_fh>
+};
+
+my $phrases_ref = decode_json($json_text)->{chiquinha};
 
 my $server = IO::Socket::INET->new(
     LocalAddr => '0.0.0.0',
@@ -49,4 +41,11 @@ while (1) {
 
         $client->close();
     }
+}
+
+sub randomPhrase {
+    my $indice = int(rand(scalar @{$phrases_ref}));
+    my $phrase = $phrases_ref->[$indice];
+
+    return Encode::encode('UTF-8', $phrase);
 }
