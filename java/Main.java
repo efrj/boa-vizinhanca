@@ -1,11 +1,18 @@
 import java.io.IOException;
 import java.io.OutputStream;
+import java.io.FileReader;
 import java.net.InetSocketAddress;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 import com.sun.net.httpserver.HttpServer;
 
 public class Main {
+    private static final String JSON_FILE_PATH = "phrases/phrases.json";
+
     public static void main(String[] args) throws IOException {
         HttpServer server = HttpServer.create(new InetSocketAddress(8000), 0);
         server.createContext("/", new MyHandler());
@@ -14,22 +21,11 @@ public class Main {
     }
 
     static class MyHandler implements HttpHandler {
-        private final String[] phrases = {
-            "Tinha que ser o Chaves mesmo!",
-            "Porque sempre que eu chego na vila você me recebe com uma pancada?",
-            "Pague o aluguel!",
-            "Pague o meu aluguel!",
-            "Basta!",
-            "Basta! Você não sabe o que é basta!",
-            "É melhor eu ir embora porque pode ser contagioso!",
-            "Não tem dinheiro para pagar o aluguel, mas tem dinheiro para ir a Acapulco!",
-            "Afaste-se!!",
-            "Você não sabe que só os idiotas respondem uma pergunta com outra pergunta?",
-            "Eles existem, os discos voadores existem!",
-            "Completa 15 meses de aluguel atrasado hoje??? E ao invés de fazer uma festa me coloca pra fora???",
-            "É a primeira vez que eu chego nesta vila sem que o chaves me receba com uma pancada.",
-            "A vingança nunca é plena:mata a alma e a envenena"
-        };
+        private final String[] phrases;
+
+        public MyHandler() {
+            this.phrases = loadPhrasesFromJson();
+        }
 
         @Override
         public void handle(HttpExchange exchange) throws IOException {
@@ -47,6 +43,24 @@ public class Main {
         private String getRandomPhrase() {
             int randomIndex = (int) (Math.random() * phrases.length);
             return phrases[randomIndex];
+        }
+
+        private String[] loadPhrasesFromJson() {
+            try {
+                JSONParser parser = new JSONParser();
+                JSONObject jsonObject = (JSONObject) parser.parse(new FileReader(JSON_FILE_PATH));
+                JSONArray jsonArray = (JSONArray) jsonObject.get("seu_barriga");
+
+                String[] phrases = new String[jsonArray.size()];
+                for (int i = 0; i < jsonArray.size(); i++) {
+                    phrases[i] = (String) jsonArray.get(i);
+                }
+
+                return phrases;
+            } catch (IOException | ParseException e) {
+                e.printStackTrace();
+                return new String[0];
+            }
         }
     }
 }
