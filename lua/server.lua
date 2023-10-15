@@ -1,26 +1,31 @@
 local socket = require("socket")
+local json = require("dkjson")
 
-local phrases = {
-    "Cale-se, cale-se, cale-se, você me deixa looooouco!",
-    "Você não vai com a minha cara?",
-    "Gentalha, Gentalha.",
-    "Me chamou de Frederico?",
-    "Diz que sim, diz que sim, vai, sim?",
-    "Você vai ver, eu vou contar tudo pra minha mãe!",
-    "Mamãããããããããããããããããe!!!",
-    "Você quer? Compra!",
-    "Da parte de quem?",
-    "Que coisa, não?",
-    "Tá legal!",
-    "Espere só até eu ganhar minha bola quadrada.",
-    "Não deu!",
-    "Ah bom, então assim, sim!",
-    "O que será que ele quis dizer?",
-}
+local function readPhrases()
+    local file, err = io.open("phrases/phrases.json", "r")
+    if not file then
+        print("Erro ao ler o arquivo JSON: " .. err)
+        return {}
+    end
+
+    local content = file:read("*all")
+    file:close()
+
+    local data = json.decode(content)
+
+    if data and data["quico"] then
+        return data["quico"]
+    else
+        print("Frases do Quico não encontradas no arquivo JSON.")
+        return {}
+    end
+end
+
+local phrases = readPhrases()
 
 local function randomPhrase()
-    local indice = math.random(1, #phrases)
-    return phrases[indice]
+    local index = math.random(1, #phrases)
+    return phrases[index]
 end
 
 local server = assert(socket.bind("*", 8000))
