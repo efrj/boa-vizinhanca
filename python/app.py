@@ -1,29 +1,6 @@
+import json
 import random
 from http.server import BaseHTTPRequestHandler, HTTPServer
-
-phrases = [
-    'Se não for incômodo.',
-    'Vim lhe trazer este humilde presente.',
-    'Depois da senhora.',
-    'Dizia eu que a aritmética...',
-    'Silêêêêêncioooo!!!',
-    'Tá! Tá! Tá! Tá! Tá!',
-    'Eu jamais me engano. Só me enganei uma vez: quando acreditei estar enganado!',
-    'Quero ver outra vez seus olhinhos de noite serena.',
-    'Dooooooooooona Florinda.',
-    'Sou Linguiça de sobrenome mestre, digo, sou Professor e meu nome é Girafales.',
-    'Por que causa, motivo, razão ou circunstância...',
-    'Que foi que você disse?',
-    'Gooooooooooooooooooooool de Peléeeeeeeeeeeeeeeeeee ! Ele rebateu de cabeça, quando não havia esperança.',
-    'A criança que amanhã será homem, a semente que amanhã será fruto, ao casulo que amanhã será mariposa.',
-    'Saiba que tudo que se vende pelas ruas faz mal. Por exemplo : churrasquinho, os refrescos, sanduíches daqueles que vem com maionese, com tomate, cachorro quente, empadas, os pastéis, coxinhas, risoles, etc, etc...',
-    'Acapulco me espera, Acapulco me espera...',
-    'Eu já tive alunos bons, regulares, ruins, péssimos e o Quico. Mas não se preocupe, é provável que haja piores.',
-    'Dona Florinda não está acostumada a ser paquerada pelos velhos gordos.',
-    'Eu sou inimigo fidagal da violência, mas se ver o Chaves com a luva de boxe, eu, Professor Girafales, vou quebrar tudo que se chama cara.',
-    'Quico, quando é que vai entrar no compasso?',
-    'Como ousa ofender essa digníssima dama?'
-]
 
 class RequestHandler(BaseHTTPRequestHandler):
     def do_GET(self):
@@ -32,8 +9,29 @@ class RequestHandler(BaseHTTPRequestHandler):
         self.send_header('Access-Control-Allow-Origin', '*')
         self.end_headers()
 
-        frase = random.choice(phrases)
-        self.wfile.write(frase.encode())
+        phrases = read_phrases()
+
+        if not phrases:
+            self.wfile.write('Erro ao ler as frases do Professor Girafales.'.encode())
+            return
+
+        random_phrase = random.choice(phrases)
+        self.wfile.write(random_phrase.encode())
+
+def read_phrases():
+    try:
+        json_file_path = 'phrases/phrases.json'
+        with open(json_file_path, 'r', encoding='utf-8') as file:
+            data = json.load(file)
+
+        if 'professor_girafales' in data:
+            return data['professor_girafales']
+        else:
+            print('Frases do Professor Girafales não encontradas no arquivo JSON.')
+            return []
+    except Exception as e:
+        print(f'Erro ao ler o arquivo JSON: {e}')
+        return []
 
 def run_server():
     host = '0.0.0.0'
