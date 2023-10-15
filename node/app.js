@@ -1,35 +1,45 @@
 var http = require('http');
+var fs = require('fs');
 
-const phrases = [
-  'Que que foi, que que foi, que que há?',
-  'Tinha que ser o Chaves mesmo!',
-  'Só não te dou outra porque...',
-  'Com toda Barriga, senhor certeza',
-  'Sou pobre, porém honrado!',
-  'Quero ver outra vez seus olhinhos de noite serena.',
-  'Posso não ter um centavo no bolso, mas tenho um sorriso no rosto e isso vale mais que todo dinheiro do mundo.',
-  'A vingança nunca é plena, mata a alma e envenena.',
-  'Somente as pessoas ruins sentem prazer em ver o sofrimento alheio.',
-  'O trabalho não é ruim. Ruim é ter de trabalhar!',
-  'As pessoas boas devem amar os seus inimigos.',
-  'Eu sabia que você era idiota, mas não a nível executivo!',
-  'Eu, mesmo sem um centavo no bolso, sempre trago no rosto um sorriso franco e espontâneo.',
-  'Devemos perdoar as ofensas... Devemos perdoar as afrontas... Devemos perdoar os aluguéis atrasados...',
-  'Às vezes temos que sacrificar algumas coisas para conseguir outras.',
-  'Somente um idiota responde uma pergunta com outra pergunta',
-  'Só um idiota iria martela os dedos.',
-  'Preciso saber se aquela velha vai devolver o meu violão.'
-];
+const jsonFilePath = 'phrases/phrases.json';
+
+function readPhrases() {
+  try {
+    const data = fs.readFileSync(jsonFilePath, 'utf8');
+    const allPhrases = JSON.parse(data);
+
+    if ('seu_madruga' in allPhrases) {
+      return allPhrases['seu_madruga'];
+    } else {
+      console.error('Frases do Seu Madruga não encontradas no arquivo JSON.');
+      return [];
+    }
+  } catch (error) {
+    console.error('Error reading JSON file:', error.message);
+    return [];
+  }
+}
 
 http.createServer(function (req, res) {
+  const phrases = readPhrases();
+
+  if (phrases.length === 0) {
+    res.writeHead(500, {'Content-Type': 'text/plain;charset=UTF-8'});
+    res.write('Erro ao ler as frases do Seu Madruga.');
+    res.end();
+    return;
+  }
+
   const indice = Math.floor(Math.random() * phrases.length);
   const randomPhrase = phrases[indice];
+
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET');
   res.setHeader('Access-Control-Max-Age', '86400');
+
   res.writeHead(200, {'Content-Type': 'text/html;charset=UTF-8'});
   res.write(randomPhrase);
   res.end();
 }).listen(3000, function(){
-  console.log('Server running at http://localhost:3000}');
+  console.log('Server running at http://localhost:3000');
 });
