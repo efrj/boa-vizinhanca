@@ -36,7 +36,8 @@
         "Mas para ter uma mãe, me conformaria até com a mãe do Quico.",
         "Boa noite, meus amigos. Boa noite, vizinhança! Prometemos despedirmos sem dizer adeus jamais.",
         "Esse é mais burro do que eu.",
-        "O Quico que disse que a sua mãe disse pra eu dizer ao senhor que a mãe dele disse que... ah, sei lá!"
+        "O Quico que disse que a sua mãe disse pra eu dizer ao senhor que a mãe dele disse que... ah, sei lá!",
+        "É que a Chiquinha quer quebrar a car ado Nhonho"
     ],
     "dona_florinda": [
         "Professor Girafales! Que milagre o senhor por aqui",
@@ -51,7 +52,10 @@
         "O que a Maitê Proença tem que eu não tenho?!",
         "Todo mundo chora com cebola.",
         "Escuta aqui, seu animal!",
-        "O que tem de bom?"
+        "O que tem de bom?",
+        "Calma, parem com isso!",
+        "O que que foi?",
+        "nhonho, você puxou o cabelo da Chiquinha!?"
     ],
     "seu_madruga": [
         "Que que foi, que que foi, que que há?",
@@ -73,6 +77,114 @@
         "Somente um idiota responde uma pergunta com outra pergunta",
         "Só um idiota iria martela os dedos.",
         "Preciso saber se aquela velha vai devolver o meu violão."
+    ],
+    "professor_girafales": [
+        "Se não for incômodo.",
+        "Vim lhe trazer este humilde presente.",
+        "Depois da senhora.",
+        "Dizia eu que a aritmética...",
+        "Silêêêêêncioooo!!!",
+        "Tá! Tá! Tá! Tá! Tá!",
+        "Eu jamais me engano. Só me enganei uma vez: quando acreditei estar enganado!",
+        "Quero ver outra vez seus olhinhos de noite serena.",
+        "Dooooooooooona Florinda.",
+        "Sou Linguiça de sobrenome mestre, digo, sou Professor e meu nome é Girafales.",
+        "Por que causa, motivo, razão ou circunstância...",
+        "Que foi que você disse?",
+        "Gooooooooooooooooooooool de Peléeeeeeeeeeeeeeeeeee ! Ele rebateu de cabeça, quando não havia esperança.",
+        "A criança que amanhã será homem, a semente que amanhã será fruto, ao casulo que amanhã será mariposa.",
+        "Saiba que tudo que se vende pelas ruas faz mal. Por exemplo : churrasquinho, os refrescos, sanduíches daqueles que vem com maionese, com tomate, cachorro quente, empadas, os pastéis, coxinhas, risoles, etc, etc...",
+        "Acapulco me espera, Acapulco me espera...",
+        "Eu já tive alunos bons, regulares, ruins, péssimos e o Quico. Mas não se preocupe, é provável que haja piores.",
+        "Dona Florinda não está acostumada a ser paquerada pelos velhos gordos.",
+        "Eu sou inimigo fidagal da violência, mas se ver o Chaves com a luva de boxe, eu, Professor Girafales, vou quebrar tudo que se chama cara.",
+        "Quico, quando é que vai entrar no compasso?",
+        "Como ousa ofender essa digníssima dama?"
+    ],
+    "quico": [
+        "Cale-se, cale-se, cale-se, você me deixa looooouco!",
+        "Você não vai com a minha cara?",
+        "Gentalha, Gentalha.",
+        "Me chamou de Frederico?",
+        "Diz que sim, diz que sim, vai, sim?",
+        "Você vai ver, eu vou contar tudo pra minha mãe!",
+        "Mamãããããããããããããããããe!!!",
+        "Você quer? Compra!",
+        "Da parte de quem?",
+        "Que coisa, não?",
+        "Tá legal!",
+        "Espere só até eu ganhar minha bola quadrada.",
+        "Não deu!",
+        "Ah bom, então assim, sim!",
+        "O que será que ele quis dizer?",
+        "Com licensinha!",
+        "Pois diga a ele (Seu Madruga) que ele vai apanhar!"
+    ],
+    "chiquinha": [
+        "Ai, Chaves, você só não é mais burro por falta de vitaminas.",
+        "Pois é, pois é, pois é.",
+        "O que você tem de burro, você tem de burro!",
+        "Papaizinho lindo, meu amor!",
+        "A filhinha do Madruguinha disse com licencinha.",
+        "Você vai ver! Eu vou contar tudo pro meu pai que você me bateu, me…",
+        "“Ué, ué, ué, ué, ué!!!",
+        "Diga, papi…",
+        "Só podia ser o Chaves de novo!",
+        "Velha coroca!",
+        "Entre DIFERENÇA e DINFERENCIA há muita poca DINFERENCIA!!!",
+        "Ah se não fosse a ajuda espiritual que eu dou a esse meninos.",
+        "Ele toma mais distância",
+        "Sim, porque o Nhonho puxou o meu cabelo!"
+    ],
+    "nhonho": [
+        "Olha ele, hein! Olha ele, hein!",
+        "O que será que ele quis dizer?",
+        "É assim, né? É assim , né?",
+        "Tinha que ser o Chaves de novo!",
+        "Você vai ver, Chaves, vou contar tudo pro meu papai!",
+        "Gavião em inglês é gaviaion.",
+        "Vou te dar uma barrigada!",
+        "O que você está fazendo?",
+        "Eu quero dizer que você parou encima do meu desenho!!!",
+        "Ah, sai daí!",
+        "Ah, olha aí, olha aí. Você estragou meu desenho. Não seja chata!",
+        "Sim Dona Florinda. Porque a Chiquinha e o Chaves estão pisando encima do meu desenho! Snif, snif, snif..."
+    ],
+    "seu_barriga": [
+        "Tinha que ser o Chaves mesmo!",
+        "Porque sempre que eu chego na vila você me recebe com uma pancada?",
+        "Pague o aluguel!",
+        "Pague o meu aluguel!",
+        "Basta!",
+        "Basta! Você não sabe o que é basta!",
+        "É melhor eu ir embora porque pode ser contagioso!",
+        "Não tem dinheiro para pagar o aluguel, mas tem dinheiro para ir a Acapulco!",
+        "Afaste-se!!",
+        "Você não sabe que só os idiotas respondem uma pergunta com outra pergunta?",
+        "Eles existem, os discos voadores existem!",
+        "Completa 15 meses de aluguel atrasado hoje??? E ao invés de fazer uma festa me coloca pra fora???",
+        "É a primeira vez que eu chego nesta vila sem que o chaves me receba com uma pancada.",
+        "A vingança nunca é plena:mata a alma e a envenena"
+    ],
+    "dona_clotilde": [
+        "Quem é bruxa? Eu não sou nenhuma bruxa!",
+        "Como? Chamou quem de bruxa?",
+        "Boneco, simpático!",
+        "Madruguinha lindo!",
+        "O quê? É melhor não dizer nada!",
+        "Ai, Seu Madruga, o senhor me encabula!",
+        "Drudru, Gatão, Galã!",
+        "Tinha que ser o Chaves!",
+        "Eu vou para Acapulco tomar banho de mar...",
+        "Satanás! Cadê você Satanás? Satanááááááás!",
+        "Como vai Madruguinha? Boneco! Eu, lhe empresto com muito prazer."
+    ],
+    "jaiminho": [
+        "Eu sou de Tangamandápio",
+        "Sou Jaiminho, o carteiro",
+        "Eu quero evitar a fadiga",
+        "Tangamandápio é minha terra natal. Um lindo povoado com crepúsculos avermelhados...",
+        "Cadê a minha torta?"
     ]
-  }
+}
   
