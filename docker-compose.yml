@@ -37,6 +37,8 @@ services:
       - 8003:3000
     restart: unless-stopped
     container_name: chaves.node
+    volumes:
+      - ./phrases:/app/phrases
 
   python:
     build:
@@ -45,6 +47,8 @@ services:
       - 8004:8000
     restart: unless-stopped
     container_name: chaves.python
+    volumes:
+      - ./phrases:/app/phrases
 
   lua:
     build:
@@ -53,6 +57,8 @@ services:
       - 8005:8000
     restart: unless-stopped
     container_name: chaves.lua
+    volumes:
+      - ./phrases:/app/phrases
   
   perl:
     build:
@@ -61,6 +67,8 @@ services:
       - 8006:8000
     restart: unless-stopped
     container_name: chaves.perl
+    volumes:
+      - ./phrases:/app/phrases
   
   go:
     build:
@@ -69,6 +77,8 @@ services:
       - 8007:8000
     restart: unless-stopped
     container_name: chaves.go
+    volumes:
+      - ./phrases:/app/phrases
   
   java:
     build:
@@ -77,6 +87,8 @@ services:
       - 8008:8000
     restart: unless-stopped
     container_name: chaves.java
+    volumes:
+      - ./phrases:/phrases
   
   swift:
     build:
@@ -85,6 +97,8 @@ services:
       - 8009:8000
     restart: unless-stopped
     container_name: chaves.swift
+    volumes:
+      - ./phrases:/app/phrases
 
   shell-script:
     build:
@@ -93,3 +107,5 @@ services:
       - "8010:80"
     restart: unless-stopped
     container_name: chaves.shell-script
+    volumes:
+      - ./phrases:/usr/src/jaiminho/phrases
