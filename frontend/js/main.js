@@ -25,6 +25,7 @@ document.addEventListener("DOMContentLoaded", function() {
         loadPhrase("http://localhost:8009/", "person9");
         loadPhrase("http://localhost:8010/", "person10");
         loadPhrase("http://localhost:8011/", "person11");
+        loadPhrase("http://localhost:8012/", "person12");
     }
 
     let countdown = 7;
