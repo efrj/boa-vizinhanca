@@ -119,3 +119,13 @@ services:
     container_name: chaves.crystal
     volumes:
       - ./phrases:/usr/src/app/phrases
+  
+  flask:
+    build:
+      context: ./flask
+    ports:
+      - 8012:8000
+    restart: unless-stopped
+    container_name: chaves.flask
+    volumes:
+      - ./phrases:/app/phrases
