@@ -1,0 +1,4 @@
+Flask==1.1.4
+Jinja2==2.10.3
+Markupsafe==1.1.1
+Flask-CORS==3.0.10
