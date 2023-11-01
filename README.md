@@ -2,7 +2,7 @@
 
 Página web totalmente nonsense feita para mostrar frases aletórias dos personagens da série Chaves oriundas de aplicações simples desenvolvidas em diferentes linguagens de programação. 
 
-Cada personagem do seriado "Chaves" exibe uma frase retornada de uma aplicação desenvolvida com uma linguagem dinstinta. 
+Cada personagem do seriado "Chaves" exibe uma frase retornada de uma aplicação web desenvolvida com uma linguagem dinstinta. 
 
 ## Personagem/Linguagem de Programação/URL
 
@@ -18,6 +18,8 @@ Cada personagem do seriado "Chaves" exibe uma frase retornada de uma aplicação
 | Seu Barriga         | Java                     | http://localhost:8008 |
 | Dona Clotilde       | Swift                    | http://localhost:8009 |
 | Carteiro Jaiminho   | Shell Script             | http://localhost:8010 |
+| Popis               | Crystal                  | http://localhost:8011 |
+| Godinez             | Python/Flask             | http://localhost:8012 |
 
 
 &nbsp;
