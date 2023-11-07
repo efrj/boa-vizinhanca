@@ -4,7 +4,7 @@ from random import choice
 import json
 
 app = Flask(__name__)
-CORS(app)  # Adiciona suporte CORS ao aplicativo
+CORS(app)
 
 PHRASES_FILE = "phrases/phrases.json"
 
