@@ -19,11 +19,32 @@ Cada personagem do seriado "Chaves" exibe uma frase retornada de uma aplicação
 | Dona Clotilde       | Swift                    | http://localhost:8009 |
 | Carteiro Jaiminho   | Shell Script             | http://localhost:8010 |
 | Popis               | Crystal                  | http://localhost:8011 |
-| Godinez             | Python/Flask             | http://localhost:8012 |
+| Godinez             | Python/Flask             | http://localhost:8012 | 
 
 
-&nbsp;
-Para rodar o projeto basta executar o comando "docker-compose up". Você pode visualizar a página na url "http://localhost:8000/".
+
+Para rodar o projeto use o comando "docker-compose up". Visualize a página na url "http://localhost:8000/". 
+
+Caso você queira mudar o IP, entre no diretório 'frontend' e altere o arquivo 'config.json' mudando a chave 'url'. 
+A url padrão é http://localhost. 
+
+#### URL padrão
+
+```json
+{
+    "url": "http://localhost"
+}
+``` 
+
+#### URL alterada
+
+```json
+{
+    "url": "http://192.168.10.0.1"
+}
+``` 
+
+Altere apenas o IP, sem acrescentar a porta. A página será acessada sempre na porta '8000'
 
 ## Colaborações e sugestões serão bem-vindas! 
 
