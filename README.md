@@ -19,7 +19,7 @@ Cada personagem do seriado "Chaves" exibe uma frase retornada de uma aplicação
 | Dona Clotilde       | Swift                    | http://localhost:8009 |
 | Carteiro Jaiminho   | Shell Script             | http://localhost:8010 |
 | Popis               | Crystal                  | http://localhost:8011 |
-| Godinez             | Python/Flask             | http://localhost:8012 | 
+| Godinez             | TypeScript               | http://localhost:8012 | 
 
 
 
