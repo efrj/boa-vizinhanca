@@ -36,10 +36,10 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function updatePhrases() {
         loadPhrase(`${url_app}:8001/`, "person1");
-        loadPhrase(`${url_app}:8002/`, "person2");
-        loadPhrase(`${url_app}:8003/`, "person3");
-        loadPhrase(`${url_app}:8004/`, "person4");
-        loadPhrase(`${url_app}:8005/`, "person5");
+        loadPhrase(`${url_app}:8004/`, "person2");
+        loadPhrase(`${url_app}:8005/`, "person3");
+        loadPhrase(`${url_app}:8002/`, "person4");
+        loadPhrase(`${url_app}:8003/`, "person5");
         loadPhrase(`${url_app}:8006/`, "person6");
         loadPhrase(`${url_app}:8007/`, "person7");
         loadPhrase(`${url_app}:8008/`, "person8");
