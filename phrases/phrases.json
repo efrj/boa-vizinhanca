@@ -54,10 +54,11 @@
         "O que a Maitê Proença tem que eu não tenho?!",
         "Todo mundo chora com cebola.",
         "Escuta aqui, seu animal!",
-        "O que tem de bom?",
+        "E o que tem de bom ??!!!",
         "Calma, parem com isso!",
         "O que que foi?",
-        "nhonho, você puxou o cabelo da Chiquinha!?"
+        "Nhonho, você puxou o cabelo da Chiquinha!?",
+        "Chaves, acho que você chegou tarde na distribuição de cérebros!"
     ],
     "seu_madruga": [
         "Que que foi, que que foi, que que há?",
@@ -106,7 +107,7 @@
     "quico": [
         "Cale-se, cale-se, cale-se, você me deixa looooouco!",
         "Você não vai com a minha cara?",
-        "Gentalha, Gentalha.",
+        "Gentalha, Gentalha, prrrr!",
         "Me chamou de Frederico?",
         "Diz que sim, diz que sim, vai, sim?",
         "Você vai ver, eu vou contar tudo pra minha mãe!",
@@ -120,7 +121,24 @@
         "Ah bom, então assim, sim!",
         "O que será que ele quis dizer?",
         "Com licensinha!",
-        "Pois diga a ele (Seu Madruga) que ele vai apanhar!"
+        "Pois diga a ele (Seu Madruga) que ele vai apanhar!",
+        "Foi embora (o disco voador)",
+        "Escute aqui! O Nhonho pode estar ligeiramente gordo, mas não a ponto de ser confundido com uma bola! Certo, Nhonho?",
+        "Ela não está brincando, Chaves. As mulheres brincam quando são crianças e não quando são anciãs. (Quico para Chaves).",
+        "Café, outra vez café! É por isso que ele só te traz flores",
+        "Se eu gostasse de ouvir idiotices, me bastariam as que eu digo!",
+        "Eu tô cego, tô cego, tô cego dos olhos.",
+        "Não é uma coisa que se diga: Minha nossa, como ficou invisível o bochechudo, mas...",
+        "Me dá um de laranja, um de groselha... e outro de abacaxi!",
+        "Chaves, se você não deixar o homem do saco me pegar eu te dou uma... uma fatia de pão!",
+        "Passa isso pra cá! Você não sabe o quanto é perigoso este animal?",
+        "Eu nunca falo mal do senhor! Pelo menos não na sua presença!",
+        "Você não sabe quanto é chato ver uma pessoa gritando, escandalosa!",
+        "Pois eu prefiro uma cor bem envelhecida! Sem ofensa aos presentes.",
+        "Eu vou recolher suas coisas. Mas não vou mudar a minha cara só porquê a senhora quer!",
+        "Chaves, você chegou tarde na distribuição de cérebro! E quando foi isso? Não sei, porque eu nem sequer fui lá!",
+        "Chaves, você não sabe que em uma flor não se bate nem com uma pétala de mulher?",
+        "Chiquinha! Não vou deixar você ir até a casa da bruxa do 71 sozinha, Chaves! vá com ela..."
     ],
     "chiquinha": [
         "Ai, Chaves, você só não é mais burro por falta de vitaminas.",
@@ -136,7 +154,9 @@
         "Entre DIFERENÇA e DINFERENCIA há muita poca DINFERENCIA!!!",
         "Ah se não fosse a ajuda espiritual que eu dou a esse meninos.",
         "Ele toma mais distância",
-        "Sim, porque o Nhonho puxou o meu cabelo!"
+        "Sim, porque o Nhonho puxou o meu cabelo!",
+        "Papaízinho lindo do meu coração",
+        "Me dá um dinheiro para mim comprar um pirulito?"
     ],
     "nhonho": [
         "Olha ele, hein! Olha ele, hein!",
@@ -150,7 +170,8 @@
         "Eu quero dizer que você parou encima do meu desenho!!!",
         "Ah, sai daí!",
         "Ah, olha aí, olha aí. Você estragou meu desenho. Não seja chata!",
-        "Sim Dona Florinda. Porque a Chiquinha e o Chaves estão pisando encima do meu desenho! Snif, snif, snif..."
+        "Sim Dona Florinda. Porque a Chiquinha e o Chaves estão pisando encima do meu desenho! Snif, snif, snif...",
+        "Ah, é que estou com muita fome!"
     ],
     "seu_barriga": [
         "Tinha que ser o Chaves mesmo!",
@@ -166,7 +187,8 @@
         "Eles existem, os discos voadores existem!",
         "Completa 15 meses de aluguel atrasado hoje??? E ao invés de fazer uma festa me coloca pra fora???",
         "É a primeira vez que eu chego nesta vila sem que o chaves me receba com uma pancada.",
-        "A vingança nunca é plena:mata a alma e a envenena"
+        "A vingança nunca é plena:mata a alma e a envenena",
+        "Vamos, recolha as minhas coisas e não fique com essa cara de bobo!"
     ],
     "dona_clotilde": [
         "Quem é bruxa? Eu não sou nenhuma bruxa!",
@@ -190,7 +212,9 @@
         "Cadê a minha torta?",
         "Não teria algo que não engorde?",
         "Além disso a mim os ratos nunca me incomodaram, e no fundo parecem simpáticos.",
-        "Principalmente quando são pequenininhos. Você já viu um rato ainda bem pequenininho?"
+        "Principalmente quando são pequenininhos. Você já viu um rato ainda bem pequenininho?",
+        "É que eu quero evitar a fadiga.",
+        "Eu vim de Tangamandápio"
     ],
     "popis": [
         "Conta tudo pra sua mãe, Quico!",
@@ -226,6 +250,9 @@
         "Ao ar livre ou em quadra ?",
         "Garota de Ipanema;",
         "Carneiros ou coelhos ?",
-        "Não, porque os coelhos são mais orelhudos."
+        "Não, porque os coelhos são mais orelhudos.",
+        "Mas por que, se eu não disse nada?",
+        "Que voltes para mim. Querida, oh ! Pombinha !",
+        "Seu Madruga, já posso respirar ?"
     ]
 }
