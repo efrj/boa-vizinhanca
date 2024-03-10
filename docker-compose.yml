@@ -120,12 +120,12 @@ services:
     volumes:
       - ./phrases:/usr/src/app/phrases
   
-  flask:
+  typescript:
     build:
-      context: ./flask
+      context: ./typescript
     ports:
       - 8012:8000
     restart: unless-stopped
-    container_name: chaves.flask
+    container_name: chaves.typescript
     volumes:
       - ./phrases:/app/phrases
