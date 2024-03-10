@@ -1,0 +1,12 @@
+{
+  "name": "godinez",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "tsc",
+    "start": "node server.js"
+  },
+  "devDependencies": {
+    "typescript": "^4.5.0",
+    "@types/node": "^16.0.0"
+  }
+}
