@@ -9,10 +9,10 @@ Cada personagem do seriado "Chaves" exibe uma frase retornada de uma aplicação
 | Personagem          | Linguagem de Programação |    URL                |
 | :---                |            :---:         |    :---:              |
 | Chaves              | PHP                      | http://localhost:8001 |
-| Dona Florinda       | Ruby                     | http://localhost:8002 |
-| Professor Girafales | Python                   | http://localhost:8003 |
-| Seu Madruga         | Node.JS                  | http://localhost:8004 |
-| Quico               | Lua                      | http://localhost:8005 |
+| Professor Girafales | Ruby                     | http://localhost:8002 |
+| Quico               | Node.JS                  | http://localhost:8003 |
+| Dona Florinda       | Python                   | http://localhost:8004 |
+| Seu Madruga         | Lua                      | http://localhost:8005 |
 | Chiquinha           | Perl                     | http://localhost:8006 |
 | Nhonho              | Go                       | http://localhost:8007 |
 | Seu Barriga         | Java                     | http://localhost:8008 |
