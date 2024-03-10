@@ -6,8 +6,8 @@ phrases = JSON.parse(File.read(File.expand_path('phrases/phrases.json', __dir__)
 server = WEBrick::HTTPServer.new(Port: 8000)
 
 server.mount_proc '/' do |request, response|
-  donaFlorindaPhrases = phrases['dona_florinda']
-  random_phrase = donaFlorindaPhrases.sample
+  professor_girafales_phrases = phrases['professor_girafales']
+  random_phrase = professor_girafales_phrases.sample
   response['Content-Type'] = 'text/html;charset=UTF-8'
   response['Access-Control-Allow-Origin'] = '*'
   response['Access-Control-Allow-Methods'] = 'GET'
