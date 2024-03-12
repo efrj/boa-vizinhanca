@@ -1,5 +1,7 @@
 # A Boa Vizinhança
 
+![alt](screenshot.jpg) 
+
 Página web totalmente nonsense feita para mostrar frases aletórias dos personagens da série Chaves oriundas de aplicações simples desenvolvidas em diferentes linguagens de programação. 
 
 Cada personagem do seriado "Chaves" exibe uma frase retornada de uma aplicação web desenvolvida com uma linguagem dinstinta. 
@@ -47,5 +49,3 @@ A url padrão é http://localhost.
 Altere apenas o IP, sem acrescentar a porta. A página será acessada sempre na porta '8000'
 
 ## Colaborações e sugestões serão bem-vindas! 
-
-![alt](screenshot.jpg)
