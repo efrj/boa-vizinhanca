@@ -1,6 +1,6 @@
 # A Boa Vizinhança
 
-![alt](screenshot.jpg) 
+![alt](screenshot.gif) 
 
 Página web totalmente nonsense feita para mostrar frases aletórias dos personagens da série Chaves oriundas de aplicações simples desenvolvidas em diferentes linguagens de programação. 
 
@@ -26,6 +26,9 @@ Cada personagem do seriado "Chaves" exibe uma frase retornada de uma aplicação
 
 
 Para rodar o projeto use o comando "docker-compose up". Visualize a página na url "http://localhost:8000/". 
+
+### Atenção! 
+O tempo para download das imagens e montagem dos containers pode variar de 5 a 15 minutos. Se o modelo do seu processador for muito defasado e a quantidade de memória RAM for baixa esse tempo pode passar dos 20 minutos. 
 
 Caso você queira mudar o IP, entre no diretório 'frontend' e altere o arquivo 'config.json' mudando a chave 'url'. 
 A url padrão é http://localhost. 
