@@ -129,3 +129,13 @@ services:
     container_name: chaves.typescript
     volumes:
       - ./phrases:/app/phrases
+  
+  coffeescript:
+    build:
+      context: ./coffeescript
+    ports:
+      - 8013:8000
+    restart: unless-stopped
+    container_name: chaves.coffeescript
+    volumes:
+      - ./phrases:/app/phrases
