@@ -1,0 +1,10 @@
+{
+  "name": "chaves",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "coffee server.coffee"
+  },
+  "dependencies": {
+    "coffeescript": "^2.7.0"
+  }
+}

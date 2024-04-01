@@ -47,6 +47,7 @@ document.addEventListener("DOMContentLoaded", function() {
         loadPhrase(`${url_app}:8010/`, "person10");
         loadPhrase(`${url_app}:8011/`, "person11");
         loadPhrase(`${url_app}:8012/`, "person12");
+        loadPhrase(`${url_app}:8013/`, "person13");
     }
 
     let countdown = 7;
