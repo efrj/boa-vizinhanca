@@ -7,7 +7,7 @@ services:
       - 8000:80
     volumes:
       - ./frontend:/usr/share/nginx/html
-      - ./phrases:/app/phrases
+      - ./phrases:/usr/share/nginx/html/phrases
     container_name: chaves.frontend
 
   php:
