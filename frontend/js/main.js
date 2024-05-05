@@ -1,6 +1,5 @@
-document.addEventListener("DOMContentLoaded", function() {
+$(document).ready(function() {
     const jsonFilePath = '../config.json';
-
     let url_app;
 
     async function getConfig() {
@@ -21,15 +20,14 @@ document.addEventListener("DOMContentLoaded", function() {
     getConfig();
 
     function loadPhrase(url, element) {
-        axios.get(url).then(function(response) {
-            let phrase = response.data;
-            let targetElement = document.getElementById(element);
-
-            if (targetElement) {
-                targetElement.innerText = phrase;
+        $.get(url)
+        .done(function(phrase) {
+            let targetElement = $("#" + element);
+            if (targetElement.length) {
+                targetElement.text(phrase);
             }
         })
-        .catch(function(error) {
+        .fail(function(error) {
             console.log(error);
         });
     }
@@ -48,14 +46,21 @@ document.addEventListener("DOMContentLoaded", function() {
         loadPhrase(`${url_app}:8011/`, "person11");
         loadPhrase(`${url_app}:8012/`, "person12");
         loadPhrase(`${url_app}:8013/`, "person13");
+
+        // Update of Doctor Chapatin's phrases
+        $.getJSON( "phrases/phrases.json", function( data ) {
+            const randomNumber = Math.floor(Math.random() * data.doutor_chapatin.length);
+            const drChapatinPhrase = data.doutor_chapatin[randomNumber];
+            $('#person14').html(drChapatinPhrase);
+        });
     }
 
     let countdown = 7;
 
     function updateMessage() {
-        let messageElement = document.getElementById("alertMessage");
-        if (messageElement) {
-            messageElement.innerText = `Novas frases serão exibidas em ${countdown} segundos.`;
+        let messageElement = $("#alertMessage");
+        if (messageElement.length) {
+            messageElement.text(`Novas frases serão exibidas em ${countdown} segundos.`);
         }
 
         countdown--;
