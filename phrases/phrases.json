@@ -124,7 +124,7 @@
         "Pois diga a ele (Seu Madruga) que ele vai apanhar!",
         "Foi embora (o disco voador)",
         "Escute aqui! O Nhonho pode estar ligeiramente gordo, mas não a ponto de ser confundido com uma bola! Certo, Nhonho?",
-        "Ela não está brincando, Chaves. As mulheres brincam quando são crianças e não quando são anciãs. (Quico para Chaves).",
+        "Ela não está brincando, Chaves. As mulheres brincam quando são crianças e não quando são anciãs.",
         "Café, outra vez café! É por isso que ele só te traz flores",
         "Se eu gostasse de ouvir idiotices, me bastariam as que eu digo!",
         "Eu tô cego, tô cego, tô cego dos olhos.",
@@ -151,11 +151,11 @@
         "Diga, papi…",
         "Só podia ser o Chaves de novo!",
         "Velha coroca!",
-        "Entre DIFERENÇA e DINFERENCIA há muita poca DINFERENCIA!!!",
+        "Entre DIFERENÇA e DINFERENCIA há muita pouca DINFERENCIA!!!",
         "Ah se não fosse a ajuda espiritual que eu dou a esse meninos.",
         "Ele toma mais distância",
         "Sim, porque o Nhonho puxou o meu cabelo!",
-        "Papaízinho lindo do meu coração",
+        "Papaizinho lindo do meu coração",
         "Me dá um dinheiro para mim comprar um pirulito?"
     ],
     "nhonho": [
@@ -274,5 +274,12 @@
         "Você está inventando, Chaves!",
         "Ai, ai, ai, ai!",
         "Eu não acredito nisso!"
+    ],
+    "doutor_chapatin": [
+        "É que me dá coisas!",
+        "Isso está me dando coisas!",
+        "Insinua que sou velho?",
+        "Acho que já nasceu feio mesmo.",
+        "Tá me achando com cara de cocô de pombo?"
     ]
 }
