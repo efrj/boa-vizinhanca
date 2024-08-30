@@ -137,3 +137,13 @@ services:
     container_name: chaves.coffeescript
     volumes:
       - ./phrases:/app/phrases
+  
+  cplusplus:
+    build:
+      context: ./cplusplus
+    ports:
+      - 8014:8080
+    restart: unless-stopped
+    container_name: chaves.cplusplus
+    volumes:
+      - ./phrases:/app/phrases
