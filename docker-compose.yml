@@ -10,7 +10,7 @@ services:
 
   php:
     build:
-      context: ./php
+      context: ./backend/php
     ports:
       - 8001:8000
     restart: unless-stopped
@@ -20,7 +20,7 @@ services:
 
   ruby:
     build:
-      context: ./ruby
+      context: ./backend/ruby
     ports:
       - 8002:8000
     restart: unless-stopped
@@ -30,7 +30,7 @@ services:
 
   node:
     build:
-      context: ./node
+      context: ./backend/node
     ports:
       - 8003:3000
     restart: unless-stopped
@@ -40,7 +40,7 @@ services:
 
   python:
     build:
-      context: ./python
+      context: ./backend/python
     ports:
       - 8004:8000
     restart: unless-stopped
@@ -50,7 +50,7 @@ services:
 
   lua:
     build:
-      context: ./lua
+      context: ./backend/lua
     ports:
       - 8005:8000
     restart: unless-stopped
@@ -60,7 +60,7 @@ services:
   
   perl:
     build:
-      context: ./perl
+      context: ./backend/perl
     ports:
       - 8006:8000
     restart: unless-stopped
@@ -70,7 +70,7 @@ services:
   
   go:
     build:
-      context: ./go
+      context: ./backend/go
     ports:
       - 8007:8000
     restart: unless-stopped
@@ -80,7 +80,7 @@ services:
   
   java:
     build:
-      context: ./java
+      context: ./backend/java
     ports:
       - 8008:8000
     restart: unless-stopped
@@ -90,7 +90,7 @@ services:
   
   swift:
     build:
-      context: ./swift
+      context: ./backend/swift
     ports:
       - 8009:8000
     restart: unless-stopped
@@ -100,7 +100,7 @@ services:
 
   shell-script:
     build:
-      context: ./shell-script
+      context: ./backend/shell-script
     ports:
       - 8010:80
     restart: unless-stopped
@@ -110,7 +110,7 @@ services:
     
   crystal:
     build:
-      context: ./crystal
+      context: ./backend/crystal
     ports:
       - 8011:80
     restart: unless-stopped
@@ -120,7 +120,7 @@ services:
   
   typescript:
     build:
-      context: ./typescript
+      context: ./backend/typescript
     ports:
       - 8012:8000
     restart: unless-stopped
@@ -130,7 +130,7 @@ services:
   
   coffeescript:
     build:
-      context: ./coffeescript
+      context: ./backend/coffeescript
     ports:
       - 8013:8000
     restart: unless-stopped
@@ -140,7 +140,7 @@ services:
   
   cplusplus:
     build:
-      context: ./cplusplus
+      context: ./backend/cplusplus
     ports:
       - 8014:8080
     restart: unless-stopped
