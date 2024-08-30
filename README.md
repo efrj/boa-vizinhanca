@@ -23,7 +23,7 @@ Cada personagem do seriado "Chaves" exibe uma frase retornada de uma aplicação
 | Popis               | Crystal                  | http://localhost:8011 |
 | Godinez             | TypeScript               | http://localhost:8012 | 
 | Paty                | CofeeScript              | http://localhost:8013 | 
-| Carteiro Jaiminho   | C++                      | http://localhost:8014 | 
+| Doutor Chapatin     | C++                      | http://localhost:8014 | 
 
 Para rodar o projeto use o comando "docker-compose up". Visualize a página na url "http://localhost:8000/". 
 
