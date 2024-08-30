@@ -23,8 +23,7 @@ Cada personagem do seriado "Chaves" exibe uma frase retornada de uma aplicação
 | Popis               | Crystal                  | http://localhost:8011 |
 | Godinez             | TypeScript               | http://localhost:8012 | 
 | Paty                | CofeeScript              | http://localhost:8013 | 
-
-O Dr. Chapatin é o único personagem cuja frase não retorna de um backend. As frases do Dr. Chapatin são mostradas pelo jQuery direto do arquivo phrases.json. 
+| Carteiro Jaiminho   | C++                      | http://localhost:8014 | 
 
 Para rodar o projeto use o comando "docker-compose up". Visualize a página na url "http://localhost:8000/". 
 
