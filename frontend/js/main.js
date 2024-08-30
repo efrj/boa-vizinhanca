@@ -46,13 +46,7 @@ $(document).ready(function() {
         loadPhrase(`${url_app}:8011/`, "person11");
         loadPhrase(`${url_app}:8012/`, "person12");
         loadPhrase(`${url_app}:8013/`, "person13");
-
-        // Update of Doctor Chapatin's phrases
-        $.getJSON( "phrases/phrases.json", function( data ) {
-            const randomNumber = Math.floor(Math.random() * data.doutor_chapatin.length);
-            const drChapatinPhrase = data.doutor_chapatin[randomNumber];
-            $('#person14').html(drChapatinPhrase);
-        });
+        loadPhrase(`${url_app}:8014/`, "person14");
     }
 
     let countdown = 7;
