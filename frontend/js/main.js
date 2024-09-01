@@ -47,6 +47,7 @@ $(document).ready(function() {
         loadPhrase(`${url_app}:8012/`, "person12");
         loadPhrase(`${url_app}:8013/`, "person13");
         loadPhrase(`${url_app}:8014/`, "person14");
+        loadPhrase(`${url_app}:8015/`, "person15");
     }
 
     let countdown = 7;
