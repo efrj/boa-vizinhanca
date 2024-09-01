@@ -98,6 +98,12 @@ Cada personagem do seriado "Chaves" exibe uma frase retornada de uma aplicação
         <td style="text-align: center;"><img src="frontend/img/c++.png" alt="C++" height="50"></td>
         <td style="text-align: center;">http://localhost:8014</td>
     </tr>
+    <tr>
+        <td style="text-align: center;"><img src="frontend/img/chapolin-colorado.png" alt="Chapolin Colorado" height="100"></td>
+        <td style="text-align: center;">Chapolin Colorado</td>
+        <td style="text-align: center;"><img src="frontend/img/dart.png" alt="Dart" height="50"></td>
+        <td style="text-align: center;">http://localhost:8015</td>
+    </tr>
 </table>
  
  
