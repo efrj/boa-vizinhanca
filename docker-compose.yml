@@ -57,7 +57,7 @@ services:
     container_name: chaves.lua
     volumes:
       - ./phrases:/app/phrases
-  
+
   perl:
     build:
       context: ./backend/perl
@@ -67,7 +67,7 @@ services:
     container_name: chaves.perl
     volumes:
       - ./phrases:/app/phrases
-  
+
   go:
     build:
       context: ./backend/go
@@ -77,7 +77,7 @@ services:
     container_name: chaves.go
     volumes:
       - ./phrases:/app/phrases
-  
+
   java:
     build:
       context: ./backend/java
@@ -87,7 +87,7 @@ services:
     container_name: chaves.java
     volumes:
       - ./phrases:/phrases
-  
+
   swift:
     build:
       context: ./backend/swift
@@ -107,7 +107,7 @@ services:
     container_name: chaves.shell-script
     volumes:
       - ./phrases:/usr/src/jaiminho/phrases
-    
+
   crystal:
     build:
       context: ./backend/crystal
@@ -117,7 +117,7 @@ services:
     container_name: chaves.crystal
     volumes:
       - ./phrases:/usr/src/app/phrases
-  
+
   typescript:
     build:
       context: ./backend/typescript
@@ -127,7 +127,7 @@ services:
     container_name: chaves.typescript
     volumes:
       - ./phrases:/app/phrases
-  
+
   coffeescript:
     build:
       context: ./backend/coffeescript
@@ -137,7 +137,7 @@ services:
     container_name: chaves.coffeescript
     volumes:
       - ./phrases:/app/phrases
-  
+
   cplusplus:
     build:
       context: ./backend/cplusplus
@@ -145,5 +145,15 @@ services:
       - 8014:8080
     restart: unless-stopped
     container_name: chaves.cplusplus
+    volumes:
+      - ./phrases:/app/phrases
+
+  dart:
+    build:
+      context: ./backend/dart
+    ports:
+      - 8015:3000
+    restart: unless-stopped
+    container_name: chaves.dart
     volumes:
       - ./phrases:/app/phrases
