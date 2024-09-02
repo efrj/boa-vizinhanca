@@ -104,11 +104,20 @@ Cada personagem do seriado "Chaves" exibe uma frase retornada de uma aplicação
         <td style="text-align: center;"><img src="frontend/img/dart.png" alt="Dart" height="50"></td>
         <td style="text-align: center;">http://localhost:8015</td>
     </tr>
-</table>
- 
+</table> 
  
 
-Para rodar o projeto use o comando "docker-compose up". Visualize a página na url "http://localhost:8000/". 
+## Rodando o Projeto 
+
+Para rodar o projeto, é necessário **ter o Docker e o docker-compose instalados** em seu computador. 
+
+Uma vez que as dependências estejam instaladas, execute o comando abaixo para iniciar os containers: 
+
+```bash
+docker-compose up
+``` 
+
+Acesse a página na URL padrão **http://localhost:8000**
 
 ### Atenção! 
 O tempo para download das imagens e montagem dos containers pode variar de 5 a 15 minutos. Se o modelo do seu processador for muito defasado e a quantidade de memória RAM for baixa esse tempo pode passar dos 20 minutos. 
