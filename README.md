@@ -1,10 +1,10 @@
 # A Boa Vizinhança
 
-![alt](frontend/img/screenshot.gif) 
+![Screenshot](frontend/img/screenshot.gif)
 
-Página web totalmente nonsense que mostra frases aletórias dos personagens da série Chaves oriundas de aplicações simples desenvolvidas em diferentes linguagens de programação. 
+Página web que mostra frases aleatórias dos personagens da série Chaves, onde cada frase é retornada por uma aplicação backend desenvolvida em uma linguagem de programação diferente.
 
-Cada personagem do seriado "Chaves" exibe uma frase retornada de uma aplicação web desenvolvida com uma linguagem dinstinta. 
+Cada personagem do seriado "Chaves" exibe uma frase retornada de uma aplicação web desenvolvida com uma linguagem distinta. 
 
 ## Personagem/Linguagem de Programação/URL
 
@@ -107,23 +107,43 @@ Cada personagem do seriado "Chaves" exibe uma frase retornada de uma aplicação
 </table> 
  
 
-## Rodando o Projeto 
+## Rodando o Projeto
 
-Para rodar o projeto, é necessário **ter o Docker e o docker-compose instalados** em seu computador. 
+### Pré-requisitos
 
-Uma vez que as dependências estejam instaladas, execute o comando abaixo para iniciar os containers: 
+- Docker
+- Docker Compose
+
+### Instruções
+
+1. Clone o repositório:
+
+```bash
+git clone https://github.com/seu-usuario/boa-vizinhanca.git
+cd boa-vizinhanca
+```
+
+2. Faça o build das imagens:
+
+```bash
+docker-compose build
+```
+
+3. Inicie os containers:
 
 ```bash
 docker-compose up
-``` 
+```
 
-Acesse a página na URL padrão **http://localhost:8000**
+4. Acesse a aplicação em: **http://localhost:8000**
 
-### Atenção! 
-O tempo para download das imagens e montagem dos containers pode variar de 5 a 15 minutos. Se o modelo do seu processador for muito defasado e a quantidade de memória RAM for baixa esse tempo pode passar dos 20 minutos. 
+### Atenção
 
-Caso você queira mudar o IP, entre no diretório 'frontend' e altere o arquivo 'config.json' mudando a chave 'url'. 
-A url padrão é http://localhost. 
+O tempo para download das imagens e build dos containers pode variar de 5 a 15 minutos na primeira execução. Em máquinas com processadores mais antigos ou pouca memória RAM, esse tempo pode ultrapassar 20 minutos. 
+
+### Configuração de URL
+
+Caso você queira mudar o endereço de acesso aos backends, edite o arquivo `frontend/config.json` alterando a chave `url`. O valor padrão é `http://localhost`. 
 
 #### URL padrão
 
@@ -141,6 +161,39 @@ A url padrão é http://localhost.
 }
 ``` 
 
-Altere apenas o IP, sem acrescentar a porta. A página será acessada sempre na porta '8000'
+**Importante:** Altere apenas o IP/hostname, sem incluir a porta. A página frontend será sempre acessada na porta `8000`.
 
-## Colaborações e sugestões serão bem-vindas! 
+## Tecnologias
+
+Este projeto demonstra a integração de 15 linguagens de programação diferentes:
+
+- PHP
+- Ruby
+- Node.js
+- Python
+- Lua
+- Perl
+- Go
+- Java
+- Swift
+- Shell Script
+- Crystal
+- TypeScript
+- CoffeeScript
+- C++
+- Dart
+
+Todas orquestradas com Docker Compose e servidas através de um frontend HTML/CSS/JavaScript.
+
+## Contribuindo
+
+Contribuições são bem-vindas! Sinta-se à vontade para:
+
+- Reportar bugs
+- Sugerir novas funcionalidades
+- Adicionar novos personagens com outras linguagens
+- Melhorar a documentação
+
+## Licença
+
+Veja o arquivo [LICENSE](LICENSE) para mais detalhes. 
