@@ -1,4 +1,4 @@
-FROM swift:5.8
+FROM swift:5.10
 
 WORKDIR /app
 

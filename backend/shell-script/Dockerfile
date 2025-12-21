@@ -1,9 +1,9 @@
-FROM debian:buster-slim
+FROM debian:bookworm-slim
 
 WORKDIR /usr/src/jaiminho
 
 RUN apt-get update \
-    && apt-get install -y netcat jq \
+    && apt-get install -y netcat-openbsd jq \
     && rm -rf /var/lib/apt/lists/*
 
 COPY Jaiminho.sh .
