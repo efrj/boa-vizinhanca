@@ -74,10 +74,16 @@
                 </span>
               </div>
 
-              <!-- Avatar Sobreposto Ampliado (100px) -->
-              <div class="card-avatar-wrapper">
+              <!-- Header do Card: Foto do Personagem + Logo da Linguagem Lado a Lado -->
+              <div class="card-header-row">
+                <!-- Avatar (Lado Esquerdo - Clique para abrir modal) -->
                 <div class="avatar-clickable" @click="openCharacterModal(char)" title="Clique para ver detalhes do personagem">
                   <img :src="char.avatar" :alt="char.name" class="avatar-img-orbita">
+                </div>
+
+                <!-- Logo da Linguagem (Lado Direito) -->
+                <div class="lang-badge-pill" :title="`Linguagem: ${char.lang}`">
+                  <img :src="char.langLogo" :alt="char.lang" class="lang-logo-orbita">
                 </div>
               </div>
 
@@ -85,11 +91,6 @@
               <div class="card-body-orbita">
                 <!-- Nome do Personagem -->
                 <h2 class="character-name-orbita" x-text="char.name"></h2>
-
-                <!-- Logo da Linguagem (Pílula em Destaque) -->
-                <div class="lang-badge-pill" :title="`Linguagem: ${char.lang}`">
-                  <img :src="char.langLogo" :alt="char.lang" class="lang-logo-orbita">
-                </div>
 
                 <!-- Balão de Fala Ilustrado Órbita -->
                 <div class="quote-bubble-orbita">
@@ -129,9 +130,9 @@
           <div class="modal-body text-center py-4 px-4 bg-white">
             <template x-if="selectedCharacter">
               <div>
-                <!-- Fotografia Ampliada -->
-                <div class="mb-3">
-                  <img :src="selectedCharacter.avatar" :alt="selectedCharacter.name" class="img-fluid rounded-circle shadow" style="width: 140px; height: 140px; object-fit: cover; border: 4px solid var(--primary-light); box-shadow: 0 0 0 3px var(--primary);">
+                <!-- Fotografia Ampliada no Modal (220px) -->
+                <div class="mb-4">
+                  <img :src="selectedCharacter.avatar" :alt="selectedCharacter.name" class="img-fluid rounded-circle" style="width: 220px; height: 220px; object-fit: cover; border: 5px solid var(--primary-light); box-shadow: 0 0 0 4px var(--primary), 0 12px 32px rgba(40, 20, 115, 0.25);">
                 </div>
 
                 <!-- Nome do Personagem -->
