@@ -3,13 +3,17 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>A Boa Vizinhança — Frases do Chaves em 15 Linguagens</title>
+    <title>A Boa Vizinhança — Frases do Chaves em 15 Linguagens (Órbita)</title>
     <meta name="description" content="Página web interativa exibindo frases dos personagens da turma do Chaves, cada uma servida por uma linguagem de programação diferente.">
+    <!-- Google Fonts Órbita Design System: Sora, Inter Tight, JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Inter+Tight:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <!-- Bootstrap 5.3 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <!-- Estilos Customizados -->
+    <!-- Estilos Órbita Customizados -->
     <link href="/css/style.css" rel="stylesheet">
     <!-- Alpine.js v3 (Simples, Leve e Reativo) -->
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
@@ -21,7 +25,7 @@
     <!-- Barra de Progresso Superior do Timer -->
     <div class="progress-timer-bar" :style="`width: ${timerProgress}%`"></div>
 
-    <!-- Header Principal -->
+    <!-- Header Principal Órbita -->
     <header class="app-header py-3 mb-4">
       <div class="container-fluid px-4">
         <div class="d-flex flex-column flex-md-row align-items-center justify-content-between gap-3">
@@ -31,17 +35,17 @@
             <img src="/img/chaves-header-banner.png" alt="Chaves Animado" class="header-illustration">
             <div>
               <h1 class="app-title fs-2 mb-1">A Boa Vizinhança</h1>
-              <p class="text-secondary small mb-0 fw-medium">Linguagens de programação convivendo lado a lado em harmonia</p>
+              <p class="app-subtitle small mb-0 fw-medium">Linguagens de programação convivendo lado a lado em harmonia</p>
             </div>
           </div>
 
           <!-- Timer e Ação Manual -->
           <div class="d-flex align-items-center gap-3">
             <div class="timer-badge d-flex align-items-center gap-2">
-              <i class="bi bi-clock-history text-warning"></i>
-              <span>Novas frases em <strong x-text="countdown" style="color: #ea580c" class="fs-6">7</strong>s</span>
+              <i class="bi bi-clock-history fs-6" style="color: var(--secondary)"></i>
+              <span>Novas frases em <strong x-text="countdown" style="color: var(--secondary)" class="fs-6 mono-font">7</strong>s</span>
             </div>
-            <button @click="updateAllPhrases(); startTimer()" class="btn btn-warning btn-sm rounded-pill px-3 fw-bold text-dark d-flex align-items-center gap-2 shadow-sm">
+            <button @click="updateAllPhrases(); startTimer()" class="btn btn-orbita-cta btn-sm rounded-pill px-4 py-2 d-flex align-items-center gap-2">
               <i class="bi bi-arrow-clockwise" :class="{ 'spin-anim': characters.some(c => c.loading) }"></i>
               <span>Atualizar Frases</span>
             </button>
@@ -51,55 +55,56 @@
       </div>
     </header>
 
-    <!-- Grid de Personagens / Cards -->
+    <!-- Grid de Personagens / Cards Órbita -->
     <main class="container-fluid px-4">
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-5 g-3">
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-4 g-4">
         <template x-for="char in characters" :key="char.id">
           <div class="col">
-            <div class="character-card">
+            <div class="orbita-card">
               
-              <!-- Balão de Fala (Citação) -->
-              <div class="quote-box" :class="char.style">
-                <!-- Estado Carregando -->
-                <template x-if="char.loading">
-                  <div class="d-flex align-items-center gap-2 text-white-50">
-                    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-                    <span class="small">Buscando frase...</span>
-                  </div>
-                </template>
-
-                <!-- Frase Exibida -->
-                <template x-if="!char.loading">
-                  <p class="quote-text" x-text="`“${char.phrase}”`"></p>
-                </template>
+              <!-- Top Banner com Gradiente do Tema e Ponto de Status -->
+              <div class="card-banner-orbita" :class="char.style">
+                <span class="status-dot" 
+                      :class="{
+                        'status-online': char.status === 'online',
+                        'status-loading': char.status === 'loading',
+                        'status-error': char.status === 'error'
+                      }"
+                      :title="`Status do Serviço: ${char.status}`">
+                </span>
               </div>
 
-              <!-- Rodapé do Card -->
-              <div class="character-footer">
-                <!-- Avatar com Status (Clique para abrir Modal) -->
-                <div class="avatar-container" @click="openCharacterModal(char)" title="Clique para ver detalhes">
-                  <img :src="char.avatar" :alt="char.name" class="avatar-img">
+              <!-- Avatar Sobreposto Ampliado (100px) -->
+              <div class="card-avatar-wrapper">
+                <div class="avatar-clickable" @click="openCharacterModal(char)" title="Clique para ver detalhes do personagem">
+                  <img :src="char.avatar" :alt="char.name" class="avatar-img-orbita">
+                </div>
+              </div>
+
+              <!-- Corpo do Card -->
+              <div class="card-body-orbita">
+                <!-- Nome do Personagem -->
+                <h2 class="character-name-orbita" x-text="char.name"></h2>
+
+                <!-- Logo da Linguagem (Pílula em Destaque) -->
+                <div class="lang-badge-pill" :title="`Linguagem: ${char.lang}`">
+                  <img :src="char.langLogo" :alt="char.lang" class="lang-logo-orbita">
                 </div>
 
-                <!-- Info do Personagem e Linguagem -->
-                <div class="character-info">
-                  <div class="d-flex align-items-center justify-content-between mb-1">
-                    <h2 class="character-name" x-text="char.name"></h2>
-                    <!-- Ponto Indicador de Status -->
-                    <span class="status-indicator" 
-                          :class="{
-                            'status-online': char.status === 'online',
-                            'status-loading': char.status === 'loading',
-                            'status-error': char.status === 'error'
-                          }"
-                          :title="`Status: ${char.status}`">
-                    </span>
-                  </div>
-                  
-                  <div class="lang-badge">
-                    <img :src="char.langLogo" :alt="char.lang" class="lang-logo">
-                    <span x-text="char.lang"></span>
-                  </div>
+                <!-- Balão de Fala Ilustrado Órbita -->
+                <div class="quote-bubble-orbita">
+                  <!-- Estado Carregando -->
+                  <template x-if="char.loading">
+                    <div class="d-flex align-items-center justify-content-center gap-2 py-2">
+                      <span class="spinner-border spinner-border-sm" style="color: var(--primary)" role="status" aria-hidden="true"></span>
+                      <span class="small fw-bold" style="color: var(--base)">Buscando frase...</span>
+                    </div>
+                  </template>
+
+                  <!-- Frase Carregada -->
+                  <template x-if="!char.loading">
+                    <p class="quote-text-orbita" x-text="`“${char.phrase}”`"></p>
+                  </template>
                 </div>
               </div>
 
@@ -109,14 +114,14 @@
       </div>
     </main>
 
-    <!-- Modal de Detalhes do Personagem -->
-    <div x-cloak x-show="showModal" class="modal fade" :class="{ 'show d-block': showModal }" tabindex="-1" style="background: rgba(0, 0, 0, 0.6); backdrop-filter: blur(4px);" @click.self="closeCharacterModal()" @keydown.escape.window="closeCharacterModal()">
+    <!-- Modal de Detalhes do Personagem Órbita -->
+    <div x-cloak x-show="showModal" class="modal fade" :class="{ 'show d-block': showModal }" tabindex="-1" style="background: rgba(40, 20, 115, 0.7); backdrop-filter: blur(8px);" @click.self="closeCharacterModal()" @keydown.escape.window="closeCharacterModal()">
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content rounded-4 border-0 shadow-lg overflow-hidden">
           
           <!-- Cabeçalho do Modal no tema do personagem -->
-          <div class="modal-header border-0 py-3" :class="selectedCharacter?.style || 'style-orange'">
-            <h5 class="modal-title text-white fw-bold d-flex align-items-center gap-2" x-text="selectedCharacter?.name"></h5>
+          <div class="modal-header border-0 py-3" :class="selectedCharacter?.style || 'orbita-primary'">
+            <h5 class="modal-title text-white fw-bold d-flex align-items-center gap-2" x-text="selectedCharacter?.name" style="font-family: var(--font-display)"></h5>
             <button type="button" class="btn-close btn-close-white" @click="closeCharacterModal()"></button>
           </div>
 
@@ -126,24 +131,23 @@
               <div>
                 <!-- Fotografia Ampliada -->
                 <div class="mb-3">
-                  <img :src="selectedCharacter.avatar" :alt="selectedCharacter.name" class="img-fluid rounded-circle shadow-sm" style="width: 140px; height: 140px; object-fit: cover; border: 4px solid #FEF3C7;">
+                  <img :src="selectedCharacter.avatar" :alt="selectedCharacter.name" class="img-fluid rounded-circle shadow" style="width: 140px; height: 140px; object-fit: cover; border: 4px solid var(--primary-light); box-shadow: 0 0 0 3px var(--primary);">
                 </div>
 
                 <!-- Nome do Personagem -->
-                <h3 class="fw-bold mb-2 text-dark" x-text="selectedCharacter.name"></h3>
+                <h3 class="fw-bold mb-3" style="color: var(--tertiary); font-family: var(--font-display)" x-text="selectedCharacter.name"></h3>
 
-                <!-- Logo da Linguagem e Nome -->
-                <div class="d-inline-flex align-items-center gap-2 px-3 py-2 bg-light border rounded-3 shadow-sm mt-2">
-                  <img :src="selectedCharacter.langLogo" :alt="selectedCharacter.lang" style="height: 32px; max-width: 80px; object-fit: contain;">
-                  <span class="fw-bold text-secondary fs-5" x-text="selectedCharacter.lang"></span>
+                <!-- Logo da Linguagem -->
+                <div class="d-inline-flex align-items-center justify-content-center px-4 py-3 bg-light border rounded-4 shadow-sm" :title="`Linguagem: ${selectedCharacter.lang}`">
+                  <img :src="selectedCharacter.langLogo" :alt="selectedCharacter.lang" style="height: 50px; max-width: 140px; object-fit: contain;">
                 </div>
               </div>
             </template>
           </div>
 
           <!-- Rodapé do Modal -->
-          <div class="modal-footer border-0 bg-light justify-content-center">
-            <button type="button" class="btn btn-secondary rounded-pill px-4" @click="closeCharacterModal()">Fechar</button>
+          <div class="modal-footer border-0 bg-light justify-content-center py-3">
+            <button type="button" class="btn btn-secondary rounded-pill px-4 fw-bold" @click="closeCharacterModal()">Fechar</button>
           </div>
 
         </div>
