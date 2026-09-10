@@ -46,8 +46,6 @@ document.addEventListener('alpine:init', () => {
             character.loading = true;
             character.status = 'loading';
             try {
-                // Se estiver em HTTPS (produção), usa a rota segura /api/PORTA/
-                // Se estiver em HTTP local, usa http://localhost:PORTA/
                 let targetUrl;
                 if (window.location.protocol === 'https:' || this.baseUrl.startsWith('/')) {
                     targetUrl = `/api/${character.port}/`;
