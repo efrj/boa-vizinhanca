@@ -24,14 +24,14 @@ func randomPhrase() string {
 func loadPhrases() {
     file, err := ioutil.ReadFile("phrases/phrases.json")
     if err != nil {
-        fmt.Println("Erro ao ler o arquivo JSON:", err)
+        fmt.Println("Error reading JSON file:", err)
         return
     }
 
     var data Frases
     err = json.Unmarshal(file, &data)
     if err != nil {
-        fmt.Println("Erro ao decodificar o JSON:", err)
+        fmt.Println("Error decoding JSON:", err)
         return
     }
 
@@ -48,6 +48,6 @@ func main() {
 
     http.HandleFunc("/", handleRequest)
 
-    fmt.Println("Servidor rodando em http://localhost:8000/")
+    fmt.Println("Server running at http://localhost:8000/")
     http.ListenAndServe(":8000", nil)
 }
