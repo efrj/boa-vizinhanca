@@ -169,7 +169,7 @@ function readPhrases() {
     if ('quico' in allPhrases) {
       return allPhrases['quico'];
     } else {
-      console.error('As frases do Quico não foram encontradas no arquivo JSON.');
+      console.error('Quico phrases not found in JSON file.');
       return [];
     }
   } catch (error) {
@@ -183,7 +183,7 @@ http.createServer(function (req, res) {
 
   if (phrases.length === 0) {
     res.writeHead(500, {'Content-Type': 'text/plain;charset=UTF-8'});
-    res.write('Erro ao ler as frases do Quico.');
+    res.write('Error reading Quico phrases.');
     res.end();
     return;
   }
