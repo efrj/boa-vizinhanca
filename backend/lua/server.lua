@@ -4,7 +4,7 @@ local json = require("dkjson")
 local function readPhrases()
     local file, err = io.open("phrases/phrases.json", "r")
     if not file then
-        print("Erro ao ler o arquivo JSON: " .. err)
+        print("Error reading JSON file: " .. err)
         return {}
     end
 
@@ -16,7 +16,7 @@ local function readPhrases()
     if data and data["seu_madruga"] then
         return data["seu_madruga"]
     else
-        print("As frases do Seu Madruga não foram encontradas no arquivo JSON.")
+        print("Seu Madruga phrases not found in JSON file.")
         return {}
     end
 end
