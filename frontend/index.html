@@ -12,6 +12,11 @@
   <link rel="stylesheet" href="https://bootswatch.com/5/brite/bootstrap.min.css">
   <!-- Bootstrap Icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- Google Fonts: Baloo 2 (Title) & Nunito (Subtitle) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
   
   <!-- Prism.js Dark Theme & Line Numbers CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
@@ -59,26 +64,37 @@
     <div class="container-fluid px-4">
       <div class="d-flex flex-column flex-md-row align-items-center justify-content-between gap-3">
 
-        <!-- Banner Illustration & Title -->
-        <div class="d-flex align-items-center gap-3">
+        <!-- Banner Illustration & Title with Subtle Contrast Container -->
+        <div class="header-brand-container d-flex align-items-center gap-3">
           <img src="/img/chaves-header-banner.png" alt="Chaves Animado" class="header-illustration">
           <div>
-            <h1 class="text-white fs-2 mb-1 fw-bold">A Boa Vizinhança</h1>
-            <p class="text-white small mb-0 fw-bold">Linguagens de programação convivendo lado a lado em harmonia</p>
+            <h1 class="app-header-title fs-2 mb-1">A Boa Vizinhança</h1>
+            <p class="app-header-subtitle small mb-0">Linguagens de programação convivendo lado a lado em harmonia</p>
           </div>
         </div>
 
-        <!-- Timer Badge & Manual Update Action -->
-        <div class="d-flex align-items-center gap-3">
+        <!-- Action Items: Timer Badge, Update Action, and GitHub Repository Link -->
+        <div class="d-flex flex-wrap align-items-center gap-2 gap-sm-3">
+          <!-- Countdown Timer Badge -->
           <div class="badge bg-light text-dark fs-6 rounded-pill px-3 py-2 d-flex align-items-center gap-2 shadow-sm">
             <i class="bi bi-clock-history text-primary"></i>
             <span>Novas frases em <strong x-text="countdown" class="text-primary fs-6">7</strong>s</span>
           </div>
+
+          <!-- Manual Update Button -->
           <button @click="updateAllPhrases(); startTimer()"
             class="btn btn-light btn-sm rounded-pill px-4 py-2 fw-bold text-dark d-flex align-items-center gap-2 shadow-sm">
             <i class="bi bi-arrow-clockwise" :class="{ 'spin-anim': characters.some(c => c.loading) }"></i>
             <span>Atualizar Frases</span>
           </button>
+
+          <!-- GitHub Repository Link Button -->
+          <a href="https://github.com/efrj/boa-vizinhanca" target="_blank" rel="noopener noreferrer"
+            class="btn btn-dark btn-sm rounded-pill px-3 py-2 fw-bold d-flex align-items-center gap-2 shadow-sm header-github-btn"
+            title="Acessar repositório do projeto no GitHub">
+            <i class="bi bi-github fs-6"></i>
+            <span>Ver no GitHub</span>
+          </a>
         </div>
 
       </div>
