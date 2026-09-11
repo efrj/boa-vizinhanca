@@ -404,7 +404,7 @@ let currentDirectory = FileManager.default.currentDirectoryPath
 let jsonPath = currentDirectory + "/phrases/phrases.json"
 
 guard let jsonData = FileManager.default.contents(atPath: jsonPath) else {
-    fatalError("Não foi possível ler o arquivo JSON")
+    fatalError("Could not read JSON file")
 }
 
 let json = try! JSONSerialization.jsonObject(with: jsonData, options: []) as! [String: [String]]
