@@ -694,7 +694,7 @@ object Main {
       if (phrases.nonEmpty) {
         phrases(Random.nextInt(phrases.length))
       } else {
-        "Erro ao ler as frases da Dona Neves."
+        "Error reading Dona Neves phrases."
       }
     }
 
@@ -711,7 +711,7 @@ object Main {
         result
       } catch {
         case e: Exception =>
-          println(s"Erro ao ler o arquivo JSON: \${e.getMessage}")
+          println(s"Error reading JSON file: \${e.getMessage}")
           Array.empty[String]
       }
     }
