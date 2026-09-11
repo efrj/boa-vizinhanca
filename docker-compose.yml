@@ -1,6 +1,7 @@
 services:
   frontend:
-    image: nginx:alpine
+    build:
+      context: ./frontend
     ports:
       - 8000:80
     volumes:

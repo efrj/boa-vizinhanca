@@ -1,0 +1,15 @@
+{
+  "name": "boa-vizinhanca-frontend",
+  "version": "1.0.0",
+  "description": "Frontend dependencies for A Boa Vizinhança",
+  "private": true,
+  "dependencies": {
+    "@fontsource/baloo-2": "^5.1.1",
+    "@fontsource/nunito": "^5.1.1",
+    "alpinejs": "^3.14.9",
+    "bootstrap": "^5.3.3",
+    "bootstrap-icons": "^1.11.3",
+    "bootswatch": "^5.3.8",
+    "prismjs": "^1.29.0"
+  }
+}
