@@ -93,6 +93,12 @@ Cada personagem do seriado "Chaves" exibe uma frase retornada de uma aplicação
         <td style="text-align: center;">http://localhost:8013</td>
     </tr>
     <tr>
+        <td style="text-align: center;"><img src="frontend/img/dona-neves.png" alt="Dona Neves" height="100"></td>
+        <td style="text-align: center;">Dona Neves</td>
+        <td style="text-align: center;"><img src="frontend/img/scala.png" alt="Scala" height="50"></td>
+        <td style="text-align: center;">http://localhost:8016</td>
+    </tr>
+    <tr>
         <td style="text-align: center;"><img src="frontend/img/dr-chapatin.png" alt="Doutor Chapatin" height="100"></td>
         <td style="text-align: center;">Doutor Chapatin</td>
         <td style="text-align: center;"><img src="frontend/img/c++.png" alt="C++" height="50"></td>

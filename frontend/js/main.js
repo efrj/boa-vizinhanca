@@ -24,6 +24,7 @@ document.addEventListener('alpine:init', () => {
             { id: 11, name: 'Popis', port: 8011, lang: 'Crystal', avatar: '/img/popis.png', langLogo: '/img/crystal.png', phrase: 'Carregando...', loading: true, status: 'loading', style: 'bg-danger' },
             { id: 12, name: 'Godinez', port: 8012, lang: 'TypeScript', avatar: '/img/godinez.png', langLogo: '/img/typescript.png', phrase: 'Carregando...', loading: true, status: 'loading', style: 'bg-success' },
             { id: 13, name: 'Paty', port: 8013, lang: 'CoffeeScript', avatar: '/img/paty.png', langLogo: '/img/coffeescript.png', phrase: 'Carregando...', loading: true, status: 'loading', style: 'bg-info' },
+            { id: 16, name: 'Dona Neves', port: 8016, lang: 'Scala', avatar: '/img/dona-neves.png', langLogo: '/img/scala.png', phrase: 'Carregando...', loading: true, status: 'loading', style: 'bg-danger' },
             { id: 14, name: 'Dr. Chapatin', port: 8014, lang: 'C++', avatar: '/img/dr-chapatin.png', langLogo: '/img/c++.png', phrase: 'Carregando...', loading: true, status: 'loading', style: 'bg-danger' },
             { id: 15, name: 'Chapolin Colorado', port: 8015, lang: 'Dart', avatar: '/img/chapolin-colorado.png', langLogo: '/img/dart.png', phrase: 'Carregando...', loading: true, status: 'loading', style: 'bg-warning' }
         ],
