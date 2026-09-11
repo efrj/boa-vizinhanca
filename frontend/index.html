@@ -7,13 +7,13 @@
   <title>A Boa Vizinhança — Frases do Chaves em 15 Linguagens</title>
   <meta name="description"
     content="Página web interativa exibindo frases dos personagens da turma do Chaves, cada uma servida por uma linguagem de programação diferente.">
-  
+
   <!-- Favicon Icons -->
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
-  
+
   <!-- Local Bootswatch Brite 5 Theme CSS (via npm) -->
   <link rel="stylesheet" href="/node_modules/bootswatch/dist/brite/bootstrap.min.css">
   <!-- Local Bootstrap Icons CSS (via npm) -->
@@ -24,14 +24,14 @@
   <link rel="stylesheet" href="/node_modules/@fontsource/nunito/600.css">
   <link rel="stylesheet" href="/node_modules/@fontsource/nunito/700.css">
   <link rel="stylesheet" href="/node_modules/@fontsource/nunito/800.css">
-  
+
   <!-- Local Prism.js Dark Theme & Line Numbers CSS (via npm) -->
   <link rel="stylesheet" href="/node_modules/prismjs/themes/prism-tomorrow.min.css">
   <link rel="stylesheet" href="/node_modules/prismjs/plugins/line-numbers/prism-line-numbers.min.css">
 
   <!-- Custom Stylesheet -->
   <link href="/css/style.css" rel="stylesheet">
-  
+
   <!-- Local Prism.js Core & Plugins (via npm) -->
   <script src="/node_modules/prismjs/prism.js"></script>
   <script src="/node_modules/prismjs/plugins/line-numbers/prism-line-numbers.min.js"></script>
@@ -111,7 +111,7 @@
 
   <!-- Character Cards Grid Section -->
   <main class="container-fluid px-4">
-    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-4 g-4">
+    <div class="row row-cols-1 row-cols-lg-2 row-cols-xxl-3 g-4">
       <template x-for="char in characters" :key="char.id">
         <div class="col">
           <div class="brite-card">
@@ -126,40 +126,44 @@
               </span>
             </div>
 
-            <!-- Card Header: Side-by-Side Character Avatar and Language Logo -->
-            <div class="card-header-row">
-              <!-- Avatar (Left side - Click to open modal) -->
-              <div class="avatar-clickable" @click="openCharacterModal(char)"
-                title="Clique para ver o código backend do personagem">
-                <img :src="char.avatar" :alt="char.name" class="avatar-img-brite">
-              </div>
-
-              <!-- Language Logo (Right side) -->
-              <div class="lang-badge-pill" :title="`Linguagem: ${char.lang}`">
-                <img :src="char.langLogo" :alt="char.lang" class="lang-logo-brite">
-              </div>
-            </div>
-
-            <!-- Card Body Content -->
+            <!-- Card Body: Horizontal Layout (Profile Left, Quote Right) -->
             <div class="card-body-brite">
-              <!-- Character Name -->
-              <h2 class="character-name-brite" x-text="char.name"></h2>
+              
+              <!-- Left Profile Section: Avatar + Name & Language Logo beside it -->
+              <div class="card-profile-section">
+                <!-- Avatar (Left side of profile - Click to open modal) -->
+                <div class="avatar-clickable" @click="openCharacterModal(char)"
+                  title="Clique para ver o código backend do personagem">
+                  <img :src="char.avatar" :alt="char.name" class="avatar-img-brite">
+                </div>
 
-              <!-- Highlighted Quote Speech Bubble -->
-              <div class="quote-bubble-brite">
-                <!-- Loading State -->
-                <template x-if="char.loading">
-                  <div class="d-flex align-items-center justify-content-center gap-2 py-2 text-muted">
-                    <span class="spinner-border spinner-border-sm text-primary" role="status" aria-hidden="true"></span>
-                    <span class="small fw-bold">Buscando frase...</span>
+                <!-- Name & Language Logo (Right of avatar, stacked vertically) -->
+                <div class="character-info-col">
+                  <h2 class="character-name-brite" x-text="char.name"></h2>
+                  <div class="lang-badge-pill" :title="`Linguagem: ${char.lang}`">
+                    <img :src="char.langLogo" :alt="char.lang" class="lang-logo-brite">
                   </div>
-                </template>
-
-                <!-- Phrase Loaded State -->
-                <template x-if="!char.loading">
-                  <p class="quote-text-brite" x-text="`“${char.phrase}”`"></p>
-                </template>
+                </div>
               </div>
+
+              <!-- Right Quote Section: Speech Bubble on the right side of the card -->
+              <div class="card-quote-section">
+                <div class="quote-bubble-brite">
+                  <!-- Loading State -->
+                  <template x-if="char.loading">
+                    <div class="d-flex align-items-center justify-content-center gap-2 py-2 text-muted">
+                      <span class="spinner-border spinner-border-sm text-primary" role="status" aria-hidden="true"></span>
+                      <span class="small fw-bold">Buscando frase...</span>
+                    </div>
+                  </template>
+
+                  <!-- Phrase Loaded State -->
+                  <template x-if="!char.loading">
+                    <p class="quote-text-brite" x-text="`“${char.phrase}”`"></p>
+                  </template>
+                </div>
+              </div>
+
             </div>
 
           </div>
@@ -188,12 +192,13 @@
         <div class="modal-body py-4 px-4 bg-white">
           <template x-if="selectedCharacter">
             <div class="row g-4 align-items-center">
-              
+
               <!-- Left Column: Enlarged Avatar, Name, and Language Badge -->
               <div class="col-lg-4 col-md-5 text-center border-end-md pe-md-4">
                 <!-- Enlarged Avatar Image -->
                 <div class="mb-3">
-                  <img :src="selectedCharacter.avatar" :alt="selectedCharacter.name" class="img-fluid rounded-circle shadow"
+                  <img :src="selectedCharacter.avatar" :alt="selectedCharacter.name"
+                    class="img-fluid rounded-circle shadow"
                     style="width: 180px; height: 180px; object-fit: cover; border: 5px solid #e9ecef; box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);">
                 </div>
 
@@ -202,7 +207,9 @@
                 <span class="badge bg-primary rounded-pill mb-3 px-3 py-1 fs-6" x-text="selectedCharacter.lang"></span>
 
                 <!-- Language Logo Container -->
-                <div class="d-flex align-items-center justify-content-center p-3 bg-light border rounded-4 shadow-sm w-100" :title="`Linguagem: ${selectedCharacter.lang}`">
+                <div
+                  class="d-flex align-items-center justify-content-center p-3 bg-light border rounded-4 shadow-sm w-100"
+                  :title="`Linguagem: ${selectedCharacter.lang}`">
                   <img :src="selectedCharacter.langLogo" :alt="selectedCharacter.lang"
                     style="height: 52px; max-width: 150px; object-fit: contain;">
                 </div>
@@ -226,14 +233,16 @@
                     </div>
 
                     <!-- Copy Code Button -->
-                    <button @click="copyBackendCode()" class="btn btn-outline-light btn-sm rounded-pill px-3 d-flex align-items-center gap-2">
+                    <button @click="copyBackendCode()"
+                      class="btn btn-outline-light btn-sm rounded-pill px-3 d-flex align-items-center gap-2">
                       <i class="bi" :class="copiedToast ? 'bi-check2-circle text-success' : 'bi-clipboard'"></i>
                       <span x-text="copiedToast ? 'Copiado!' : 'Copiar Código'"></span>
                     </button>
                   </div>
 
                   <!-- Code Viewer Container with Prism Line Numbers -->
-                  <pre class="line-numbers code-editor-pre"><code id="code-viewer-element" :class="`language-${activeCodeInfo.prismLang || activeCodeInfo.mode}`" x-text="activeCodeInfo.code"></code></pre>
+                  <pre
+                    class="line-numbers code-editor-pre"><code id="code-viewer-element" :class="`language-${activeCodeInfo.prismLang || activeCodeInfo.mode}`" x-text="activeCodeInfo.code"></code></pre>
                 </div>
               </div>
 
@@ -247,7 +256,8 @@
             <i class="bi bi-info-circle text-primary"></i>
             <span>Código-fonte original utilizado pelo microsserviço no Docker</span>
           </small>
-          <button type="button" class="btn btn-secondary rounded-pill px-4 fw-bold" @click="closeCharacterModal()">Fechar</button>
+          <button type="button" class="btn btn-secondary rounded-pill px-4 fw-bold"
+            @click="closeCharacterModal()">Fechar</button>
         </div>
 
       </div>

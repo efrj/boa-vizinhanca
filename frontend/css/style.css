@@ -95,19 +95,19 @@ body {
 
 /* Card Top Banner Themes */
 .card-banner-brite {
-    height: 96px;
+    height: 38px;
     width: 100%;
     position: relative;
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: flex-end;
-    padding: 12px 16px;
+    padding: 0 16px;
 }
 
 /* Character Specific Unique Card & Modal Banner Themes */
 .card-theme-chaves,
 .bg-primary {
-    background-color: #0d6efd !important;
+    background-color: rgba(var(--bs-primary-rgb), var(--bs-bg-opacity)) !important;
 }
 
 .card-theme-dona-florinda {
@@ -135,7 +135,7 @@ body {
 }
 
 .card-theme-seu-barriga {
-    background-color: #2b2d42 !important;
+    background-color: rgba(var(--bs-dark-rgb)) !important;
 }
 
 .card-theme-dona-clotilde {
@@ -191,17 +191,23 @@ body {
     background-color: #a04000 !important;
 }
 
+/* Card Body Section - Horizontal Layout */
+.card-body-brite {
+    padding: 1.25rem 1.35rem 1.35rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1.25rem;
+    flex-grow: 1;
+}
 
-/* Avatar & Language Logo Header Row (Side-by-Side) */
-.card-header-row {
+/* Left Profile Section: Avatar + (Name & Lang Logo Column) */
+.card-profile-section {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 0 1.25rem;
-    margin-top: -56px;
-    position: relative;
-    z-index: 2;
-    gap: 12px;
+    gap: 1rem;
+    flex-shrink: 0;
+    min-width: 220px;
 }
 
 .avatar-clickable {
@@ -212,19 +218,19 @@ body {
 }
 
 .avatar-img-brite {
-    width: 115px;
-    height: 115px;
+    width: 90px;
+    height: 90px;
     border-radius: 50%;
     object-fit: cover;
     background: #e9ecef;
-    border: 4px solid #ffffff;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    border: 3px solid #ffffff;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
     transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
 }
 
 .avatar-clickable:hover .avatar-img-brite {
     transform: scale(1.08);
-    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22);
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.2);
 }
 
 .avatar-clickable::after {
@@ -240,7 +246,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     transition: transform 0.2s ease, opacity 0.2s ease;
     transform: scale(0);
     opacity: 0;
@@ -252,55 +258,64 @@ body {
     opacity: 1;
 }
 
-/* Card Body Section */
-.card-body-brite {
-    padding: 0.85rem 1.25rem 1.25rem;
+/* Stacked Info Column: Name & Lang Badge */
+.character-info-col {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    flex-grow: 1;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 6px;
+    min-width: 0;
 }
 
 .character-name-brite {
-    font-size: 1.25rem;
+    font-size: 1.18rem;
     font-weight: 800;
     color: #212529;
-    margin: 0 0 12px 0;
-    text-align: center;
+    margin: 0;
     letter-spacing: -0.3px;
+    line-height: 1.25;
+    text-align: left;
 }
 
-/* Language Logo Badge (Side-by-Side Pill) */
+/* Language Logo Badge Pill */
 .lang-badge-pill {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 6px 14px;
-    border-radius: 14px;
+    padding: 4px 10px;
+    border-radius: 12px;
     background: #ffffff;
     border: 1px solid #e9ecef;
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
-    min-height: 52px;
-    flex: 1;
-    max-width: 140px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    min-height: 38px;
+    max-width: 120px;
     margin-bottom: 0;
 }
 
 .lang-logo-brite {
-    height: 40px;
-    max-width: 115px;
+    height: 28px;
+    max-width: 90px;
     object-fit: contain;
 }
 
-/* Highlighted Quote Speech Bubble */
+/* Right Quote Section: Speech Bubble */
+.card-quote-section {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    min-width: 0;
+    height: 100%;
+}
+
 .quote-bubble-brite {
     background: #f8f9fa;
     border: 1px solid #dee2e6;
-    border-left: 5px solid #0d6efd;
+    border-left: 4px solid #0d6efd;
     border-radius: 16px;
-    padding: 1.25rem 1.1rem 1.1rem;
+    padding: 1rem 1.15rem;
     width: 100%;
-    flex-grow: 1;
+    min-height: 82px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -311,33 +326,34 @@ body {
 .quote-bubble-brite::after {
     content: "";
     position: absolute;
-    top: -10px;
-    left: 50%;
-    transform: translateX(-50%);
+    top: 50%;
+    left: -9px;
+    transform: translateY(-50%);
     width: 0;
     height: 0;
-    border-left: 10px solid transparent;
-    border-right: 10px solid transparent;
-    border-bottom: 10px solid #f8f9fa;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-right: 9px solid #f8f9fa;
+    border-left: none;
 }
 
 .quote-bubble-brite::before {
     content: "“";
     position: absolute;
-    top: -10px;
-    left: 12px;
-    font-size: 2.8rem;
+    top: -8px;
+    right: 12px;
+    font-size: 2.4rem;
     color: #0d6efd;
     line-height: 1;
-    opacity: 0.35;
+    opacity: 0.22;
 }
 
 .quote-text-brite {
-    font-size: 1rem;
+    font-size: 0.98rem;
     font-weight: 600;
-    line-height: 1.6;
+    line-height: 1.5;
     color: #212529;
-    text-align: center;
+    text-align: left;
     margin: 0;
     position: relative;
     z-index: 2;
@@ -367,6 +383,27 @@ body {
 .status-error {
     background-color: #dc3545;
     box-shadow: 0 0 8px #dc3545;
+}
+
+/* Responsive adjustment for small mobile screens */
+@media (max-width: 767px) {
+    .card-body-brite {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
+    }
+    .card-profile-section {
+        min-width: 0;
+    }
+    .quote-bubble-brite::after {
+        top: -8px;
+        left: 40px;
+        transform: none;
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        border-bottom: 8px solid #f8f9fa;
+        border-top: none;
+    }
 }
 
 /* ====================================================
