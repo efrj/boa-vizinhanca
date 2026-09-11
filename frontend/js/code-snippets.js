@@ -554,11 +554,11 @@ class RequestHandler
       if 'paty' of phrases
         phrases['paty']
       else
-        console.log 'Frases da Paty não encontradas no arquivo JSON.'
+        console.log 'Paty phrases not found in JSON file.'
         []
 
     catch e
-      console.log "Erro ao ler o arquivo JSON: #{e}"
+      console.log "Error reading JSON file: #{e}"
       []
 
   handleRequest: (req, res) =>
@@ -569,7 +569,7 @@ class RequestHandler
     phrases = @readPhrases()
 
     if not phrases.length
-      res.write 'Erro ao ler as frases da Paty.'
+      res.write 'Error reading Paty phrases.'
       res.end()
       return
 
