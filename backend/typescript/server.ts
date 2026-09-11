@@ -17,11 +17,11 @@ class RequestHandler {
       if ('godinez' in phrases) {
         return phrases['godinez'];
       } else {
-        console.log('Frases do Godinez não encontradas no arquivo JSON.');
+        console.log('Godinez phrases not found in JSON file.');
         return [];
       }
     } catch (e) {
-      console.log(`Erro ao ler o arquivo JSON: ${e}`);
+      console.log(`Error reading JSON file: ${e}`);
       return [];
     }
   }
@@ -35,7 +35,7 @@ class RequestHandler {
     const phrases = this.readPhrases();
 
     if (!phrases.length) {
-      res.write('Erro ao ler as frases do Godinez.');
+      res.write('Error reading Godinez phrases.');
       res.end();
       return;
     }
