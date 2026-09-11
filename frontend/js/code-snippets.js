@@ -711,7 +711,7 @@ object Main {
         result
       } catch {
         case e: Exception =>
-          println(s"Erro ao ler o arquivo JSON: ${e.getMessage}")
+          println(s"Erro ao ler o arquivo JSON: \${e.getMessage}")
           Array.empty[String]
       }
     }
