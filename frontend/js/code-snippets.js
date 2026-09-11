@@ -37,7 +37,7 @@ class RequestHandler(BaseHTTPRequestHandler):
         phrases = read_phrases()
 
         if not phrases:
-            self.wfile.write('Erro ao ler as frases da Dona Florinda.'.encode())
+            self.wfile.write('Error reading Dona Florinda phrases.'.encode())
             return
 
         random_phrase = random.choice(phrases)
@@ -52,10 +52,10 @@ def read_phrases():
         if 'dona_florinda' in data:
             return data['dona_florinda']
         else:
-            print('As frases da Dona Florinda não encontradas no arquivo JSON.')
+            print('Dona Florinda phrases not found in JSON file.')
             return []
     except Exception as e:
-        print(f'Erro ao ler o arquivo JSON: {e}')
+        print(f'Error reading JSON file: {e}')
         return []
 
 def run_server():
