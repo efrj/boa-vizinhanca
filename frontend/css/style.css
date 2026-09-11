@@ -1,5 +1,5 @@
 /* ====================================================
-   ESTILOS COMPLEMENTARES - TEMA BOOTSWATCH BRITE
+   COMPLEMENTARY STYLES - BOOTSWATCH BRITE THEME
    ==================================================== */
 
 body {
@@ -8,7 +8,7 @@ body {
     padding-bottom: 3rem;
 }
 
-/* Header Principal */
+/* Main Header */
 .app-header {
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
 }
@@ -33,7 +33,7 @@ body {
 }
 
 /* ====================================================
-   CARDS DE PERSONAGENS - BOOTSWATCH BRITE
+   CHARACTER CARDS - BOOTSWATCH BRITE
    ==================================================== */
 .brite-card {
     background: #ffffff;
@@ -65,7 +65,7 @@ body {
     padding: 12px 16px;
 }
 
-/* Avatar & Language Logo Header Row (Lado a Lado) */
+/* Avatar & Language Logo Header Row (Side-by-Side) */
 .card-header-row {
     display: flex;
     align-items: center;
@@ -143,7 +143,7 @@ body {
     letter-spacing: -0.3px;
 }
 
-/* Language Logo Badge (Pílula Lado a Lado) */
+/* Language Logo Badge (Side-by-Side Pill) */
 .lang-badge-pill {
     display: inline-flex;
     align-items: center;
@@ -165,7 +165,7 @@ body {
     object-fit: contain;
 }
 
-/* Balão de Fala Ilustrado Brite */
+/* Highlighted Quote Speech Bubble */
 .quote-bubble-brite {
     background: #f8f9fa;
     border: 1px solid #dee2e6;
@@ -240,6 +240,62 @@ body {
 .status-error {
     background-color: #dc3545;
     box-shadow: 0 0 8px #dc3545;
+}
+
+/* ====================================================
+   CODE VIEWER PANEL IN DETAILS MODAL (PRISM.JS)
+   ==================================================== */
+.code-viewer-container {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    border: 1px solid #343a40;
+    background-color: #1d1f21;
+}
+
+.code-viewer-header {
+    background-color: #21222c;
+    padding: 10px 16px;
+    border-bottom: 1px solid #44475a;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.code-dots {
+    display: flex;
+    gap: 6px;
+}
+
+.code-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.code-dot-red { background-color: #ff5555; }
+.code-dot-yellow { background-color: #f1fa8c; }
+.code-dot-green { background-color: #50fa7b; }
+
+.code-viewer-container pre[class*="language-"] {
+    margin: 0 !important;
+    padding: 1rem 1rem 1rem 3.8rem !important;
+    border-radius: 0 0 12px 12px !important;
+    background: #1d1f21 !important;
+    max-height: 440px !important;
+    overflow-y: auto !important;
+    font-size: 0.9rem !important;
+    line-height: 1.5 !important;
+    font-family: 'JetBrains Mono', 'Fira Code', Consolas, Monaco, 'Andale Mono', monospace !important;
+}
+
+.code-viewer-container pre.line-numbers {
+    position: relative;
+    padding-left: 3.8em !important;
+}
+
+.code-viewer-container .line-numbers .line-numbers-rows {
+    border-right: 1px solid rgba(255, 255, 255, 0.15) !important;
 }
 
 @keyframes pulse {

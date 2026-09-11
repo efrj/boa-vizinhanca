@@ -7,39 +7,68 @@
   <title>A Boa Vizinhança — Frases do Chaves em 15 Linguagens</title>
   <meta name="description"
     content="Página web interativa exibindo frases dos personagens da turma do Chaves, cada uma servida por uma linguagem de programação diferente.">
-  <!-- Bootswatch Brite 5 Theme CSS Oficial -->
+  
+  <!-- Official Bootswatch Brite 5 Theme CSS -->
   <link rel="stylesheet" href="https://bootswatch.com/5/brite/bootstrap.min.css">
   <!-- Bootstrap Icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-  <!-- Estilos Customizados Brite -->
+  
+  <!-- Prism.js Dark Theme & Line Numbers CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.css">
+
+  <!-- Custom Stylesheet -->
   <link href="/css/style.css" rel="stylesheet">
-  <!-- Alpine.js v3 (Simples, Leve e Reativo) -->
+  
+  <!-- Prism.js Core & Plugins -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup-templating.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-php.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-ruby.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-perl.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-go.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-java.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-swift.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-crystal.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-typescript.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-coffeescript.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-c.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-cpp.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-dart.min.js"></script>
+
+  <!-- Character Backend Code Snippets Repository -->
+  <script src="/js/code-snippets.js"></script>
+
+  <!-- Alpine.js v3 (Lightweight & Reactive) -->
   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-  <!-- Script Principal Alpine Component -->
-  <script src="/js/main.js?v=2"></script>
+  <!-- Main Alpine Component Script -->
+  <script src="/js/main.js?v=3"></script>
 </head>
 
 <body x-data="neighborhood">
 
-  <!-- Barra de Progresso Superior do Timer -->
+  <!-- Top Timer Progress Bar -->
   <div class="progress-timer-bar" :style="`width: ${timerProgress}%`"></div>
 
-  <!-- Header Principal Bootswatch Brite -->
+  <!-- Main Bootswatch Brite Header -->
   <header class="app-header bg-warning text-white py-3 mb-4">
     <div class="container-fluid px-4">
       <div class="d-flex flex-column flex-md-row align-items-center justify-content-between gap-3">
 
-        <!-- Ilustração & Título -->
+        <!-- Banner Illustration & Title -->
         <div class="d-flex align-items-center gap-3">
           <img src="/img/chaves-header-banner.png" alt="Chaves Animado" class="header-illustration">
           <div>
             <h1 class="text-white fs-2 mb-1 fw-bold">A Boa Vizinhança</h1>
-            <p class="text-white small mb-0 fw-bold">Linguagens de programação convivendo lado a lado em harmonia
-            </p>
+            <p class="text-white small mb-0 fw-bold">Linguagens de programação convivendo lado a lado em harmonia</p>
           </div>
         </div>
 
-        <!-- Timer e Ação Manual -->
+        <!-- Timer Badge & Manual Update Action -->
         <div class="d-flex align-items-center gap-3">
           <div class="badge bg-light text-dark fs-6 rounded-pill px-3 py-2 d-flex align-items-center gap-2 shadow-sm">
             <i class="bi bi-clock-history text-primary"></i>
@@ -56,14 +85,14 @@
     </div>
   </header>
 
-  <!-- Grid de Personagens / Cards Brite -->
+  <!-- Character Cards Grid Section -->
   <main class="container-fluid px-4">
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-4 g-4">
       <template x-for="char in characters" :key="char.id">
         <div class="col">
           <div class="brite-card">
 
-            <!-- Top Banner com Cor do Tema e Ponto de Status -->
+            <!-- Top Banner with Theme Gradient and Service Status Indicator -->
             <div class="card-banner-brite" :class="char.style">
               <span class="status-dot" :class="{
                         'status-online': char.status === 'online',
@@ -73,28 +102,28 @@
               </span>
             </div>
 
-            <!-- Header do Card: Foto do Personagem + Logo da Linguagem Lado a Lado -->
+            <!-- Card Header: Side-by-Side Character Avatar and Language Logo -->
             <div class="card-header-row">
-              <!-- Avatar (Lado Esquerdo - Clique para abrir modal) -->
+              <!-- Avatar (Left side - Click to open modal) -->
               <div class="avatar-clickable" @click="openCharacterModal(char)"
-                title="Clique para ver detalhes do personagem">
+                title="Clique para ver o código backend do personagem">
                 <img :src="char.avatar" :alt="char.name" class="avatar-img-brite">
               </div>
 
-              <!-- Logo da Linguagem (Lado Direito) -->
+              <!-- Language Logo (Right side) -->
               <div class="lang-badge-pill" :title="`Linguagem: ${char.lang}`">
                 <img :src="char.langLogo" :alt="char.lang" class="lang-logo-brite">
               </div>
             </div>
 
-            <!-- Corpo do Card -->
+            <!-- Card Body Content -->
             <div class="card-body-brite">
-              <!-- Nome do Personagem -->
+              <!-- Character Name -->
               <h2 class="character-name-brite" x-text="char.name"></h2>
 
-              <!-- Balão de Fala Ilustrado Brite -->
+              <!-- Highlighted Quote Speech Bubble -->
               <div class="quote-bubble-brite">
-                <!-- Estado Carregando -->
+                <!-- Loading State -->
                 <template x-if="char.loading">
                   <div class="d-flex align-items-center justify-content-center gap-2 py-2 text-muted">
                     <span class="spinner-border spinner-border-sm text-primary" role="status" aria-hidden="true"></span>
@@ -102,7 +131,7 @@
                   </div>
                 </template>
 
-                <!-- Frase Carregada -->
+                <!-- Phrase Loaded State -->
                 <template x-if="!char.loading">
                   <p class="quote-text-brite" x-text="`“${char.phrase}”`"></p>
                 </template>
@@ -115,48 +144,86 @@
     </div>
   </main>
 
-  <!-- Modal de Detalhes do Personagem Brite -->
+  <!-- Character Details Modal with CodeMirror Code Viewer (Extra Large Size) -->
   <div x-cloak x-show="showModal" class="modal fade" :class="{ 'show d-block': showModal }" tabindex="-1"
-    style="background: rgba(0, 0, 0, 0.65); backdrop-filter: blur(6px);" @click.self="closeCharacterModal()"
+    style="background: rgba(0, 0, 0, 0.7); backdrop-filter: blur(8px);" @click.self="closeCharacterModal()"
     @keydown.escape.window="closeCharacterModal()">
-    <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-dialog modal-dialog-centered modal-xl">
       <div class="modal-content rounded-4 border-0 shadow-lg overflow-hidden">
 
-        <!-- Cabeçalho do Modal no tema do personagem -->
+        <!-- Modal Header with Character Theme Class -->
         <div class="modal-header border-0 py-3" :class="selectedCharacter?.style || 'bg-primary'">
-          <h5 class="modal-title text-white fw-bold d-flex align-items-center gap-2" x-text="selectedCharacter?.name">
+          <h5 class="modal-title text-white fw-bold d-flex align-items-center gap-2">
+            <i class="bi bi-code-slash fs-4"></i>
+            <span>Código Backend — <span x-text="selectedCharacter?.name"></span></span>
           </h5>
           <button type="button" class="btn-close btn-close-white" @click="closeCharacterModal()"></button>
         </div>
 
-        <!-- Corpo do Modal -->
-        <div class="modal-body text-center py-4 px-4 bg-white">
+        <!-- Modal Body (Two Column Layout: Character Profile & CodeMirror) -->
+        <div class="modal-body py-4 px-4 bg-white">
           <template x-if="selectedCharacter">
-            <div>
-              <!-- Fotografia Ampliada no Modal (220px) -->
-              <div class="mb-4">
-                <img :src="selectedCharacter.avatar" :alt="selectedCharacter.name" class="img-fluid rounded-circle"
-                  style="width: 220px; height: 220px; object-fit: cover; border: 5px solid #e9ecef; box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);">
+            <div class="row g-4 align-items-center">
+              
+              <!-- Left Column: Enlarged Avatar, Name, and Language Badge -->
+              <div class="col-lg-4 col-md-5 text-center border-end-md pe-md-4">
+                <!-- Enlarged Avatar Image -->
+                <div class="mb-3">
+                  <img :src="selectedCharacter.avatar" :alt="selectedCharacter.name" class="img-fluid rounded-circle shadow"
+                    style="width: 180px; height: 180px; object-fit: cover; border: 5px solid #e9ecef; box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);">
+                </div>
+
+                <!-- Character Name & Language Pill -->
+                <h3 class="fw-bold mb-2 text-dark" x-text="selectedCharacter.name"></h3>
+                <span class="badge bg-primary rounded-pill mb-3 px-3 py-1 fs-6" x-text="selectedCharacter.lang"></span>
+
+                <!-- Language Logo Container -->
+                <div class="d-flex align-items-center justify-content-center p-3 bg-light border rounded-4 shadow-sm w-100" :title="`Linguagem: ${selectedCharacter.lang}`">
+                  <img :src="selectedCharacter.langLogo" :alt="selectedCharacter.lang"
+                    style="height: 52px; max-width: 150px; object-fit: contain;">
+                </div>
               </div>
 
-              <!-- Nome do Personagem -->
-              <h3 class="fw-bold mb-3 text-dark" x-text="selectedCharacter.name"></h3>
+              <!-- Right Column: CodeMirror Editor with Formatted Backend Code -->
+              <div class="col-lg-8 col-md-7">
+                <div class="code-viewer-container">
+                  <!-- Code Viewer Header Bar (IDE / Terminal Style) -->
+                  <div class="code-viewer-header">
+                    <div class="d-flex align-items-center gap-3">
+                      <div class="code-dots">
+                        <span class="code-dot code-dot-red"></span>
+                        <span class="code-dot code-dot-yellow"></span>
+                        <span class="code-dot code-dot-green"></span>
+                      </div>
+                      <span class="text-white-50 small font-monospace d-flex align-items-center gap-1">
+                        <i class="bi bi-file-earmark-code text-warning"></i>
+                        <strong x-text="activeCodeInfo.filename" class="text-white"></strong>
+                      </span>
+                    </div>
 
-              <!-- Logo da Linguagem -->
-              <div
-                class="d-inline-flex align-items-center justify-content-center px-4 py-3 bg-light border rounded-4 shadow-sm"
-                :title="`Linguagem: ${selectedCharacter.lang}`">
-                <img :src="selectedCharacter.langLogo" :alt="selectedCharacter.lang"
-                  style="height: 50px; max-width: 140px; object-fit: contain;">
+                    <!-- Copy Code Button -->
+                    <button @click="copyBackendCode()" class="btn btn-outline-light btn-sm rounded-pill px-3 d-flex align-items-center gap-2">
+                      <i class="bi" :class="copiedToast ? 'bi-check2-circle text-success' : 'bi-clipboard'"></i>
+                      <span x-text="copiedToast ? 'Copiado!' : 'Copiar Código'"></span>
+                    </button>
+                  </div>
+
+                  <!-- Code Viewer Container with Prism Line Numbers -->
+                  <pre class="line-numbers code-editor-pre"><code id="code-viewer-element" :class="`language-${activeCodeInfo.prismLang || activeCodeInfo.mode}`" x-text="activeCodeInfo.code"></code></pre>
+                </div>
               </div>
+
             </div>
           </template>
         </div>
 
-        <!-- Rodapé do Modal -->
-        <div class="modal-footer border-0 bg-light justify-content-center py-3">
-          <button type="button" class="btn btn-secondary rounded-pill px-4 fw-bold"
-            @click="closeCharacterModal()">Fechar</button>
+        <!-- Modal Footer -->
+        <div class="modal-footer border-0 bg-light justify-content-between py-3 px-4">
+          <small class="text-muted font-monospace d-flex align-items-center gap-1">
+            <i class="bi bi-info-circle text-primary"></i>
+            <span>Código-fonte original utilizado pelo microsserviço no Docker</span>
+          </small>
+          <button type="button" class="btn btn-secondary rounded-pill px-4 fw-bold" @click="closeCharacterModal()">Fechar</button>
         </div>
 
       </div>

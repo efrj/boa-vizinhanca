@@ -6,6 +6,10 @@ document.addEventListener('alpine:init', () => {
         timerInterval: null,
         selectedCharacter: null,
         showModal: false,
+        codeEditor: null,
+        activeCodeInfo: { filename: '', language: '', code: '', mode: 'javascript' },
+        copiedToast: false,
+
         characters: [
             { id: 1, name: 'Chaves', port: 8001, lang: 'PHP', avatar: '/img/chaves.png', langLogo: '/img/php.png', phrase: 'Carregando...', loading: true, status: 'loading', style: 'bg-primary' },
             { id: 2, name: 'Dona Florinda', port: 8004, lang: 'Python', avatar: '/img/dona-florinda.png', langLogo: '/img/python.png', phrase: 'Carregando...', loading: true, status: 'loading', style: 'bg-danger' },
@@ -38,7 +42,7 @@ document.addEventListener('alpine:init', () => {
                     this.baseUrl = data.url;
                 }
             } catch (error) {
-                console.warn('Usando URL padrão http://localhost:', error);
+                console.warn('Using default URL http://localhost:', error);
             }
         },
 
@@ -46,6 +50,8 @@ document.addEventListener('alpine:init', () => {
             character.loading = true;
             character.status = 'loading';
             try {
+                // If using HTTPS (production), use the secure route /api/PORT/
+                // If using local HTTP, use http://localhost:PORT/
                 let targetUrl;
                 if (window.location.protocol === 'https:' || this.baseUrl.startsWith('/')) {
                     targetUrl = `/api/${character.port}/`;
@@ -61,7 +67,7 @@ document.addEventListener('alpine:init', () => {
                 character.phrase = text.trim();
                 character.status = 'online';
             } catch (error) {
-                console.error(`Erro ao carregar frase para ${character.name}:`, error);
+                console.error(`Error loading phrase for ${character.name}:`, error);
                 character.phrase = 'Não foi possível carregar a frase neste momento.';
                 character.status = 'error';
             } finally {
@@ -93,10 +99,43 @@ document.addEventListener('alpine:init', () => {
         openCharacterModal(character) {
             this.selectedCharacter = character;
             this.showModal = true;
+            this.copiedToast = false;
+
+            const codeData = (window.characterBackendCodes && window.characterBackendCodes[character.id]) || {
+                filename: 'backend_code',
+                language: character.lang,
+                mode: 'javascript',
+                prismLang: 'javascript',
+                code: '// Source code not available'
+            };
+
+            this.activeCodeInfo = codeData;
+
+            this.$nextTick(() => {
+                const codeElem = document.getElementById('code-viewer-element');
+                if (codeElem && window.Prism) {
+                    codeElem.textContent = codeData.code;
+                    codeElem.className = `language-${codeData.prismLang || codeData.mode}`;
+                    Prism.highlightElement(codeElem);
+                }
+            });
         },
 
         closeCharacterModal() {
             this.showModal = false;
+        },
+
+        copyBackendCode() {
+            if (!this.activeCodeInfo || !this.activeCodeInfo.code) return;
+
+            navigator.clipboard.writeText(this.activeCodeInfo.code).then(() => {
+                this.copiedToast = true;
+                setTimeout(() => {
+                    this.copiedToast = false;
+                }, 2000);
+            }).catch(err => {
+                console.error('Error copying code:', err);
+            });
         }
     }));
 });
