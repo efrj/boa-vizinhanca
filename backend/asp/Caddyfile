@@ -1,0 +1,9 @@
+:8000 {
+    root * /app
+    route {
+        axonasp {
+            site_name rachacuca
+        }
+        file_server
+    }
+}

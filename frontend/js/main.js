@@ -30,7 +30,8 @@ document.addEventListener('alpine:init', () => {
             { id: 17, name: 'Tripa Seca', port: 8017, lang: 'Haskell', avatar: '/img/tripa-seca.png', langLogo: '/img/haskell.png', phrase: 'Carregando...', loading: true, status: 'loading', style: 'card-theme-tripa-seca' },
             { id: 18, name: 'Quase Nada', port: 8018, lang: 'OCaml', avatar: '/img/quase-nada.png', langLogo: '/img/ocaml.png', phrase: 'Carregando...', loading: true, status: 'loading', style: 'card-theme-quase-nada' },
             { id: 19, name: 'Super Sam', port: 8019, lang: 'Nim', avatar: '/img/super-sam.png', langLogo: '/img/nim.png', phrase: 'Carregando...', loading: true, status: 'loading', style: 'card-theme-super-sam' },
-            { id: 20, name: 'Alma Negra', port: 8020, lang: 'Zig', avatar: '/img/alma-negra.png', langLogo: '/img/zig.png', phrase: 'Carregando...', loading: true, status: 'loading', style: 'card-theme-alma-negra' }
+            { id: 20, name: 'Alma Negra', port: 8020, lang: 'Zig', avatar: '/img/alma-negra.png', langLogo: '/img/zig.png', phrase: 'Carregando...', loading: true, status: 'loading', style: 'card-theme-alma-negra' },
+            { id: 21, name: 'Racha Cuca', port: 8021, lang: 'ASP', avatar: '/img/racha-cuca.png', langLogo: '/img/asp.png', phrase: 'Carregando...', loading: true, status: 'loading', style: 'card-theme-racha-cuca' }
         ],
 
         async init() {

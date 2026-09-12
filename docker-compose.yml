@@ -209,4 +209,15 @@ services:
     volumes:
       - ./phrases:/app/phrases
 
+  asp:
+    build:
+      context: ./backend/asp
+    ports:
+      - 8021:8000
+    restart: unless-stopped
+    container_name: chaves.asp
+    volumes:
+      - ./phrases:/app/phrases
+
+
 
