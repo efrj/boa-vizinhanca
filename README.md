@@ -128,6 +128,12 @@ Cada personagem do seriado "Chaves" exibe uma frase retornada de uma aplicação
         <td style="text-align: center;"><img src="frontend/img/nim.png" alt="Nim" height="50"></td>
         <td style="text-align: center;">http://localhost:8019</td>
     </tr>
+    <tr>
+        <td style="text-align: center;"><img src="frontend/img/alma-negra.png" alt="Alma Negra" height="100"></td>
+        <td style="text-align: center;">Alma Negra</td>
+        <td style="text-align: center;"><img src="frontend/img/zig.png" alt="Zig" height="50"></td>
+        <td style="text-align: center;">http://localhost:8020</td>
+    </tr>
 </table> 
  
 
@@ -189,7 +195,7 @@ Caso você queira mudar o endereço de acesso aos backends, edite o arquivo `fro
 
 ## Tecnologias
 
-Este projeto demonstra a integração de 19 linguagens de programação diferentes:
+Este projeto demonstra a integração de 20 linguagens de programação diferentes:
 
 - PHP
 - Ruby
@@ -210,6 +216,7 @@ Este projeto demonstra a integração de 19 linguagens de programação diferent
 - Haskell
 - OCaml
 - Nim
+- Zig
 
 Todas orquestradas com Docker Compose e servidas através de um frontend HTML/CSS/JavaScript.
 

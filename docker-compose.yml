@@ -199,3 +199,14 @@ services:
     volumes:
       - ./phrases:/app/phrases
 
+  zig:
+    build:
+      context: ./backend/zig
+    ports:
+      - 8020:8000
+    restart: unless-stopped
+    container_name: chaves.zig
+    volumes:
+      - ./phrases:/app/phrases
+
+
