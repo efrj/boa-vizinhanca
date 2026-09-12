@@ -169,3 +169,13 @@ services:
     volumes:
       - ./phrases:/app/phrases
 
+  haskell:
+    build:
+      context: ./backend/haskell
+    ports:
+      - 8017:8000
+    restart: unless-stopped
+    container_name: chaves.haskell
+    volumes:
+      - ./phrases:/app/phrases
+

@@ -531,23 +531,6 @@
         "Desistir é para os fracos... faça como eu: nem tente!",
         "Mais rápido que uma tartaruga, mais forte que um rato, mais inteligente que um jumento... É o Chapolin Colorado!"
     ],
-    "super_sam": [
-        "Time is money, oh yeah!",
-        "Eu sou o Super Sam, vindo diretamente dos Estados Unidos da América!",
-        "Look here, mister: tempo é dinheiro, e os meus honorários contam em segundos!",
-        "Dólares, dollars, money, oh yeah!",
-        "Com a minha sacola cheia de dólares eu resolvo qualquer conflito neste hemisfério!",
-        "All right, boy! Deixe o trabalho duro com quem tem liquidez e armamento profissional!",
-        "O Chapolin Colorado é um herói de terceiro mundo, sem conta bancária!",
-        "No, no, no! Aqui não existe almoço grátis e nem salvação filantrópica!",
-        "Eu tenho autorização expressa do Departamento de Estado para pacificar esse recinto!",
-        "God bless America e salvem as taxas de câmbio favoráveis aos nossos negócios!",
-        "Very well! Agora passem a recompensa em notas limpas antes da inflação comer o valor!",
-        "Minha arma secreta tem precisão matemática: é o peso do dólar contra a criminalidade!",
-        "Eu não salvo nem o meu semelhante se houver inadimplência contratual prévia!",
-        "Listen to me! O ócio e os orçamentos equilibrados são os grandes perigos da civilização!",
-        "Missão encerrada: enviem a fatura para o Tesouro Nacional com acréscimo de despesas!"
-    ],
     "tripa_seca": [
         "Ah, é? Pra acabar de cumprir minha pena de 99 anos de cadeia? Nem pensar!",
         "Se tem tanta pressa assim de me prender, por que não vem aqui me buscar?!",
@@ -581,6 +564,23 @@
         "Chegou a sua hora de acertar as contas com a justiça da pólvora, forasteiro!",
         "Essa cidade não suporta o peso de nós dois, Chapolin, prepare o funeral!",
         "Eu posso ter Quase Nada de cérebro, mas tenho revólver carregado até a boca!"
+    ],
+    "super_sam": [
+        "Time is money, oh yeah!",
+        "Eu sou o Super Sam, vindo diretamente dos Estados Unidos da América!",
+        "Look here, mister: tempo é dinheiro, e os meus honorários contam em segundos!",
+        "Dólares, dollars, money, oh yeah!",
+        "Com a minha sacola cheia de dólares eu resolvo qualquer conflito neste hemisfério!",
+        "All right, boy! Deixe o trabalho duro com quem tem liquidez e armamento profissional!",
+        "O Chapolin Colorado é um herói de terceiro mundo, sem conta bancária!",
+        "No, no, no! Aqui não existe almoço grátis e nem salvação filantrópica!",
+        "Eu tenho autorização expressa do Departamento de Estado para pacificar esse recinto!",
+        "God bless America e salvem as taxas de câmbio favoráveis aos nossos negócios!",
+        "Very well! Agora passem a recompensa em notas limpas antes da inflação comer o valor!",
+        "Minha arma secreta tem precisão matemática: é o peso do dólar contra a criminalidade!",
+        "Eu não salvo nem o meu semelhante se houver inadimplência contratual prévia!",
+        "Listen to me! O ócio e os orçamentos equilibrados são os grandes perigos da civilização!",
+        "Missão encerrada: enviem a fatura para o Tesouro Nacional com acréscimo de despesas!"
     ],
     "alma_negra": [
         "Eu mesmo... capitão de todos os corsários dos sete mares. Ou melhor dizendo, dos seis mares — porque um já é mar morto!",

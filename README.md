@@ -110,6 +110,12 @@ Cada personagem do seriado "Chaves" exibe uma frase retornada de uma aplicação
         <td style="text-align: center;"><img src="frontend/img/dart.png" alt="Dart" height="50"></td>
         <td style="text-align: center;">http://localhost:8015</td>
     </tr>
+    <tr>
+        <td style="text-align: center;"><img src="frontend/img/tripa-seca.png" alt="Tripa Seca" height="100"></td>
+        <td style="text-align: center;">Tripa Seca</td>
+        <td style="text-align: center;"><img src="frontend/img/haskell.png" alt="Haskell" height="50"></td>
+        <td style="text-align: center;">http://localhost:8017</td>
+    </tr>
 </table> 
  
 
@@ -171,7 +177,7 @@ Caso você queira mudar o endereço de acesso aos backends, edite o arquivo `fro
 
 ## Tecnologias
 
-Este projeto demonstra a integração de 15 linguagens de programação diferentes:
+Este projeto demonstra a integração de 17 linguagens de programação diferentes:
 
 - PHP
 - Ruby
@@ -186,8 +192,10 @@ Este projeto demonstra a integração de 15 linguagens de programação diferent
 - Crystal
 - TypeScript
 - CoffeeScript
+- Scala
 - C++
 - Dart
+- Haskell
 
 Todas orquestradas com Docker Compose e servidas através de um frontend HTML/CSS/JavaScript.
 

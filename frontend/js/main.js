@@ -26,7 +26,8 @@ document.addEventListener('alpine:init', () => {
             { id: 13, name: 'Paty', port: 8013, lang: 'CoffeeScript', avatar: '/img/paty.png', langLogo: '/img/coffeescript.png', phrase: 'Carregando...', loading: true, status: 'loading', style: 'card-theme-paty' },
             { id: 16, name: 'Dona Neves', port: 8016, lang: 'Scala', avatar: '/img/dona-neves.png', langLogo: '/img/scala.png', phrase: 'Carregando...', loading: true, status: 'loading', style: 'card-theme-dona-neves' },
             { id: 14, name: 'Dr. Chapatin', port: 8014, lang: 'C++', avatar: '/img/dr-chapatin.png', langLogo: '/img/c++.png', phrase: 'Carregando...', loading: true, status: 'loading', style: 'card-theme-dr-chapatin' },
-            { id: 15, name: 'Chapolin Colorado', port: 8015, lang: 'Dart', avatar: '/img/chapolin-colorado.png', langLogo: '/img/dart.png', phrase: 'Carregando...', loading: true, status: 'loading', style: 'card-theme-chapolin-colorado' }
+            { id: 15, name: 'Chapolin Colorado', port: 8015, lang: 'Dart', avatar: '/img/chapolin-colorado.png', langLogo: '/img/dart.png', phrase: 'Carregando...', loading: true, status: 'loading', style: 'card-theme-chapolin-colorado' },
+            { id: 17, name: 'Tripa Seca', port: 8017, lang: 'Haskell', avatar: '/img/tripa-seca.png', langLogo: '/img/haskell.png', phrase: 'Carregando...', loading: true, status: 'loading', style: 'card-theme-tripa-seca' }
         ],
 
         async init() {
