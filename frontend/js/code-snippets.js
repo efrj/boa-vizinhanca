@@ -971,8 +971,18 @@ If fso.FileExists(path) Then
     content = file.ReadAll
     file.Close
 
+    Dim posStart, posEnd, jsonText
+    jsonText = content
+    posStart = InStr(content, """racha_cuca""")
+    If posStart > 0 Then
+        posEnd = InStr(posStart, content, "]")
+        If posEnd > posStart Then
+            jsonText = "{" & Mid(content, posStart, posEnd - posStart + 1) & "}"
+        End If
+    End If
+
     Set oJSON = New aspJSON
-    oJSON.loadJSON(content)
+    oJSON.loadJSON(jsonText)
 
     If oJSON.data.Exists("racha_cuca") Then
         Set phrases = oJSON.data("racha_cuca")
