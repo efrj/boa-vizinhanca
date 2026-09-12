@@ -189,3 +189,13 @@ services:
     volumes:
       - ./phrases:/app/phrases
 
+  nim:
+    build:
+      context: ./backend/nim
+    ports:
+      - 8019:8000
+    restart: unless-stopped
+    container_name: chaves.nim
+    volumes:
+      - ./phrases:/app/phrases
+
