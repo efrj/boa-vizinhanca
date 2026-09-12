@@ -179,3 +179,13 @@ services:
     volumes:
       - ./phrases:/app/phrases
 
+  ocaml:
+    build:
+      context: ./backend/ocaml
+    ports:
+      - 8018:8000
+    restart: unless-stopped
+    container_name: chaves.ocaml
+    volumes:
+      - ./phrases:/app/phrases
+
