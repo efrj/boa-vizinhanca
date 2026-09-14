@@ -49,7 +49,7 @@ public class Main {
             try {
                 JSONParser parser = new JSONParser();
                 JSONObject jsonObject = (JSONObject) parser.parse(new FileReader(JSON_FILE_PATH));
-                JSONArray jsonArray = (JSONArray) jsonObject.get("seu_barriga");
+                JSONArray jsonArray = (JSONArray) jsonObject.get("dona_florinda");
 
                 String[] phrases = new String[jsonArray.size()];
                 for (int i = 0; i < jsonArray.size(); i++) {

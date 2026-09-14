@@ -13,13 +13,13 @@ int main() {
         json phrases;
         file >> phrases;
 
-        auto& doutorChapatin = phrases["doutor_chapatin"];
+        auto& seuBarriga = phrases["seu_barriga"];
         std::random_device rd;
         std::mt19937 gen(rd());
-        std::uniform_int_distribution<> dis(0, doutorChapatin.size() - 1);
+        std::uniform_int_distribution<> dis(0, seuBarriga.size() - 1);
         int indice = dis(gen);
 
-        std::string randomphrase = doutorChapatin[indice];
+        std::string randomphrase = seuBarriga[indice];
         res.set_content(randomphrase, "text/plain");
         res.set_header("Access-Control-Allow-Origin", "*");
     });

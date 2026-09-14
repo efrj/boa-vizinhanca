@@ -11,10 +11,10 @@ class RequestHandler
       data = fs.readFileSync jsonFilePath, 'utf-8'
       phrases = JSON.parse data
 
-      if 'paty' of phrases
-        phrases['paty']
+      if 'popis' of phrases
+        phrases['popis']
       else
-        console.log 'Paty phrases not found in JSON file.'
+        console.log 'Popis phrases not found in JSON file.'
         []
 
     catch e
@@ -29,7 +29,7 @@ class RequestHandler
     phrases = @readPhrases()
 
     if not phrases.length
-      res.write 'Error reading Paty phrases.'
+      res.write 'Error reading Popis phrases.'
       res.end()
       return
 

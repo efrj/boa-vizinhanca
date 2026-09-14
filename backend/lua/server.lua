@@ -13,10 +13,10 @@ local function readPhrases()
 
     local data = json.decode(content)
 
-    if data and data["seu_madruga"] then
-        return data["seu_madruga"]
+    if data and data["dona_neves"] then
+        return data["dona_neves"]
     else
-        print("Seu Madruga phrases not found in JSON file.")
+        print("Dona Neves phrases not found in JSON file.")
         return {}
     end
 end

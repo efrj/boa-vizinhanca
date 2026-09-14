@@ -13,7 +13,7 @@ my $json_text = do {
     <$json_fh>
 };
 
-my $phrases_ref = decode_json($json_text)->{chiquinha};
+my $phrases_ref = decode_json($json_text)->{dona_clotilde};
 
 my $server = IO::Socket::INET->new(
     LocalAddr => '0.0.0.0',

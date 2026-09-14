@@ -38,7 +38,7 @@ object Main {
       if (phrases.nonEmpty) {
         phrases(Random.nextInt(phrases.length))
       } else {
-        "Error reading Dona Neves phrases."
+        "Error reading Racha Cuca phrases."
       }
     }
 
@@ -46,7 +46,7 @@ object Main {
       try {
         val parser = new JSONParser()
         val jsonObject = parser.parse(new FileReader(JsonFilePath)).asInstanceOf[JSONObject]
-        val jsonArray = jsonObject.get("dona_neves").asInstanceOf[JSONArray]
+        val jsonArray = jsonObject.get("racha_cuca").asInstanceOf[JSONArray]
 
         val result = new Array[String](jsonArray.size())
         for (i <- 0 until jsonArray.size()) {

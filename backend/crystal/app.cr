@@ -12,7 +12,7 @@ def random_phrase(phrases)
 end
 
 server = HTTP::Server.new do |context|
-  phrases = read_phrases("./phrases/phrases.json")["popis"]
+  phrases = read_phrases("./phrases/phrases.json")["paty"]
   phrase = random_phrase(phrases)
 
   context.response.headers.add("Access-Control-Allow-Origin", "*")

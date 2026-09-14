@@ -15,7 +15,7 @@ If fso.FileExists(path) Then
 
     Dim posStart, posEnd, jsonText
     jsonText = content
-    posStart = InStr(content, """racha_cuca""")
+    posStart = InStr(content, """seu_madruga""")
     If posStart > 0 Then
         posEnd = InStr(posStart, content, "]")
         If posEnd > posStart Then
@@ -26,18 +26,18 @@ If fso.FileExists(path) Then
     Set oJSON = New aspJSON
     oJSON.loadJSON(jsonText)
 
-    If oJSON.data.Exists("racha_cuca") Then
-        Set phrases = oJSON.data("racha_cuca")
+    If oJSON.data.Exists("seu_madruga") Then
+        Set phrases = oJSON.data("seu_madruga")
         count = phrases.Count
         If count > 0 Then
             Randomize
             randIdx = Int(Rnd * count)
             Response.Write phrases.item(randIdx)
         Else
-            Response.Write "Error reading Racha Cuca phrases."
+            Response.Write "Error reading Seu Madruga phrases."
         End If
     Else
-        Response.Write "Error reading Racha Cuca phrases."
+        Response.Write "Error reading Seu Madruga phrases."
     End If
 Else
     Response.Write "Error reading JSON file: phrases/phrases.json not found."
