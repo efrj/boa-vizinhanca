@@ -19,139 +19,57 @@ echo $randomphrase;
 ?>`
     },
     2: {
-        filename: "app.py",
-        language: "Python",
-        mode: "python",
-        prismLang: "python",
-        code: `import json
-import random
-from http.server import BaseHTTPRequestHandler, HTTPServer
+        filename: "index.asp",
+        language: "ASP (VBScript)",
+        mode: "vbnet",
+        prismLang: "vbnet",
+        code: `<!--#include file="aspjson.asp"-->
+<%
+Response.CharSet = "UTF-8"
+Response.ContentType = "text/html; charset=utf-8"
+Response.AddHeader "Access-Control-Allow-Origin", "*"
 
-class RequestHandler(BaseHTTPRequestHandler):
-    def do_GET(self):
-        self.send_response(200)
-        self.send_header('Content-type', 'text/html;charset=UTF-8')
-        self.send_header('Access-Control-Allow-Origin', '*')
-        self.end_headers()
+Dim fso, file, content, path, oJSON, phrases, count, randIdx
+Set fso = Server.CreateObject("Scripting.FileSystemObject")
+path = Server.MapPath("phrases/phrases.json")
 
-        phrases = read_phrases()
+If fso.FileExists(path) Then
+    Set file = fso.OpenTextFile(path, 1)
+    content = file.ReadAll
+    file.Close
 
-        if not phrases:
-            self.wfile.write('Error reading Dona Florinda phrases.'.encode())
-            return
+    Dim posStart, posEnd, jsonText
+    jsonText = content
+    posStart = InStr(content, """seu_madruga""")
+    If posStart > 0 Then
+        posEnd = InStr(posStart, content, "]")
+        If posEnd > posStart Then
+            jsonText = "{" & Mid(content, posStart, posEnd - posStart + 1) & "}"
+        End If
+    End If
 
-        random_phrase = random.choice(phrases)
-        self.wfile.write(random_phrase.encode())
+    Set oJSON = New aspJSON
+    oJSON.loadJSON(jsonText)
 
-def read_phrases():
-    try:
-        json_file_path = 'phrases/phrases.json'
-        with open(json_file_path, 'r', encoding='utf-8') as file:
-            data = json.load(file)
-
-        if 'dona_florinda' in data:
-            return data['dona_florinda']
-        else:
-            print('Dona Florinda phrases not found in JSON file.')
-            return []
-    except Exception as e:
-        print(f'Error reading JSON file: {e}')
-        return []
-
-def run_server():
-    host = '0.0.0.0'
-    port = 8000
-    server_address = (host, port)
-    httpd = HTTPServer(server_address, RequestHandler)
-    print(f'Server running at http://{host}:{port}/')
-    httpd.serve_forever()
-
-if __name__ == '__main__':
-    run_server()`
+    If oJSON.data.Exists("seu_madruga") Then
+        Set phrases = oJSON.data("seu_madruga")
+        count = phrases.Count
+        If count > 0 Then
+            Randomize
+            randIdx = Int(Rnd * count)
+            Response.Write phrases.item(randIdx)
+        Else
+            Response.Write "Error reading Seu Madruga phrases."
+        End If
+    Else
+        Response.Write "Error reading Seu Madruga phrases."
+    End If
+Else
+    Response.Write "Error reading JSON file: phrases/phrases.json not found."
+End If
+%>`
     },
     3: {
-        filename: "server.lua",
-        language: "Lua",
-        mode: "lua",
-        prismLang: "lua",
-        code: `local socket = require("socket")
-local json = require("dkjson")
-
-local function readPhrases()
-    local file, err = io.open("phrases/phrases.json", "r")
-    if not file then
-        print("Error reading JSON file: " .. err)
-        return {}
-    end
-
-    local content = file:read("*all")
-    file:close()
-
-    local data = json.decode(content)
-
-    if data and data["seu_madruga"] then
-        return data["seu_madruga"]
-    else
-        print("Seu Madruga phrases not found in JSON file.")
-        return {}
-    end
-end
-
-local phrases = readPhrases()
-
-local function randomPhrase()
-    local index = math.random(1, #phrases)
-    return phrases[index]
-end
-
-local server = assert(socket.bind("*", 8000))
-
-print("Server running at http://localhost:8000/")
-
-while true do
-    local client, err = server:accept()
-
-    if client then
-        local request = client:receive()
-
-        local response = "HTTP/1.1 200 OK\\r\\n"
-        response = response .. "Access-Control-Allow-Origin: *\\r\\n"
-        response = response .. "Content-Type: text/html;charset=UTF-8\\r\\n"
-        response = response .. "\\r\\n"
-        response = response .. randomPhrase()
-
-        client:send(response)
-
-        client:close()
-    end
-end`
-    },
-    4: {
-        filename: "app.rb",
-        language: "Ruby",
-        mode: "ruby",
-        prismLang: "ruby",
-        code: `require 'webrick'
-require 'json'
-
-phrases = JSON.parse(File.read(File.expand_path('phrases/phrases.json', __dir__)))
-
-server = WEBrick::HTTPServer.new(Port: 8000)
-
-server.mount_proc '/' do |request, response|
-  professor_girafales_phrases = phrases['professor_girafales']
-  random_phrase = professor_girafales_phrases.sample
-  response['Content-Type'] = 'text/html;charset=UTF-8'
-  response['Access-Control-Allow-Origin'] = '*'
-  response['Access-Control-Allow-Methods'] = 'GET'
-  response['Access-Control-Max-Age'] = '86400'
-  response.body = random_phrase
-end
-
-trap('INT') { server.shutdown }
-server.start`
-    },
-    5: {
         filename: "app.js",
         language: "Node.js",
         mode: "javascript",
@@ -202,7 +120,192 @@ http.createServer(function (req, res) {
   console.log('Server running at http://localhost:3000');
 });`
     },
+    4: {
+        filename: "app.py",
+        language: "Python",
+        mode: "python",
+        prismLang: "python",
+        code: `import json
+import random
+from http.server import BaseHTTPRequestHandler, HTTPServer
+
+class RequestHandler(BaseHTTPRequestHandler):
+    def do_GET(self):
+        self.send_response(200)
+        self.send_header('Content-type', 'text/html;charset=UTF-8')
+        self.send_header('Access-Control-Allow-Origin', '*')
+        self.end_headers()
+
+        phrases = read_phrases()
+
+        if not phrases:
+            self.wfile.write('Error reading Chiquinha phrases.'.encode())
+            return
+
+        random_phrase = random.choice(phrases)
+        self.wfile.write(random_phrase.encode())
+
+def read_phrases():
+    try:
+        json_file_path = 'phrases/phrases.json'
+        with open(json_file_path, 'r', encoding='utf-8') as file:
+            data = json.load(file)
+
+        if 'chiquinha' in data:
+            return data['chiquinha']
+        else:
+            print('Chiquinha phrases not found in JSON file.')
+            return []
+    except Exception as e:
+        print(f'Error reading JSON file: {e}')
+        return []
+
+def run_server():
+    host = '0.0.0.0'
+    port = 8000
+    server_address = (host, port)
+    httpd = HTTPServer(server_address, RequestHandler)
+    print(f'Server running at http://{host}:{port}/')
+    httpd.serve_forever()
+
+if __name__ == '__main__':
+    run_server()`
+    },
+    5: {
+        filename: "Main.java",
+        language: "Java",
+        mode: "text/x-java",
+        prismLang: "java",
+        code: `import com.sun.net.httpserver.HttpExchange;
+import com.sun.net.httpserver.HttpHandler;
+import com.sun.net.httpserver.HttpServer;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.net.InetSocketAddress;
+
+public class Main {
+
+    private static final String JSON_FILE_PATH = "phrases/phrases.json";
+
+    public static void main(String[] args) throws IOException {
+        HttpServer server = HttpServer.create(new InetSocketAddress(8000), 0);
+        server.createContext("/", new MyHandler());
+        server.setExecutor(null);
+        server.start();
+    }
+
+    static class MyHandler implements HttpHandler {
+        private final String[] phrases;
+
+        public MyHandler() {
+            this.phrases = loadPhrasesFromJson();
+        }
+
+        @Override
+        public void handle(HttpExchange exchange) throws IOException {
+            String response = getRandomPhrase();
+            exchange.getResponseHeaders().set("Content-Type", "text/html; charset=UTF-8");
+            exchange.getResponseHeaders().set("Access-Control-Allow-Origin", "*");
+            exchange.getResponseHeaders().set("Cache-Control", "no-cache, no-store, must-revalidate");
+            byte[] responseBytes = response.getBytes("UTF-8");
+            exchange.sendResponseHeaders(200, responseBytes.length);
+            OutputStream os = exchange.getResponseBody();
+            os.write(responseBytes);
+            os.close();
+        }
+
+        private String getRandomPhrase() {
+            int randomIndex = (int) (Math.random() * phrases.length);
+            return phrases[randomIndex];
+        }
+
+        private String[] loadPhrasesFromJson() {
+            try {
+                JSONParser parser = new JSONParser();
+                JSONObject jsonObject = (JSONObject) parser.parse(new FileReader(JSON_FILE_PATH));
+                JSONArray jsonArray = (JSONArray) jsonObject.get("dona_florinda");
+
+                String[] phrases = new String[jsonArray.size()];
+                for (int i = 0; i < jsonArray.size(); i++) {
+                    phrases[i] = (String) jsonArray.get(i);
+                }
+
+                return phrases;
+            } catch (IOException | ParseException e) {
+                e.printStackTrace();
+                return new String[0];
+            }
+        }
+    }
+}`
+    },
     6: {
+        filename: "app.rb",
+        language: "Ruby",
+        mode: "ruby",
+        prismLang: "ruby",
+        code: `require 'webrick'
+require 'json'
+
+phrases = JSON.parse(File.read(File.expand_path('phrases/phrases.json', __dir__)))
+
+server = WEBrick::HTTPServer.new(Port: 8000)
+
+server.mount_proc '/' do |request, response|
+  professor_girafales_phrases = phrases['professor_girafales']
+  random_phrase = professor_girafales_phrases.sample
+  response['Content-Type'] = 'text/html;charset=UTF-8'
+  response['Access-Control-Allow-Origin'] = '*'
+  response['Access-Control-Allow-Methods'] = 'GET'
+  response['Access-Control-Max-Age'] = '86400'
+  response.body = random_phrase
+end
+
+trap('INT') { server.shutdown }
+server.start`
+    },
+    7: {
+        filename: "random_phrase.cpp",
+        language: "C++",
+        mode: "text/x-c++src",
+        prismLang: "cpp",
+        code: `#include <httplib.h>
+#include <nlohmann/json.hpp>
+#include <fstream>
+#include <random>
+
+using json = nlohmann::json;
+
+int main() {
+    httplib::Server svr;
+
+    svr.Get("/", [](const httplib::Request&, httplib::Response& res) {
+        std::ifstream file("phrases/phrases.json");
+        json phrases;
+        file >> phrases;
+
+        auto& seuBarriga = phrases["seu_barriga"];
+        std::random_device rd;
+        std::mt19937 gen(rd());
+        std::uniform_int_distribution<> dis(0, seuBarriga.size() - 1);
+        int indice = dis(gen);
+
+        std::string randomphrase = seuBarriga[indice];
+        res.set_content(randomphrase, "text/plain");
+        res.set_header("Access-Control-Allow-Origin", "*");
+    });
+
+    svr.listen("0.0.0.0", 8080);
+    return 0;
+}`
+    },
+    8: {
         filename: "script.pl",
         language: "Perl",
         mode: "perl",
@@ -222,7 +325,7 @@ my $json_text = do {
     <$json_fh>
 };
 
-my $phrases_ref = decode_json($json_text)->{chiquinha};
+my $phrases_ref = decode_json($json_text)->{dona_clotilde};
 
 my $server = IO::Socket::INET->new(
     LocalAddr => '0.0.0.0',
@@ -259,7 +362,7 @@ sub randomPhrase {
     return Encode::encode('UTF-8', $phrase);
 }`
     },
-    7: {
+    9: {
         filename: "main.go",
         language: "Go",
         mode: "go",
@@ -318,81 +421,7 @@ func main() {
     http.ListenAndServe(":8000", nil)
 }`
     },
-    8: {
-        filename: "Main.java",
-        language: "Java",
-        mode: "text/x-java",
-        prismLang: "java",
-        code: `import com.sun.net.httpserver.HttpExchange;
-import com.sun.net.httpserver.HttpHandler;
-import com.sun.net.httpserver.HttpServer;
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
-
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.OutputStream;
-import java.net.InetSocketAddress;
-
-public class Main {
-
-    private static final String JSON_FILE_PATH = "phrases/phrases.json";
-
-    public static void main(String[] args) throws IOException {
-        HttpServer server = HttpServer.create(new InetSocketAddress(8000), 0);
-        server.createContext("/", new MyHandler());
-        server.setExecutor(null);
-        server.start();
-    }
-
-    static class MyHandler implements HttpHandler {
-        private final String[] phrases;
-
-        public MyHandler() {
-            this.phrases = loadPhrasesFromJson();
-        }
-
-        @Override
-        public void handle(HttpExchange exchange) throws IOException {
-            String response = getRandomPhrase();
-            exchange.getResponseHeaders().set("Content-Type", "text/html; charset=UTF-8");
-            exchange.getResponseHeaders().set("Access-Control-Allow-Origin", "*");
-            exchange.getResponseHeaders().set("Cache-Control", "no-cache, no-store, must-revalidate");
-            byte[] responseBytes = response.getBytes("UTF-8");
-            exchange.sendResponseHeaders(200, responseBytes.length);
-            OutputStream os = exchange.getResponseBody();
-            os.write(responseBytes);
-            os.close();
-        }
-
-        private String getRandomPhrase() {
-            int randomIndex = (int) (Math.random() * phrases.length);
-            return phrases[randomIndex];
-        }
-
-        private String[] loadPhrasesFromJson() {
-            try {
-                JSONParser parser = new JSONParser();
-                JSONObject jsonObject = (JSONObject) parser.parse(new FileReader(JSON_FILE_PATH));
-                JSONArray jsonArray = (JSONArray) jsonObject.get("seu_barriga");
-
-                String[] phrases = new String[jsonArray.size()];
-                for (int i = 0; i < jsonArray.size(); i++) {
-                    phrases[i] = (String) jsonArray.get(i);
-                }
-
-                return phrases;
-            } catch (IOException | ParseException e) {
-                e.printStackTrace();
-                return new String[0];
-            }
-        }
-    }
-}`
-    },
-    9: {
+    10: {
         filename: "main.swift",
         language: "Swift",
         mode: "swift",
@@ -408,12 +437,12 @@ guard let jsonData = FileManager.default.contents(atPath: jsonPath) else {
 }
 
 let json = try! JSONSerialization.jsonObject(with: jsonData, options: []) as! [String: [String]]
-let donaClotildePhrases = json["dona_clotilde"] ?? []
+let godinezPhrases = json["godinez"] ?? []
 
 let router = Router()
 
 router.get("/") { _, response, _ in
-    let randomPhrase = donaClotildePhrases.randomElement() ?? ""
+    let randomPhrase = godinezPhrases.randomElement() ?? ""
     response.headers.setType("text/html", charset: "UTF-8")
     response.headers["Access-Control-Allow-Origin"] = "*"
     response.send(randomPhrase)
@@ -422,7 +451,7 @@ router.get("/") { _, response, _ in
 Kitura.addHTTPServer(onPort: 8000, with: router)
 Kitura.run()`
     },
-    10: {
+    11: {
         filename: "Jaiminho.sh",
         language: "Shell Script",
         mode: "shell",
@@ -436,7 +465,118 @@ while true; do
   echo -e "HTTP/1.1 200 OK\\nContent-Type: text/html;charset=UTF-8\\nAccess-Control-Allow-Origin: *\\n\\n$phrase" | nc -l -p 80 -q 1
 done`
     },
-    11: {
+    12: {
+        filename: "server.lua",
+        language: "Lua",
+        mode: "lua",
+        prismLang: "lua",
+        code: `local socket = require("socket")
+local json = require("dkjson")
+
+local function readPhrases()
+    local file, err = io.open("phrases/phrases.json", "r")
+    if not file then
+        print("Error reading JSON file: " .. err)
+        return {}
+    end
+
+    local content = file:read("*all")
+    file:close()
+
+    local data = json.decode(content)
+
+    if data and data["dona_neves"] then
+        return data["dona_neves"]
+    else
+        print("Dona Neves phrases not found in JSON file.")
+        return {}
+    end
+end
+
+local phrases = readPhrases()
+
+local function randomPhrase()
+    local index = math.random(1, #phrases)
+    return phrases[index]
+end
+
+local server = assert(socket.bind("*", 8000))
+
+print("Server running at http://localhost:8000/")
+
+while true do
+    local client, err = server:accept()
+
+    if client then
+        local request = client:receive()
+
+        local response = "HTTP/1.1 200 OK\\r\\n"
+        response = response .. "Access-Control-Allow-Origin: *\\r\\n"
+        response = response .. "Content-Type: text/html;charset=UTF-8\\r\\n"
+        response = response .. "\\r\\n"
+        response = response .. randomPhrase()
+
+        client:send(response)
+
+        client:close()
+    end
+end`
+    },
+    13: {
+        filename: "server.coffee",
+        language: "CoffeeScript",
+        mode: "coffeescript",
+        prismLang: "coffeescript",
+        code: `http = require 'http'
+fs = require 'fs'
+
+class RequestHandler
+  constructor: ->
+    @server = http.createServer @handleRequest.bind(this)
+
+  readPhrases: =>
+    try
+      jsonFilePath = 'phrases/phrases.json'
+      data = fs.readFileSync jsonFilePath, 'utf-8'
+      phrases = JSON.parse data
+
+      if 'popis' of phrases
+        phrases['popis']
+      else
+        console.log 'Popis phrases not found in JSON file.'
+        []
+
+    catch e
+      console.log "Error reading JSON file: #{e}"
+      []
+
+  handleRequest: (req, res) =>
+    res.writeHead 200,
+      'Content-type': 'text/html;charset=UTF-8',
+      'Access-Control-Allow-Origin': '*'
+
+    phrases = @readPhrases()
+
+    if not phrases.length
+      res.write 'Error reading Popis phrases.'
+      res.end()
+      return
+
+    randomPhrase = phrases[Math.floor(Math.random() * phrases.length)]
+    res.write randomPhrase
+    res.end()
+
+  runServer: =>
+    host = '0.0.0.0'
+    port = 8000
+
+    @server.listen port, host, =>
+      console.log "Server running at http://#{host}:#{port}/"
+
+serverInstance = new RequestHandler()
+serverInstance.runServer()`
+    },
+    14: {
         filename: "app.cr",
         language: "Crystal",
         mode: "ruby",
@@ -455,7 +595,7 @@ def random_phrase(phrases)
 end
 
 server = HTTP::Server.new do |context|
-  phrases = read_phrases("./phrases/phrases.json")["popis"]
+  phrases = read_phrases("./phrases/phrases.json")["paty"]
   phrase = random_phrase(phrases)
 
   context.response.headers.add("Access-Control-Allow-Origin", "*")
@@ -468,7 +608,7 @@ end
 puts "Listening on http://0.0.0.0"
 server.listen("0.0.0.0", 80)`
     },
-    12: {
+    15: {
         filename: "server.ts",
         language: "TypeScript",
         mode: "text/typescript",
@@ -489,10 +629,10 @@ class RequestHandler {
       const data = fs.readFileSync(jsonFilePath, 'utf-8');
       const phrases = JSON.parse(data);
 
-      if ('godinez' in phrases) {
-        return phrases['godinez'];
+      if ('chapolin_colorado' in phrases) {
+        return phrases['chapolin_colorado'];
       } else {
-        console.log('Godinez phrases not found in JSON file.');
+        console.log('Chapolin Colorado phrases not found in JSON file.');
         return [];
       }
     } catch (e) {
@@ -510,7 +650,7 @@ class RequestHandler {
     const phrases = this.readPhrases();
 
     if (!phrases.length) {
-      res.write('Error reading Godinez phrases.');
+      res.write('Error reading Chapolin Colorado phrases.');
       res.end();
       return;
     }
@@ -533,192 +673,7 @@ class RequestHandler {
 const serverInstance = new RequestHandler();
 serverInstance.runServer();`
     },
-    13: {
-        filename: "server.coffee",
-        language: "CoffeeScript",
-        mode: "coffeescript",
-        prismLang: "coffeescript",
-        code: `http = require 'http'
-fs = require 'fs'
-
-class RequestHandler
-  constructor: ->
-    @server = http.createServer @handleRequest.bind(this)
-
-  readPhrases: =>
-    try
-      jsonFilePath = 'phrases/phrases.json'
-      data = fs.readFileSync jsonFilePath, 'utf-8'
-      phrases = JSON.parse data
-
-      if 'paty' of phrases
-        phrases['paty']
-      else
-        console.log 'Paty phrases not found in JSON file.'
-        []
-
-    catch e
-      console.log "Error reading JSON file: #{e}"
-      []
-
-  handleRequest: (req, res) =>
-    res.writeHead 200,
-      'Content-type': 'text/html;charset=UTF-8',
-      'Access-Control-Allow-Origin': '*'
-
-    phrases = @readPhrases()
-
-    if not phrases.length
-      res.write 'Error reading Paty phrases.'
-      res.end()
-      return
-
-    randomPhrase = phrases[Math.floor(Math.random() * phrases.length)]
-    res.write randomPhrase
-    res.end()
-
-  runServer: =>
-    host = '0.0.0.0'
-    port = 8000
-
-    @server.listen port, host, =>
-      console.log "Server running at http://#{host}:#{port}/"
-
-serverInstance = new RequestHandler()
-serverInstance.runServer()`
-    },
-    14: {
-        filename: "random_phrase.cpp",
-        language: "C++",
-        mode: "text/x-c++src",
-        prismLang: "cpp",
-        code: `#include <httplib.h>
-#include <nlohmann/json.hpp>
-#include <fstream>
-#include <random>
-
-using json = nlohmann::json;
-
-int main() {
-    httplib::Server svr;
-
-    svr.Get("/", [](const httplib::Request&, httplib::Response& res) {
-        std::ifstream file("phrases/phrases.json");
-        json phrases;
-        file >> phrases;
-
-        auto& doutorChapatin = phrases["doutor_chapatin"];
-        std::random_device rd;
-        std::mt19937 gen(rd());
-        std::uniform_int_distribution<> dis(0, doutorChapatin.size() - 1);
-        int indice = dis(gen);
-
-        std::string randomphrase = doutorChapatin[indice];
-        res.set_content(randomphrase, "text/plain");
-        res.set_header("Access-Control-Allow-Origin", "*");
-    });
-
-    svr.listen("0.0.0.0", 8080);
-    return 0;
-}`
-    },
-    15: {
-        filename: "app.dart",
-        language: "Dart",
-        mode: "dart",
-        prismLang: "dart",
-        code: `import 'dart:convert';
-import 'dart:io';
-import 'dart:math';
-import 'package:http/http.dart' as http;
-
-void main() async {
-  final phrasesJson = await File('phrases/phrases.json').readAsString();
-  final phrases = jsonDecode(phrasesJson);
-
-  final server = await HttpServer.bind(InternetAddress.anyIPv4, 3000);
-  server.listen((request) async {
-    final randomPhrase = phrases['chapolin_colorado'][Random().nextInt(phrases['chapolin_colorado'].length)];
-    request.response
-      ..headers.contentType = ContentType.text
-      ..headers.add('Access-Control-Allow-Origin', '*')
-      ..write(randomPhrase)
-      ..close();
-  });
-
-  print('Server started at http://0.0.0.0:3000');
-}`
-    },
     16: {
-        filename: "Main.scala",
-        language: "Scala",
-        mode: "text/x-scala",
-        prismLang: "scala",
-        code: `import com.sun.net.httpserver.{HttpExchange, HttpHandler, HttpServer}
-import java.io.FileReader
-import java.net.InetSocketAddress
-import java.nio.charset.StandardCharsets
-import org.json.simple.{JSONArray, JSONObject}
-import org.json.simple.parser.JSONParser
-import scala.util.Random
-
-object Main {
-  private val JsonFilePath = "phrases/phrases.json"
-
-  def main(args: Array[String]): Unit = {
-    val server = HttpServer.create(new InetSocketAddress(8000), 0)
-    server.createContext("/", new MyHandler())
-    server.setExecutor(null)
-    server.start()
-    println("Server running at http://0.0.0.0:8000/")
-  }
-
-  class MyHandler extends HttpHandler {
-    private val phrases: Array[String] = loadPhrasesFromJson()
-
-    override def handle(exchange: HttpExchange): Unit = {
-      val response = getRandomPhrase()
-      exchange.getResponseHeaders.set("Content-Type", "text/html; charset=UTF-8")
-      exchange.getResponseHeaders.set("Access-Control-Allow-Origin", "*")
-      exchange.getResponseHeaders.set("Cache-Control", "no-cache, no-store, must-revalidate")
-
-      val responseBytes = response.getBytes(StandardCharsets.UTF_8)
-      exchange.sendResponseHeaders(200, responseBytes.length)
-
-      val os = exchange.getResponseBody
-      os.write(responseBytes)
-      os.close()
-    }
-
-    private def getRandomPhrase(): String = {
-      if (phrases.nonEmpty) {
-        phrases(Random.nextInt(phrases.length))
-      } else {
-        "Error reading Dona Neves phrases."
-      }
-    }
-
-    private def loadPhrasesFromJson(): Array[String] = {
-      try {
-        val parser = new JSONParser()
-        val jsonObject = parser.parse(new FileReader(JsonFilePath)).asInstanceOf[JSONObject]
-        val jsonArray = jsonObject.get("dona_neves").asInstanceOf[JSONArray]
-
-        val result = new Array[String](jsonArray.size())
-        for (i <- 0 until jsonArray.size()) {
-          result(i) = jsonArray.get(i).asInstanceOf[String]
-        }
-        result
-      } catch {
-        case e: Exception =>
-          println(s"Error reading JSON file: \${e.getMessage}")
-          Array.empty[String]
-      }
-    }
-  }
-}`
-    },
-    17: {
         filename: "Main.hs",
         language: "Haskell",
         mode: "text/x-haskell",
@@ -773,7 +728,7 @@ loadPhrases = (do
         Nothing -> return (Left "Invalid JSON format")
     ) \`catch\` (\\(SomeException e) -> return (Left (show e)))`
     },
-    18: {
+    17: {
         filename: "main.ml",
         language: "OCaml",
         mode: "text/x-ocaml",
@@ -820,51 +775,7 @@ let () =
   | Ok () -> ()
   | Error e -> Printf.eprintf "Server error: %s\\n%!" (Printexc.to_string e)`
     },
-    19: {
-        filename: "server.nim",
-        language: "Nim",
-        mode: "nim",
-        prismLang: "nim",
-        code: `import asynchttpserver, asyncdispatch, json, random, strutils
-
-randomize()
-
-proc loadPhrases(): seq[string] =
-  try:
-    let jsonNode = parseFile("phrases/phrases.json")
-    if jsonNode.hasKey("super_sam"):
-      result = @[]
-      for item in jsonNode["super_sam"]:
-        result.add(item.getStr())
-    else:
-      echo "super_sam key missing"
-      result = @[]
-  except Exception as e:
-    echo "Error reading JSON file: ", e.msg
-    result = @[]
-
-proc cb(req: Request) {.async.} =
-  let currentPhrases = loadPhrases()
-  var body = ""
-  if currentPhrases.len > 0:
-    body = sample(currentPhrases)
-  else:
-    body = "Error reading Super Sam phrases."
-
-  let headers = newHttpHeaders([
-    ("Content-Type", "text/html; charset=utf-8"),
-    ("Access-Control-Allow-Origin", "*")
-  ])
-  await req.respond(Http200, body, headers)
-
-proc main() {.async.} =
-  var server = newAsyncHttpServer()
-  echo "Server running at http://0.0.0.0:8000/"
-  await server.serve(Port(8000), cb, "0.0.0.0")
-
-waitFor main()`
-    },
-    20: {
+    18: {
         filename: "main.zig",
         language: "Zig",
         mode: "zig",
@@ -951,55 +862,144 @@ pub fn main() !void {
     }
 }`
     },
+    19: {
+        filename: "server.nim",
+        language: "Nim",
+        mode: "nim",
+        prismLang: "nim",
+        code: `import asynchttpserver, asyncdispatch, json, random, strutils
+
+randomize()
+
+proc loadPhrases(): seq[string] =
+  try:
+    let jsonNode = parseFile("phrases/phrases.json")
+    if jsonNode.hasKey("super_sam"):
+      result = @[]
+      for item in jsonNode["super_sam"]:
+        result.add(item.getStr())
+    else:
+      echo "super_sam key missing"
+      result = @[]
+  except Exception as e:
+    echo "Error reading JSON file: ", e.msg
+    result = @[]
+
+proc cb(req: Request) {.async.} =
+  let currentPhrases = loadPhrases()
+  var body = ""
+  if currentPhrases.len > 0:
+    body = sample(currentPhrases)
+  else:
+    body = "Error reading Super Sam phrases."
+
+  let headers = newHttpHeaders([
+    ("Content-Type", "text/html; charset=utf-8"),
+    ("Access-Control-Allow-Origin", "*")
+  ])
+  await req.respond(Http200, body, headers)
+
+proc main() {.async.} =
+  var server = newAsyncHttpServer()
+  echo "Server running at http://0.0.0.0:8000/"
+  await server.serve(Port(8000), cb, "0.0.0.0")
+
+waitFor main()`
+    },
+    20: {
+        filename: "Main.scala",
+        language: "Scala",
+        mode: "text/x-scala",
+        prismLang: "scala",
+        code: `import com.sun.net.httpserver.{HttpExchange, HttpHandler, HttpServer}
+import java.io.FileReader
+import java.net.InetSocketAddress
+import java.nio.charset.StandardCharsets
+import org.json.simple.{JSONArray, JSONObject}
+import org.json.simple.parser.JSONParser
+import scala.util.Random
+
+object Main {
+  private val JsonFilePath = "phrases/phrases.json"
+
+  def main(args: Array[String]): Unit = {
+    val server = HttpServer.create(new InetSocketAddress(8000), 0)
+    server.createContext("/", new MyHandler())
+    server.setExecutor(null)
+    server.start()
+    println("Server running at http://0.0.0.0:8000/")
+  }
+
+  class MyHandler extends HttpHandler {
+    private val phrases: Array[String] = loadPhrasesFromJson()
+
+    override def handle(exchange: HttpExchange): Unit = {
+      val response = getRandomPhrase()
+      exchange.getResponseHeaders.set("Content-Type", "text/html; charset=UTF-8")
+      exchange.getResponseHeaders.set("Access-Control-Allow-Origin", "*")
+      exchange.getResponseHeaders.set("Cache-Control", "no-cache, no-store, must-revalidate")
+
+      val responseBytes = response.getBytes(StandardCharsets.UTF_8)
+      exchange.sendResponseHeaders(200, responseBytes.length)
+
+      val os = exchange.getResponseBody
+      os.write(responseBytes)
+      os.close()
+    }
+
+    private def getRandomPhrase(): String = {
+      if (phrases.nonEmpty) {
+        phrases(Random.nextInt(phrases.length))
+      } else {
+        "Error reading Racha Cuca phrases."
+      }
+    }
+
+    private def loadPhrasesFromJson(): Array[String] = {
+      try {
+        val parser = new JSONParser()
+        val jsonObject = parser.parse(new FileReader(JsonFilePath)).asInstanceOf[JSONObject]
+        val jsonArray = jsonObject.get("racha_cuca").asInstanceOf[JSONArray]
+
+        val result = new Array[String](jsonArray.size())
+        for (i <- 0 until jsonArray.size()) {
+          result(i) = jsonArray.get(i).asInstanceOf[String]
+        }
+        result
+      } catch {
+        case e: Exception =>
+          println(s"Error reading JSON file: \${e.getMessage}")
+          Array.empty[String]
+      }
+    }
+  }
+}`
+    },
     21: {
-        filename: "index.asp",
-        language: "ASP (VBScript)",
-        mode: "vbnet",
-        prismLang: "vbnet",
-        code: `<!--#include file="aspjson.asp"-->
-<%
-Response.CharSet = "UTF-8"
-Response.ContentType = "text/html; charset=utf-8"
-Response.AddHeader "Access-Control-Allow-Origin", "*"
+        filename: "app.dart",
+        language: "Dart",
+        mode: "dart",
+        prismLang: "dart",
+        code: `import 'dart:convert';
+import 'dart:io';
+import 'dart:math';
+import 'package:http/http.dart' as http;
 
-Dim fso, file, content, path, oJSON, phrases, count, randIdx
-Set fso = Server.CreateObject("Scripting.FileSystemObject")
-path = Server.MapPath("phrases/phrases.json")
+void main() async {
+  final phrasesJson = await File('phrases/phrases.json').readAsString();
+  final phrases = jsonDecode(phrasesJson);
 
-If fso.FileExists(path) Then
-    Set file = fso.OpenTextFile(path, 1)
-    content = file.ReadAll
-    file.Close
+  final server = await HttpServer.bind(InternetAddress.anyIPv4, 3000);
+  server.listen((request) async {
+    final randomPhrase = phrases['doutor_chapatin'][Random().nextInt(phrases['doutor_chapatin'].length)];
+    request.response
+      ..headers.contentType = ContentType.text
+      ..headers.add('Access-Control-Allow-Origin', '*')
+      ..write(randomPhrase)
+      ..close();
+  });
 
-    Dim posStart, posEnd, jsonText
-    jsonText = content
-    posStart = InStr(content, """racha_cuca""")
-    If posStart > 0 Then
-        posEnd = InStr(posStart, content, "]")
-        If posEnd > posStart Then
-            jsonText = "{" & Mid(content, posStart, posEnd - posStart + 1) & "}"
-        End If
-    End If
-
-    Set oJSON = New aspJSON
-    oJSON.loadJSON(jsonText)
-
-    If oJSON.data.Exists("racha_cuca") Then
-        Set phrases = oJSON.data("racha_cuca")
-        count = phrases.Count
-        If count > 0 Then
-            Randomize
-            randIdx = Int(Rnd * count)
-            Response.Write phrases.item(randIdx)
-        Else
-            Response.Write "Error reading Racha Cuca phrases."
-        End If
-    Else
-        Response.Write "Error reading Racha Cuca phrases."
-    End If
-Else
-    Response.Write "Error reading JSON file: phrases/phrases.json not found."
-End If
-%>`
+  print('Server started at http://0.0.0.0:3000');
+}`
     }
 };
