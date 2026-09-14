@@ -21,10 +21,10 @@ Cada personagem do seriado "Chaves" exibe uma frase retornada de uma aplicação
         <td style="text-align: center;">http://localhost:8001</td>
     </tr>
     <tr>
-        <td style="text-align: center;"><img src="frontend/img/professor-girafales.png" alt="Professor Girafales" height="100"></td>
-        <td style="text-align: center;">Professor Girafales</td>
-        <td style="text-align: center;"><img src="frontend/img/ruby.png" alt="Ruby" height="50"></td>
-        <td style="text-align: center;">http://localhost:8002</td>
+        <td style="text-align: center;"><img src="frontend/img/seu-madruga.png" alt="Seu Madruga" height="100"></td>
+        <td style="text-align: center;">Seu Madruga</td>
+        <td style="text-align: center;"><img src="frontend/img/asp.png" alt="ASP" height="50"></td>
+        <td style="text-align: center;">http://localhost:8021</td>
     </tr>
     <tr>
         <td style="text-align: center;"><img src="frontend/img/quico.png" alt="Quico" height="100"></td>
@@ -33,20 +33,32 @@ Cada personagem do seriado "Chaves" exibe uma frase retornada de uma aplicação
         <td style="text-align: center;">http://localhost:8003</td>
     </tr>
     <tr>
-        <td style="text-align: center;"><img src="frontend/img/dona-florinda.png" alt="Dona Florinda" height="100"></td>
-        <td style="text-align: center;">Dona Florinda</td>
+        <td style="text-align: center;"><img src="frontend/img/chiquinha.png" alt="Chiquinha" height="100"></td>
+        <td style="text-align: center;">Chiquinha</td>
         <td style="text-align: center;"><img src="frontend/img/python.png" alt="Python" height="50"></td>
         <td style="text-align: center;">http://localhost:8004</td>
     </tr>
     <tr>
-        <td style="text-align: center;"><img src="frontend/img/seu-madruga.png" alt="Seu Madruga" height="100"></td>
-        <td style="text-align: center;">Seu Madruga</td>
-        <td style="text-align: center;"><img src="frontend/img/lua.png" alt="Lua" height="50"></td>
-        <td style="text-align: center;">http://localhost:8005</td>
+        <td style="text-align: center;"><img src="frontend/img/dona-florinda.png" alt="Dona Florinda" height="100"></td>
+        <td style="text-align: center;">Dona Florinda</td>
+        <td style="text-align: center;"><img src="frontend/img/java.png" alt="Java" height="50"></td>
+        <td style="text-align: center;">http://localhost:8008</td>
     </tr>
     <tr>
-        <td style="text-align: center;"><img src="frontend/img/chiquinha.png" alt="Chiquinha" height="100"></td>
-        <td style="text-align: center;">Chiquinha</td>
+        <td style="text-align: center;"><img src="frontend/img/professor-girafales.png" alt="Professor Girafales" height="100"></td>
+        <td style="text-align: center;">Professor Girafales</td>
+        <td style="text-align: center;"><img src="frontend/img/ruby.png" alt="Ruby" height="50"></td>
+        <td style="text-align: center;">http://localhost:8002</td>
+    </tr>
+    <tr>
+        <td style="text-align: center;"><img src="frontend/img/seu-barriga.png" alt="Seu Barriga" height="100"></td>
+        <td style="text-align: center;">Seu Barriga</td>
+        <td style="text-align: center;"><img src="frontend/img/c++.png" alt="C++" height="50"></td>
+        <td style="text-align: center;">http://localhost:8014</td>
+    </tr>
+    <tr>
+        <td style="text-align: center;"><img src="frontend/img/dona-clotilde.png" alt="Dona Clotilde" height="100"></td>
+        <td style="text-align: center;">Dona Clotilde</td>
         <td style="text-align: center;"><img src="frontend/img/perl.png" alt="Perl" height="50"></td>
         <td style="text-align: center;">http://localhost:8006</td>
     </tr>
@@ -57,14 +69,8 @@ Cada personagem do seriado "Chaves" exibe uma frase retornada de uma aplicação
         <td style="text-align: center;">http://localhost:8007</td>
     </tr>
     <tr>
-        <td style="text-align: center;"><img src="frontend/img/seu-barriga.png" alt="Seu Barriga" height="100"></td>
-        <td style="text-align: center;">Seu Barriga</td>
-        <td style="text-align: center;"><img src="frontend/img/java.png" alt="Java" height="50"></td>
-        <td style="text-align: center;">http://localhost:8008</td>
-    </tr>
-    <tr>
-        <td style="text-align: center;"><img src="frontend/img/dona-clotilde.png" alt="Dona Clotilde" height="100"></td>
-        <td style="text-align: center;">Dona Clotilde</td>
+        <td style="text-align: center;"><img src="frontend/img/godinez.png" alt="Godinez" height="100"></td>
+        <td style="text-align: center;">Godinez</td>
         <td style="text-align: center;"><img src="frontend/img/swift.png" alt="Swift" height="50"></td>
         <td style="text-align: center;">http://localhost:8009</td>
     </tr>
@@ -75,40 +81,28 @@ Cada personagem do seriado "Chaves" exibe uma frase retornada de uma aplicação
         <td style="text-align: center;">http://localhost:8010</td>
     </tr>
     <tr>
+        <td style="text-align: center;"><img src="frontend/img/dona-neves.png" alt="Dona Neves" height="100"></td>
+        <td style="text-align: center;">Dona Neves</td>
+        <td style="text-align: center;"><img src="frontend/img/lua.png" alt="Lua" height="50"></td>
+        <td style="text-align: center;">http://localhost:8005</td>
+    </tr>
+    <tr>
         <td style="text-align: center;"><img src="frontend/img/popis.png" alt="Popis" height="100"></td>
         <td style="text-align: center;">Popis</td>
-        <td style="text-align: center;"><img src="frontend/img/crystal.png" alt="Crystal" height="50"></td>
-        <td style="text-align: center;">http://localhost:8011</td>
-    </tr>
-    <tr>
-        <td style="text-align: center;"><img src="frontend/img/godinez.png" alt="Godinez" height="100"></td>
-        <td style="text-align: center;">Godinez</td>
-        <td style="text-align: center;"><img src="frontend/img/typescript.png" alt="TypeScript" height="50"></td>
-        <td style="text-align: center;">http://localhost:8012</td>
-    </tr>
-    <tr>
-        <td style="text-align: center;"><img src="frontend/img/paty.png" alt="Paty" height="100"></td>
-        <td style="text-align: center;">Paty</td>
         <td style="text-align: center;"><img src="frontend/img/coffeescript.png" alt="CoffeeScript" height="50"></td>
         <td style="text-align: center;">http://localhost:8013</td>
     </tr>
     <tr>
-        <td style="text-align: center;"><img src="frontend/img/dona-neves.png" alt="Dona Neves" height="100"></td>
-        <td style="text-align: center;">Dona Neves</td>
-        <td style="text-align: center;"><img src="frontend/img/scala.png" alt="Scala" height="50"></td>
-        <td style="text-align: center;">http://localhost:8016</td>
-    </tr>
-    <tr>
-        <td style="text-align: center;"><img src="frontend/img/dr-chapatin.png" alt="Doutor Chapatin" height="100"></td>
-        <td style="text-align: center;">Doutor Chapatin</td>
-        <td style="text-align: center;"><img src="frontend/img/c++.png" alt="C++" height="50"></td>
-        <td style="text-align: center;">http://localhost:8014</td>
+        <td style="text-align: center;"><img src="frontend/img/paty.png" alt="Paty" height="100"></td>
+        <td style="text-align: center;">Paty</td>
+        <td style="text-align: center;"><img src="frontend/img/crystal.png" alt="Crystal" height="50"></td>
+        <td style="text-align: center;">http://localhost:8011</td>
     </tr>
     <tr>
         <td style="text-align: center;"><img src="frontend/img/chapolin-colorado.png" alt="Chapolin Colorado" height="100"></td>
         <td style="text-align: center;">Chapolin Colorado</td>
-        <td style="text-align: center;"><img src="frontend/img/dart.png" alt="Dart" height="50"></td>
-        <td style="text-align: center;">http://localhost:8015</td>
+        <td style="text-align: center;"><img src="frontend/img/typescript.png" alt="TypeScript" height="50"></td>
+        <td style="text-align: center;">http://localhost:8012</td>
     </tr>
     <tr>
         <td style="text-align: center;"><img src="frontend/img/tripa-seca.png" alt="Tripa Seca" height="100"></td>
@@ -123,22 +117,28 @@ Cada personagem do seriado "Chaves" exibe uma frase retornada de uma aplicação
         <td style="text-align: center;">http://localhost:8018</td>
     </tr>
     <tr>
-        <td style="text-align: center;"><img src="frontend/img/super-sam.png" alt="Super Sam" height="100"></td>
-        <td style="text-align: center;">Super Sam</td>
-        <td style="text-align: center;"><img src="frontend/img/nim.png" alt="Nim" height="50"></td>
-        <td style="text-align: center;">http://localhost:8019</td>
-    </tr>
-    <tr>
         <td style="text-align: center;"><img src="frontend/img/alma-negra.png" alt="Alma Negra" height="100"></td>
         <td style="text-align: center;">Alma Negra</td>
         <td style="text-align: center;"><img src="frontend/img/zig.png" alt="Zig" height="50"></td>
         <td style="text-align: center;">http://localhost:8020</td>
     </tr>
     <tr>
+        <td style="text-align: center;"><img src="frontend/img/super-sam.png" alt="Super Sam" height="100"></td>
+        <td style="text-align: center;">Super Sam</td>
+        <td style="text-align: center;"><img src="frontend/img/nim.png" alt="Nim" height="50"></td>
+        <td style="text-align: center;">http://localhost:8019</td>
+    </tr>
+    <tr>
         <td style="text-align: center;"><img src="frontend/img/racha-cuca.png" alt="Racha Cuca" height="100"></td>
         <td style="text-align: center;">Racha Cuca</td>
-        <td style="text-align: center;"><img src="frontend/img/asp.png" alt="ASP" height="50"></td>
-        <td style="text-align: center;">http://localhost:8021</td>
+        <td style="text-align: center;"><img src="frontend/img/scala.png" alt="Scala" height="50"></td>
+        <td style="text-align: center;">http://localhost:8016</td>
+    </tr>
+    <tr>
+        <td style="text-align: center;"><img src="frontend/img/dr-chapatin.png" alt="Doutor Chapatin" height="100"></td>
+        <td style="text-align: center;">Doutor Chapatin</td>
+        <td style="text-align: center;"><img src="frontend/img/dart.png" alt="Dart" height="50"></td>
+        <td style="text-align: center;">http://localhost:8015</td>
     </tr>
 </table> 
  
