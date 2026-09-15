@@ -14,10 +14,10 @@ class RequestHandler {
       const data = fs.readFileSync(jsonFilePath, 'utf-8');
       const phrases = JSON.parse(data);
 
-      if ('chapolin_colorado' in phrases) {
-        return phrases['chapolin_colorado'];
+      if ('godinez' in phrases) {
+        return phrases['godinez'];
       } else {
-        console.log('Chapolin Colorado phrases not found in JSON file.');
+        console.log('Godinez phrases not found in JSON file.');
         return [];
       }
     } catch (e) {
@@ -35,7 +35,7 @@ class RequestHandler {
     const phrases = this.readPhrases();
 
     if (!phrases.length) {
-      res.write('Error reading Chapolin Colorado phrases.');
+      res.write('Error reading Godinez phrases.');
       res.end();
       return;
     }
