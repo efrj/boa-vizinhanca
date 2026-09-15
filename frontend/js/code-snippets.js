@@ -1,3 +1,29 @@
+if (typeof Prism !== 'undefined') {
+    Prism.languages.clipper = {
+        'comment': [
+            {
+                pattern: /(^\s*|\s+)\/\/.*|^\s*\*.*|\/\*[\s\S]*?\*\//m,
+                greedy: true
+            },
+            {
+                pattern: /(^\s*|[\s]+)NOTE\b.*/i,
+                greedy: true
+            }
+        ],
+        'string': {
+            pattern: /(["'])(?:\\(?:\r\n|[\s\S])|(?!\1)[^\\\r\n])*\1/,
+            greedy: true
+        },
+        'keyword': /\b(?:PROCEDURE|FUNCTION|LOCAL|STATIC|PUBLIC|PRIVATE|IF|ELSE|ELSEIF|ENDIF|DO|WHILE|ENDDO|FOR|NEXT|EXIT|LOOP|RETURN|BEGIN|SEQUENCE|END|RECOVER|ALWAYS|SWITCH|CASE|OTHERWISE|ENDSWITCH|FIELD|MEMVAR)\b/i,
+        'boolean': /\b\.(?:T|F|TRUE|FALSE)\.\b/i,
+        'operator': /:=|\+=|-=|\*=|\/=|\.AND\.|\.OR\.|\.NOT\.|[+\-*\/%=><&!@]/i,
+        'function': /\b[a-z_]\w*(?=\()/i,
+        'number': /\b\d+(?:\.\d+)?\b/,
+        'punctuation': /[()\[\]{},;]/
+    };
+    Prism.languages.harbour = Prism.languages.clipper;
+}
+
 window.characterBackendCodes = {
     1: {
         filename: "index.php",
@@ -489,8 +515,8 @@ serverInstance.runServer();`
     11: {
         filename: "server.prg",
         language: "Clipper",
-        mode: "clojure",
-        prismLang: "clojure",
+        mode: "clipper",
+        prismLang: "clipper",
         code: `PROCEDURE Main()
    LOCAL cJson, hData, aPhrases, nIdx, cPhrase
    LOCAL cJsonPath := "phrases/phrases.json"
