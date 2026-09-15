@@ -106,10 +106,19 @@
 
         <!-- Action Items: Timer Badge, Update Action, and GitHub Repository Link -->
         <div class="header-action-container d-flex flex-wrap align-items-center gap-2 gap-sm-3">
-          <!-- Countdown Timer Badge -->
+          <!-- Countdown Timer Badge & Pause/Play Control -->
           <div class="badge bg-light text-dark fs-6 rounded-pill px-3 py-2 d-flex align-items-center gap-2 shadow-sm">
-            <i class="bi bi-clock-history text-primary"></i>
-            <span>Novas frases em <strong x-text="countdown" class="text-primary fs-6">7</strong>s</span>
+            <i class="bi" :class="isPaused ? 'bi-pause-circle-fill text-warning' : 'bi-clock-history text-primary'"></i>
+            <span x-show="!isPaused">Novas frases em <strong x-text="countdown" class="text-primary fs-6">7</strong>s</span>
+            <span x-show="isPaused" class="text-secondary fw-bold">Pausado (<span x-text="countdown">7</span>s)</span>
+            
+            <button @click.stop="toggleTimer()"
+              class="btn btn-sm p-0 ms-1 d-flex align-items-center justify-content-center rounded-circle"
+              style="width: 26px; height: 26px; transition: all 0.2s ease; line-height: 1;"
+              :class="isPaused ? 'btn-success text-white shadow-sm' : 'btn-outline-secondary text-dark'"
+              :title="isPaused ? 'Continuar atualizações automáticas' : 'Pausar atualizações automáticas'">
+              <i class="bi" :class="isPaused ? 'bi-play-fill fs-6' : 'bi-pause-fill fs-6'"></i>
+            </button>
           </div>
 
           <!-- Manual Update Button -->

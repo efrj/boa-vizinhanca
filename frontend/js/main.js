@@ -4,6 +4,7 @@ document.addEventListener('alpine:init', () => {
         countdown: 7,
         timerProgress: 100,
         timerInterval: null,
+        isPaused: false,
         selectedCharacter: null,
         showModal: false,
         codeEditor: null,
@@ -85,11 +86,25 @@ document.addEventListener('alpine:init', () => {
             return Promise.all(this.characters.map(char => this.fetchPhrase(char)));
         },
 
-        startTimer() {
-            if (this.timerInterval) clearInterval(this.timerInterval);
-            this.countdown = 7;
-            this.timerProgress = 100;
+        toggleTimer() {
+            if (this.isPaused) {
+                this.resumeTimer();
+            } else {
+                this.pauseTimer();
+            }
+        },
 
+        pauseTimer() {
+            this.isPaused = true;
+            if (this.timerInterval) {
+                clearInterval(this.timerInterval);
+                this.timerInterval = null;
+            }
+        },
+
+        resumeTimer() {
+            this.isPaused = false;
+            if (this.timerInterval) clearInterval(this.timerInterval);
             this.timerInterval = setInterval(() => {
                 this.countdown--;
                 this.timerProgress = (this.countdown / 7) * 100;
@@ -100,6 +115,12 @@ document.addEventListener('alpine:init', () => {
                     this.updateAllPhrases();
                 }
             }, 1000);
+        },
+
+        startTimer() {
+            this.countdown = 7;
+            this.timerProgress = 100;
+            this.resumeTimer();
         },
 
         openCharacterModal(character) {
