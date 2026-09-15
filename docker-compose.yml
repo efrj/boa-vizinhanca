@@ -99,15 +99,15 @@ services:
     volumes:
       - ./phrases:/app/phrases
 
-  shell-script:
+  clipper:
     build:
-      context: ./backend/shell-script
+      context: ./backend/clipper
     ports:
-      - 8010:80
+      - 8010:8000
     restart: unless-stopped
-    container_name: chaves.shell-script
+    container_name: chaves.clipper
     volumes:
-      - ./phrases:/usr/src/jaiminho/phrases
+      - ./phrases:/app/phrases
 
   crystal:
     build:

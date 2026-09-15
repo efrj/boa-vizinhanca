@@ -77,7 +77,7 @@ Cada personagem do seriado "Chaves" exibe uma frase retornada de uma aplicação
     <tr>
         <td style="text-align: center;"><img src="frontend/img/jaiminho.png" alt="Carteiro Jaiminho" height="100"></td>
         <td style="text-align: center;">Carteiro Jaiminho</td>
-        <td style="text-align: center;"><img src="frontend/img/sh.png" alt="Shell Script" height="50"></td>
+        <td style="text-align: center;"><img src="frontend/img/programming-languages/clipper.webp" alt="Clipper" height="50"></td>
         <td style="text-align: center;">http://localhost:8010</td>
     </tr>
     <tr>
@@ -212,7 +212,7 @@ Este projeto demonstra a integração de 21 linguagens de programação diferent
 - Go
 - Java
 - Swift
-- Shell Script
+- Clipper
 - Crystal
 - TypeScript
 - CoffeeScript

@@ -452,18 +452,32 @@ Kitura.addHTTPServer(onPort: 8000, with: router)
 Kitura.run()`
     },
     11: {
-        filename: "Jaiminho.sh",
-        language: "Shell Script",
-        mode: "shell",
-        prismLang: "bash",
-        code: `#!/bin/bash
+        filename: "server.prg",
+        language: "Clipper",
+        mode: "clojure",
+        prismLang: "clojure",
+        code: `PROCEDURE Main()
+   LOCAL cJson, hData, aPhrases, nIdx, cPhrase
+   LOCAL cJsonPath := "phrases/phrases.json"
 
-json_file='phrases/phrases.json'
+   cJson := MemoRead(cJsonPath)
+   IF Empty(cJson)
+      cJson := MemoRead("/app/phrases/phrases.json")
+   ENDIF
 
-while true; do
-  phrase=$(jq -r '.jaiminho | .[]' "$json_file" | shuf -n 1)
-  echo -e "HTTP/1.1 200 OK\\nContent-Type: text/html;charset=UTF-8\\nAccess-Control-Allow-Origin: *\\n\\n$phrase" | nc -l -p 80 -q 1
-done`
+   hb_jsonDecode(cJson, @hData)
+
+   IF hb_IsHash(hData) .AND. hb_HHasKey(hData, "jaiminho")
+      aPhrases := hData["jaiminho"]
+      hb_RandomSeed(Seconds())
+      nIdx := hb_RandomInt(1, Len(aPhrases))
+      cPhrase := aPhrases[nIdx]
+      OutStd(cPhrase)
+   ELSE
+      OutStd("Eu quero evitar a fadiga!")
+   ENDIF
+
+   RETURN`
     },
     12: {
         filename: "server.lua",
