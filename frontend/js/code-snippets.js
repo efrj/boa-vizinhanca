@@ -422,34 +422,69 @@ func main() {
 }`
     },
     10: {
-        filename: "main.swift",
-        language: "Swift",
-        mode: "swift",
-        prismLang: "swift",
-        code: `import Kitura
-import Foundation
+        filename: "server.ts",
+        language: "TypeScript",
+        mode: "text/typescript",
+        prismLang: "typescript",
+        code: `import * as http from 'http';
+import * as fs from 'fs';
 
-let currentDirectory = FileManager.default.currentDirectoryPath
-let jsonPath = currentDirectory + "/phrases/phrases.json"
+class RequestHandler {
+  private server: http.Server;
 
-guard let jsonData = FileManager.default.contents(atPath: jsonPath) else {
-    fatalError("Could not read JSON file")
+  constructor() {
+    this.server = http.createServer(this.handleRequest.bind(this));
+  }
+
+  private readPhrases(): string[] {
+    try {
+      const jsonFilePath = 'phrases/phrases.json';
+      const data = fs.readFileSync(jsonFilePath, 'utf-8');
+      const phrases = JSON.parse(data);
+
+      if ('godinez' in phrases) {
+        return phrases['godinez'];
+      } else {
+        console.log('Godinez phrases not found in JSON file.');
+        return [];
+      }
+    } catch (e) {
+      console.log(\`Error reading JSON file: \${e}\`);
+      return [];
+    }
+  }
+
+  private handleRequest(req: http.IncomingMessage, res: http.ServerResponse) {
+    res.writeHead(200, {
+      'Content-type': 'text/html;charset=UTF-8',
+      'Access-Control-Allow-Origin': '*'
+    });
+
+    const phrases = this.readPhrases();
+
+    if (!phrases.length) {
+      res.write('Error reading Godinez phrases.');
+      res.end();
+      return;
+    }
+
+    const randomPhrase = phrases[Math.floor(Math.random() * phrases.length)];
+    res.write(randomPhrase);
+    res.end();
+  }
+
+  public runServer() {
+    const host = '0.0.0.0';
+    const port = 8000;
+
+    this.server.listen(port, host, () => {
+      console.log(\`Server running at http://\${host}:\${port}/\`);
+    });
+  }
 }
 
-let json = try! JSONSerialization.jsonObject(with: jsonData, options: []) as! [String: [String]]
-let godinezPhrases = json["godinez"] ?? []
-
-let router = Router()
-
-router.get("/") { _, response, _ in
-    let randomPhrase = godinezPhrases.randomElement() ?? ""
-    response.headers.setType("text/html", charset: "UTF-8")
-    response.headers["Access-Control-Allow-Origin"] = "*"
-    response.send(randomPhrase)
-}
-
-Kitura.addHTTPServer(onPort: 8000, with: router)
-Kitura.run()`
+const serverInstance = new RequestHandler();
+serverInstance.runServer();`
     },
     11: {
         filename: "server.prg",
@@ -623,69 +658,34 @@ puts "Listening on http://0.0.0.0"
 server.listen("0.0.0.0", 80)`
     },
     15: {
-        filename: "server.ts",
-        language: "TypeScript",
-        mode: "text/typescript",
-        prismLang: "typescript",
-        code: `import * as http from 'http';
-import * as fs from 'fs';
+        filename: "main.swift",
+        language: "Swift",
+        mode: "swift",
+        prismLang: "swift",
+        code: `import Kitura
+import Foundation
 
-class RequestHandler {
-  private server: http.Server;
+let currentDirectory = FileManager.default.currentDirectoryPath
+let jsonPath = currentDirectory + "/phrases/phrases.json"
 
-  constructor() {
-    this.server = http.createServer(this.handleRequest.bind(this));
-  }
-
-  private readPhrases(): string[] {
-    try {
-      const jsonFilePath = 'phrases/phrases.json';
-      const data = fs.readFileSync(jsonFilePath, 'utf-8');
-      const phrases = JSON.parse(data);
-
-      if ('chapolin_colorado' in phrases) {
-        return phrases['chapolin_colorado'];
-      } else {
-        console.log('Chapolin Colorado phrases not found in JSON file.');
-        return [];
-      }
-    } catch (e) {
-      console.log(\`Error reading JSON file: \${e}\`);
-      return [];
-    }
-  }
-
-  private handleRequest(req: http.IncomingMessage, res: http.ServerResponse) {
-    res.writeHead(200, {
-      'Content-type': 'text/html;charset=UTF-8',
-      'Access-Control-Allow-Origin': '*'
-    });
-
-    const phrases = this.readPhrases();
-
-    if (!phrases.length) {
-      res.write('Error reading Chapolin Colorado phrases.');
-      res.end();
-      return;
-    }
-
-    const randomPhrase = phrases[Math.floor(Math.random() * phrases.length)];
-    res.write(randomPhrase);
-    res.end();
-  }
-
-  public runServer() {
-    const host = '0.0.0.0';
-    const port = 8000;
-
-    this.server.listen(port, host, () => {
-      console.log(\`Server running at http://\${host}:\${port}/\`);
-    });
-  }
+guard let jsonData = FileManager.default.contents(atPath: jsonPath) else {
+    fatalError("Could not read JSON file")
 }
 
-const serverInstance = new RequestHandler();
-serverInstance.runServer();`
+let json = try! JSONSerialization.jsonObject(with: jsonData, options: []) as! [String: [String]]
+let chapolinColoradoPhrases = json["chapolin_colorado"] ?? []
+
+let router = Router()
+
+router.get("/") { _, response, _ in
+    let randomPhrase = chapolinColoradoPhrases.randomElement() ?? ""
+    response.headers.setType("text/html", charset: "UTF-8")
+    response.headers["Access-Control-Allow-Origin"] = "*"
+    response.send(randomPhrase)
+}
+
+Kitura.addHTTPServer(onPort: 8000, with: router)
+Kitura.run()`
     },
     16: {
         filename: "Main.hs",
