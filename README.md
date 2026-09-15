@@ -69,10 +69,10 @@ Cada personagem do seriado "Chaves" exibe uma frase retornada de uma aplicação
         <td style="text-align: center;">http://localhost:8007</td>
     </tr>
     <tr>
-        <td style="text-align: center;"><img src="frontend/img/godinez.png" alt="Godinez" height="100"></td>
+        <td style="text-align: center;"><img src="frontend/img/avatar/godinez.png" alt="Godinez" height="100"></td>
         <td style="text-align: center;">Godinez</td>
-        <td style="text-align: center;"><img src="frontend/img/swift.png" alt="Swift" height="50"></td>
-        <td style="text-align: center;">http://localhost:8009</td>
+        <td style="text-align: center;"><img src="frontend/img/programming-languages/typescript.webp" alt="TypeScript" height="50"></td>
+        <td style="text-align: center;">http://localhost:8012</td>
     </tr>
     <tr>
         <td style="text-align: center;"><img src="frontend/img/jaiminho.png" alt="Carteiro Jaiminho" height="100"></td>
@@ -99,10 +99,10 @@ Cada personagem do seriado "Chaves" exibe uma frase retornada de uma aplicação
         <td style="text-align: center;">http://localhost:8011</td>
     </tr>
     <tr>
-        <td style="text-align: center;"><img src="frontend/img/chapolin-colorado.png" alt="Chapolin Colorado" height="100"></td>
+        <td style="text-align: center;"><img src="frontend/img/avatar/chapolin-colorado.png" alt="Chapolin Colorado" height="100"></td>
         <td style="text-align: center;">Chapolin Colorado</td>
-        <td style="text-align: center;"><img src="frontend/img/typescript.png" alt="TypeScript" height="50"></td>
-        <td style="text-align: center;">http://localhost:8012</td>
+        <td style="text-align: center;"><img src="frontend/img/programming-languages/swift.webp" alt="Swift" height="50"></td>
+        <td style="text-align: center;">http://localhost:8009</td>
     </tr>
     <tr>
         <td style="text-align: center;"><img src="frontend/img/tripa-seca.png" alt="Tripa Seca" height="100"></td>
