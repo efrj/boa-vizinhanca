@@ -11,10 +11,8 @@ body {
 /* Main Header */
 .app-header {
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-    height: 76px;
     min-height: 76px;
-    display: flex;
-    align-items: center;
+    padding: 10px 0;
 }
 
 /* Header Brand Container */
@@ -384,7 +382,38 @@ body {
 }
 
 /* Responsive adjustment for small mobile screens */
-@media (max-width: 767px) {
+@media (max-width: 767.98px) {
+    .app-header {
+        height: auto;
+        min-height: 76px;
+        padding: 14px 0;
+    }
+    .header-brand-container {
+        flex-direction: row;
+        align-items: center;
+        width: 100%;
+        gap: 12px !important;
+    }
+    .header-illustration {
+        height: 52px;
+        max-height: 52px;
+        width: auto;
+        flex-shrink: 0;
+    }
+    .app-header-title {
+        font-size: 1.3rem !important;
+        margin-bottom: 2px !important;
+        line-height: 1.1;
+    }
+    .app-header-subtitle {
+        font-size: 0.82rem !important;
+        line-height: 1.25;
+    }
+    .header-action-container {
+        width: 100%;
+        justify-content: center !important;
+        margin-top: 2px;
+    }
     .card-body-brite {
         flex-direction: column;
         align-items: stretch;
