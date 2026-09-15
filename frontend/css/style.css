@@ -11,16 +11,14 @@ body {
 /* Main Header */
 .app-header {
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    height: 76px;
+    min-height: 76px;
+    display: flex;
+    align-items: center;
 }
 
-/* Header Brand Container with Subtle Contrast Framing */
+/* Header Brand Container */
 .header-brand-container {
-    background: rgba(0, 0, 0, 0.12);
-    padding: 8px 16px 8px 12px;
-    border-radius: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.22);
-    backdrop-filter: blur(6px);
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
 }
 
 /* Header Typography with Baloo 2 and Nunito Fonts */

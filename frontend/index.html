@@ -74,13 +74,13 @@
   <div class="progress-timer-bar" :style="`width: ${timerProgress}%`"></div>
 
   <!-- Main Bootswatch Brite Header -->
-  <header class="app-header bg-warning text-white py-3 mb-4">
-    <div class="container-fluid px-4">
+  <header class="app-header bg-warning text-white mb-4">
+    <div class="container-fluid px-4 w-100">
       <div class="d-flex flex-column flex-md-row align-items-center justify-content-between gap-3">
 
         <!-- Banner Illustration & Title with Subtle Contrast Container -->
         <div class="header-brand-container d-flex align-items-center gap-3">
-          <img src="/img/chaves-header-banner.png" alt="Chaves Animado" class="header-illustration">
+          <img src="/img/chaves-header-banner.webp" alt="Chaves Animado" class="header-illustration">
           <div>
             <h1 class="app-header-title fs-2 mb-1">A Boa Vizinhança</h1>
             <p class="app-header-subtitle small mb-0">Linguagens de programação convivendo lado a lado em harmonia</p>
@@ -134,7 +134,7 @@
 
             <!-- Card Body: Horizontal Layout (Profile Left, Quote Right) -->
             <div class="card-body-brite">
-              
+
               <!-- Left Profile Section: Avatar + Name & Language Logo beside it -->
               <div class="card-profile-section">
                 <!-- Avatar (Left side of profile - Click to open modal) -->
@@ -158,7 +158,8 @@
                   <!-- Loading State -->
                   <template x-if="char.loading">
                     <div class="d-flex align-items-center justify-content-center gap-2 py-2 text-muted">
-                      <span class="spinner-border spinner-border-sm text-primary" role="status" aria-hidden="true"></span>
+                      <span class="spinner-border spinner-border-sm text-primary" role="status"
+                        aria-hidden="true"></span>
                       <span class="small fw-bold">Buscando frase...</span>
                     </div>
                   </template>
