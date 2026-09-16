@@ -12,7 +12,8 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="http://localhost:8000/">
   <meta property="og:title" content="A Boa Vizinhança — Frases do Chaves em 15 Linguagens">
-  <meta property="og:description" content="Página web interativa exibindo frases dos personagens da turma do Chaves, cada uma servida por uma linguagem de programação diferente.">
+  <meta property="og:description"
+    content="Página web interativa exibindo frases dos personagens da turma do Chaves, cada uma servida por uma linguagem de programação diferente.">
   <meta property="og:image" content="http://localhost:8000/img/chaves-header-banner.webp">
   <meta property="og:image:secure_url" content="http://localhost:8000/img/chaves-header-banner.webp">
   <meta property="og:image:type" content="image/webp">
@@ -22,7 +23,8 @@
   <!-- Twitter Card Meta Tags -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="A Boa Vizinhança — Frases do Chaves em 15 Linguagens">
-  <meta name="twitter:description" content="Página web interativa exibindo frases dos personagens da turma do Chaves, cada uma servida por uma linguagem de programação diferente.">
+  <meta name="twitter:description"
+    content="Página web interativa exibindo frases dos personagens da turma do Chaves, cada uma servida por uma linguagem de programação diferente.">
   <meta name="twitter:image" content="http://localhost:8000/img/chaves-header-banner.webp">
 
   <!-- Favicon Icons -->
@@ -104,18 +106,44 @@
           </div>
         </div>
 
-        <!-- Action Items: Timer Badge, Update Action, and GitHub Repository Link -->
+        <!-- Action Items: Series Filter, Timer Badge, Update Action, and GitHub Repository Link -->
         <div class="header-action-container d-flex flex-wrap align-items-center gap-2 gap-sm-3">
+          <!-- Series Filter Toggle (Todos, Chaves, Chapolin) -->
+          <div class="btn-group btn-group-sm rounded-pill p-1 bg-light border shadow-sm" role="group" aria-label="Filtrar por série">
+            <button type="button" @click="selectedSeries = 'all'"
+              class="btn rounded-pill px-3 py-1 fw-bold border-0 transition-all text-dark"
+              :class="selectedSeries === 'all' ? 'btn-dark text-white shadow-sm' : 'btn-light text-dark'"
+              title="Exibir todos os personagens">
+              <i class="bi bi-collection-play-fill me-1"></i>
+              <span>Todos</span>
+            </button>
+            <button type="button" @click="selectedSeries = 'chaves'"
+              class="btn rounded-pill px-3 py-1 fw-bold border-0 transition-all text-dark"
+              :class="selectedSeries === 'chaves' ? 'btn-primary text-white shadow-sm' : 'btn-light text-dark'"
+              title="Exibir somente personagens da Série Chaves">
+              <i class="bi bi-tv-fill me-1"></i>
+              <span>Chaves</span>
+            </button>
+            <button type="button" @click="selectedSeries = 'chapolin'"
+              class="btn rounded-pill px-3 py-1 fw-bold border-0 transition-all text-dark"
+              :class="selectedSeries === 'chapolin' ? 'btn-danger text-white shadow-sm' : 'btn-light text-dark'"
+              title="Exibir somente personagens do Chapolin Colorado">
+              <i class="bi bi-shield-fill-check me-1"></i>
+              <span>Chapolin</span>
+            </button>
+          </div>
+
           <!-- Countdown Timer Badge & Pause/Play Control -->
           <div class="badge bg-light text-dark fs-6 rounded-pill px-3 py-2 d-flex align-items-center gap-2 shadow-sm">
-            <i class="bi" :class="isPaused ? 'bi-pause-circle-fill text-warning' : 'bi-clock-history text-primary'"></i>
-            <span x-show="!isPaused">Novas frases em <strong x-text="countdown" class="text-primary fs-6">7</strong>s</span>
-            <span x-show="isPaused" class="text-secondary fw-bold">Pausado (<span x-text="countdown">7</span>s)</span>
-            
+            <i class="bi" :class="isPaused ? 'bi-pause-circle-fill text-dark' : 'bi-clock-history text-dark'"></i>
+            <span x-show="!isPaused">Novas frases em <strong x-text="countdown"
+                class="text-danger fs-6">7</strong>s</span>
+            <span x-show="isPaused" class="text-dark fw-bold">Pausado (<span x-text="countdown">7</span>s)</span>
+
             <button @click.stop="toggleTimer()"
               class="btn btn-sm p-0 ms-1 d-flex align-items-center justify-content-center rounded-circle"
               style="width: 26px; height: 26px; transition: all 0.2s ease; line-height: 1;"
-              :class="isPaused ? 'btn-success text-white shadow-sm' : 'btn-outline-secondary text-dark'"
+              :class="isPaused ? 'btn-success text-dark shadow-sm' : 'btn-outline-secondary text-dark'"
               :title="isPaused ? 'Continuar atualizações automáticas' : 'Pausar atualizações automáticas'">
               <i class="bi" :class="isPaused ? 'bi-play-fill fs-6' : 'bi-pause-fill fs-6'"></i>
             </button>
@@ -144,7 +172,7 @@
   <!-- Character Cards Grid Section -->
   <main class="container-fluid px-4">
     <div class="row row-cols-1 row-cols-lg-2 row-cols-xxl-3 g-4">
-      <template x-for="char in characters" :key="char.id">
+      <template x-for="char in filteredCharacters" :key="char.id">
         <div class="col">
           <div class="brite-card">
 
