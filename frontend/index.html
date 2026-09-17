@@ -257,13 +257,30 @@
           <template x-if="selectedCharacter">
             <div class="row g-4 align-items-center">
 
-              <!-- Left Column: Enlarged Avatar, Name, and Language Badge -->
+              <!-- Left Column: Character Phrase, Enlarged Avatar, Name, and Language Badge -->
               <div class="col-lg-4 col-md-5 text-center border-end-md pe-md-4">
+                <!-- Character Phrase Speech Bubble (Above Avatar) -->
+                <div class="modal-quote-bubble text-start">
+                  <!-- Loading State -->
+                  <template x-if="selectedCharacter.loading">
+                    <div class="d-flex align-items-center justify-content-center gap-2 py-2 text-muted">
+                      <span class="spinner-border spinner-border-sm text-primary" role="status"
+                        aria-hidden="true"></span>
+                      <span class="small fw-bold">Buscando frase...</span>
+                    </div>
+                  </template>
+
+                  <!-- Phrase Loaded State -->
+                  <template x-if="!selectedCharacter.loading">
+                    <p class="quote-text-brite mb-0" x-text="`“${selectedCharacter.phrase}”`"></p>
+                  </template>
+                </div>
+
                 <!-- Enlarged Avatar Image -->
                 <div class="mb-3">
                   <img :src="selectedCharacter.avatar" :alt="selectedCharacter.name"
                     class="img-fluid rounded-circle shadow"
-                    style="width: 180px; height: 180px; object-fit: cover; border: 5px solid #e9ecef; box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);">
+                    style="width: 160px; height: 160px; object-fit: cover; border: 5px solid #e9ecef; box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);">
                 </div>
 
                 <!-- Character Name & Language Pill -->

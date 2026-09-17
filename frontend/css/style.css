@@ -384,6 +384,48 @@ body {
     z-index: 2;
 }
 
+/* Modal Quote Bubble Above Avatar */
+.modal-quote-bubble {
+    background: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-top: 4px solid #0d6efd;
+    border-radius: 16px;
+    padding: 0.85rem 1rem;
+    width: 100%;
+    min-height: 64px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+    margin-bottom: 1rem;
+}
+
+.modal-quote-bubble::after {
+    content: "";
+    position: absolute;
+    bottom: -9px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-top: 9px solid #f8f9fa;
+    border-bottom: none;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+}
+
+.modal-quote-bubble::before {
+    content: "“";
+    position: absolute;
+    top: -6px;
+    right: 12px;
+    font-size: 2.2rem;
+    color: #0d6efd;
+    line-height: 1;
+    opacity: 0.22;
+}
+
 /* Status Dot */
 .status-dot {
     width: 12px;
