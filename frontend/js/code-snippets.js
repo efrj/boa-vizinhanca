@@ -1165,8 +1165,7 @@ begin
     HttpServer.Free;
   end;
 end.`
-  }
-},
+  },
   23: {
   filename: "gleam_server.gleam",
     language: "Gleam",
