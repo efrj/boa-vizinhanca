@@ -146,6 +146,12 @@ Cada personagem do seriado "Chaves" exibe uma frase retornada de uma aplicação
         <td style="text-align: center;"><img src="frontend/img/programming-languages/freepascal.webp" alt="Free Pascal" height="50"></td>
         <td style="text-align: center;">http://localhost:8022</td>
     </tr>
+    <tr>
+        <td style="text-align: center;"><img src="frontend/img/avatar/rosa-a-rumorosa.png" alt="Rosa, a Rumorosa" height="100"></td>
+        <td style="text-align: center;">Rosa, a Rumorosa</td>
+        <td style="text-align: center;"><img src="frontend/img/programming-languages/gleam.webp" alt="Gleam" height="50"></td>
+        <td style="text-align: center;">http://localhost:8023</td>
+    </tr>
 </table> 
  
 

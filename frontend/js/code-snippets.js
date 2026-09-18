@@ -1,36 +1,54 @@
 if (typeof Prism !== 'undefined') {
-    Prism.languages.clipper = {
-        'comment': [
-            {
-                pattern: /(^\s*|\s+)\/\/.*|^\s*\*.*|\/\*[\s\S]*?\*\//m,
-                greedy: true
-            },
-            {
-                pattern: /(^\s*|[\s]+)NOTE\b.*/i,
-                greedy: true
-            }
-        ],
-        'string': {
-            pattern: /(["'])(?:\\(?:\r\n|[\s\S])|(?!\1)[^\\\r\n])*\1/,
-            greedy: true
-        },
-        'keyword': /\b(?:PROCEDURE|FUNCTION|LOCAL|STATIC|PUBLIC|PRIVATE|IF|ELSE|ELSEIF|ENDIF|DO|WHILE|ENDDO|FOR|NEXT|EXIT|LOOP|RETURN|BEGIN|SEQUENCE|END|RECOVER|ALWAYS|SWITCH|CASE|OTHERWISE|ENDSWITCH|FIELD|MEMVAR)\b/i,
-        'boolean': /\b\.(?:T|F|TRUE|FALSE)\.\b/i,
-        'operator': /:=|\+=|-=|\*=|\/=|\.AND\.|\.OR\.|\.NOT\.|[+\-*\/%=><&!@]/i,
-        'function': /\b[a-z_]\w*(?=\()/i,
-        'number': /\b\d+(?:\.\d+)?\b/,
-        'punctuation': /[()\[\]{},;]/
-    };
-    Prism.languages.harbour = Prism.languages.clipper;
+  Prism.languages.clipper = {
+    'comment': [
+      {
+        pattern: /(^\s*|\s+)\/\/.*|^\s*\*.*|\/\*[\s\S]*?\*\//m,
+        greedy: true
+      },
+      {
+        pattern: /(^\s*|[\s]+)NOTE\b.*/i,
+        greedy: true
+      }
+    ],
+    'string': {
+      pattern: /(["'])(?:\\(?:\r\n|[\s\S])|(?!\1)[^\\\r\n])*\1/,
+      greedy: true
+    },
+    'keyword': /\b(?:PROCEDURE|FUNCTION|LOCAL|STATIC|PUBLIC|PRIVATE|IF|ELSE|ELSEIF|ENDIF|DO|WHILE|ENDDO|FOR|NEXT|EXIT|LOOP|RETURN|BEGIN|SEQUENCE|END|RECOVER|ALWAYS|SWITCH|CASE|OTHERWISE|ENDSWITCH|FIELD|MEMVAR)\b/i,
+    'boolean': /\b\.(?:T|F|TRUE|FALSE)\.\b/i,
+    'operator': /:=|\+=|-=|\*=|\/=|\.AND\.|\.OR\.|\.NOT\.|[+\-*\/%=><&!@]/i,
+    'function': /\b[a-z_]\w*(?=\()/i,
+    'number': /\b\d+(?:\.\d+)?\b/,
+    'punctuation': /[()\[\]{},;]/
+  };
+  Prism.languages.harbour = Prism.languages.clipper;
+  Prism.languages.gleam = {
+    'comment': [
+      {
+        pattern: /\/\/.*/,
+        greedy: true
+      }
+    ],
+    'string': {
+      pattern: /(["'])(?:\\(?:\r\n|[\s\S])|(?!\1)[^\\\r\n])*\1/,
+      greedy: true
+    },
+    'keyword': /\b(?:import|pub|fn|let|use|case|type|alias|const|external|if|todo|panic|as)\b/,
+    'boolean': /\b(?:True|False)\b/,
+    'operator': /->|<-|==|!=|<=|>=|&&|\|\||\+|-|\*|\/|%|=|\|>/,
+    'function': /\b[a-z_]\w*(?=\()/i,
+    'number': /\b\d+(?:\.\d+)?\b/,
+    'punctuation': /[()\[\]{},;:]/
+  };
 }
 
 window.characterBackendCodes = {
-    1: {
-        filename: "index.php",
-        language: "PHP",
-        mode: "php",
-        prismLang: "php",
-        code: `<?php
+  1: {
+    filename: "index.php",
+    language: "PHP",
+    mode: "php",
+    prismLang: "php",
+    code: `<?php
 
 header("Access-Control-Allow-Origin: *");
 
@@ -43,13 +61,13 @@ $randomphrase = $chavesPhrases[$indice];
 
 echo $randomphrase;
 ?>`
-    },
-    2: {
-        filename: "index.asp",
-        language: "ASP (VBScript)",
-        mode: "vbnet",
-        prismLang: "vbnet",
-        code: `<!--#include file="aspjson.asp"-->
+  },
+  2: {
+    filename: "index.asp",
+    language: "ASP (VBScript)",
+    mode: "vbnet",
+    prismLang: "vbnet",
+    code: `<!--#include file="aspjson.asp"-->
 <%
 Response.CharSet = "UTF-8"
 Response.ContentType = "text/html; charset=utf-8"
@@ -94,13 +112,13 @@ Else
     Response.Write "Error reading JSON file: phrases/phrases.json not found."
 End If
 %>`
-    },
-    3: {
-        filename: "app.js",
-        language: "Node.js",
-        mode: "javascript",
-        prismLang: "javascript",
-        code: `var http = require('http');
+  },
+  3: {
+    filename: "app.js",
+    language: "Node.js",
+    mode: "javascript",
+    prismLang: "javascript",
+    code: `var http = require('http');
 var fs = require('fs');
 
 const jsonFilePath = 'phrases/phrases.json';
@@ -145,13 +163,13 @@ http.createServer(function (req, res) {
 }).listen(3000, function(){
   console.log('Server running at http://localhost:3000');
 });`
-    },
-    4: {
-        filename: "app.py",
-        language: "Python",
-        mode: "python",
-        prismLang: "python",
-        code: `import json
+  },
+  4: {
+    filename: "app.py",
+    language: "Python",
+    mode: "python",
+    prismLang: "python",
+    code: `import json
 import random
 from http.server import BaseHTTPRequestHandler, HTTPServer
 
@@ -196,13 +214,13 @@ def run_server():
 
 if __name__ == '__main__':
     run_server()`
-    },
-    5: {
-        filename: "Main.java",
-        language: "Java",
-        mode: "text/x-java",
-        prismLang: "java",
-        code: `import com.sun.net.httpserver.HttpExchange;
+  },
+  5: {
+    filename: "Main.java",
+    language: "Java",
+    mode: "text/x-java",
+    prismLang: "java",
+    code: `import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 import com.sun.net.httpserver.HttpServer;
 import org.json.simple.JSONArray;
@@ -270,13 +288,13 @@ public class Main {
         }
     }
 }`
-    },
-    6: {
-        filename: "app.rb",
-        language: "Ruby",
-        mode: "ruby",
-        prismLang: "ruby",
-        code: `require 'webrick'
+  },
+  6: {
+    filename: "app.rb",
+    language: "Ruby",
+    mode: "ruby",
+    prismLang: "ruby",
+    code: `require 'webrick'
 require 'json'
 
 phrases = JSON.parse(File.read(File.expand_path('phrases/phrases.json', __dir__)))
@@ -295,13 +313,13 @@ end
 
 trap('INT') { server.shutdown }
 server.start`
-    },
-    7: {
-        filename: "random_phrase.cpp",
-        language: "C++",
-        mode: "text/x-c++src",
-        prismLang: "cpp",
-        code: `#include <httplib.h>
+  },
+  7: {
+    filename: "random_phrase.cpp",
+    language: "C++",
+    mode: "text/x-c++src",
+    prismLang: "cpp",
+    code: `#include <httplib.h>
 #include <nlohmann/json.hpp>
 #include <fstream>
 #include <random>
@@ -330,13 +348,13 @@ int main() {
     svr.listen("0.0.0.0", 8080);
     return 0;
 }`
-    },
-    8: {
-        filename: "script.pl",
-        language: "Perl",
-        mode: "perl",
-        prismLang: "perl",
-        code: `use strict;
+  },
+  8: {
+    filename: "script.pl",
+    language: "Perl",
+    mode: "perl",
+    prismLang: "perl",
+    code: `use strict;
 use warnings;
 use IO::Socket::INET;
 use JSON::XS;
@@ -387,13 +405,13 @@ sub randomPhrase {
 
     return Encode::encode('UTF-8', $phrase);
 }`
-    },
-    9: {
-        filename: "main.go",
-        language: "Go",
-        mode: "go",
-        prismLang: "go",
-        code: `package main
+  },
+  9: {
+    filename: "main.go",
+    language: "Go",
+    mode: "go",
+    prismLang: "go",
+    code: `package main
 
 import (
     "encoding/json"
@@ -446,13 +464,13 @@ func main() {
     fmt.Println("Server running at http://localhost:8000/")
     http.ListenAndServe(":8000", nil)
 }`
-    },
-    10: {
-        filename: "server.ts",
-        language: "TypeScript",
-        mode: "text/typescript",
-        prismLang: "typescript",
-        code: `import * as http from 'http';
+  },
+  10: {
+    filename: "server.ts",
+    language: "TypeScript",
+    mode: "text/typescript",
+    prismLang: "typescript",
+    code: `import * as http from 'http';
 import * as fs from 'fs';
 
 class RequestHandler {
@@ -511,13 +529,13 @@ class RequestHandler {
 
 const serverInstance = new RequestHandler();
 serverInstance.runServer();`
-    },
-    11: {
-        filename: "server.prg",
-        language: "Clipper",
-        mode: "clipper",
-        prismLang: "clipper",
-        code: `PROCEDURE Main()
+  },
+  11: {
+    filename: "server.prg",
+    language: "Clipper",
+    mode: "clipper",
+    prismLang: "clipper",
+    code: `PROCEDURE Main()
    LOCAL cJson, hData, aPhrases, nIdx, cPhrase
    LOCAL cJsonPath := "phrases/phrases.json"
 
@@ -539,13 +557,13 @@ serverInstance.runServer();`
    ENDIF
 
    RETURN`
-    },
-    12: {
-        filename: "server.lua",
-        language: "Lua",
-        mode: "lua",
-        prismLang: "lua",
-        code: `local socket = require("socket")
+  },
+  12: {
+    filename: "server.lua",
+    language: "Lua",
+    mode: "lua",
+    prismLang: "lua",
+    code: `local socket = require("socket")
 local json = require("dkjson")
 
 local function readPhrases()
@@ -596,13 +614,13 @@ while true do
         client:close()
     end
 end`
-    },
-    13: {
-        filename: "server.coffee",
-        language: "CoffeeScript",
-        mode: "coffeescript",
-        prismLang: "coffeescript",
-        code: `http = require 'http'
+  },
+  13: {
+    filename: "server.coffee",
+    language: "CoffeeScript",
+    mode: "coffeescript",
+    prismLang: "coffeescript",
+    code: `http = require 'http'
 fs = require 'fs'
 
 class RequestHandler
@@ -650,13 +668,13 @@ class RequestHandler
 
 serverInstance = new RequestHandler()
 serverInstance.runServer()`
-    },
-    14: {
-        filename: "app.cr",
-        language: "Crystal",
-        mode: "ruby",
-        prismLang: "crystal",
-        code: `require "http/server"
+  },
+  14: {
+    filename: "app.cr",
+    language: "Crystal",
+    mode: "ruby",
+    prismLang: "crystal",
+    code: `require "http/server"
 require "json"
 
 def read_phrases(file_path)
@@ -682,13 +700,13 @@ end
 
 puts "Listening on http://0.0.0.0"
 server.listen("0.0.0.0", 80)`
-    },
-    15: {
-        filename: "main.swift",
-        language: "Swift",
-        mode: "swift",
-        prismLang: "swift",
-        code: `import Kitura
+  },
+  15: {
+    filename: "main.swift",
+    language: "Swift",
+    mode: "swift",
+    prismLang: "swift",
+    code: `import Kitura
 import Foundation
 
 let currentDirectory = FileManager.default.currentDirectoryPath
@@ -712,13 +730,13 @@ router.get("/") { _, response, _ in
 
 Kitura.addHTTPServer(onPort: 8000, with: router)
 Kitura.run()`
-    },
-    16: {
-        filename: "Main.hs",
-        language: "Haskell",
-        mode: "text/x-haskell",
-        prismLang: "haskell",
-        code: `{-# LANGUAGE OverloadedStrings #-}
+  },
+  16: {
+    filename: "Main.hs",
+    language: "Haskell",
+    mode: "text/x-haskell",
+    prismLang: "haskell",
+    code: `{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE DeriveGeneric #-}
 
 import Network.Wai
@@ -767,13 +785,13 @@ loadPhrases = (do
             Nothing   -> return (Left "tripa_seca key missing")
         Nothing -> return (Left "Invalid JSON format")
     ) \`catch\` (\\(SomeException e) -> return (Left (show e)))`
-    },
-    17: {
-        filename: "main.ml",
-        language: "OCaml",
-        mode: "text/x-ocaml",
-        prismLang: "ocaml",
-        code: `open Yojson.Basic.Util
+  },
+  17: {
+    filename: "main.ml",
+    language: "OCaml",
+    mode: "text/x-ocaml",
+    prismLang: "ocaml",
+    code: `open Yojson.Basic.Util
 
 let json_file = "phrases/phrases.json"
 
@@ -814,13 +832,13 @@ let () =
   match Tiny_httpd.run server with
   | Ok () -> ()
   | Error e -> Printf.eprintf "Server error: %s\\n%!" (Printexc.to_string e)`
-    },
-    18: {
-        filename: "main.zig",
-        language: "Zig",
-        mode: "zig",
-        prismLang: "zig",
-        code: `const std = @import("std");
+  },
+  18: {
+    filename: "main.zig",
+    language: "Zig",
+    mode: "zig",
+    prismLang: "zig",
+    code: `const std = @import("std");
 const net = std.net;
 const fs = std.fs;
 const mem = std.mem;
@@ -901,13 +919,13 @@ pub fn main() !void {
         _ = connection.stream.writeAll(response) catch continue;
     }
 }`
-    },
-    19: {
-        filename: "server.nim",
-        language: "Nim",
-        mode: "nim",
-        prismLang: "nim",
-        code: `import asynchttpserver, asyncdispatch, json, random, strutils
+  },
+  19: {
+    filename: "server.nim",
+    language: "Nim",
+    mode: "nim",
+    prismLang: "nim",
+    code: `import asynchttpserver, asyncdispatch, json, random, strutils
 
 randomize()
 
@@ -945,13 +963,13 @@ proc main() {.async.} =
   await server.serve(Port(8000), cb, "0.0.0.0")
 
 waitFor main()`
-    },
-    20: {
-        filename: "Main.scala",
-        language: "Scala",
-        mode: "text/x-scala",
-        prismLang: "scala",
-        code: `import com.sun.net.httpserver.{HttpExchange, HttpHandler, HttpServer}
+  },
+  20: {
+    filename: "Main.scala",
+    language: "Scala",
+    mode: "text/x-scala",
+    prismLang: "scala",
+    code: `import com.sun.net.httpserver.{HttpExchange, HttpHandler, HttpServer}
 import java.io.FileReader
 import java.net.InetSocketAddress
 import java.nio.charset.StandardCharsets
@@ -1014,13 +1032,13 @@ object Main {
     }
   }
 }`
-    },
-    21: {
-        filename: "app.dart",
-        language: "Dart",
-        mode: "dart",
-        prismLang: "dart",
-        code: `import 'dart:convert';
+  },
+  21: {
+    filename: "app.dart",
+    language: "Dart",
+    mode: "dart",
+    prismLang: "dart",
+    code: `import 'dart:convert';
 import 'dart:io';
 import 'dart:math';
 import 'package:http/http.dart' as http;
@@ -1041,13 +1059,13 @@ void main() async {
 
   print('Server started at http://0.0.0.0:3000');
 }`
-    },
-    22: {
-        filename: "server.pas",
-        language: "Free Pascal",
-        mode: "pascal",
-        prismLang: "pascal",
-        code: `program server;
+  },
+  22: {
+    filename: "server.pas",
+    language: "Free Pascal",
+    mode: "pascal",
+    prismLang: "pascal",
+    code: `program server;
 
 {$mode objfpc}{$H+}
 
@@ -1147,5 +1165,58 @@ begin
     HttpServer.Free;
   end;
 end.`
+  }
+},
+  23: {
+  filename: "gleam_server.gleam",
+    language: "Gleam",
+      mode: "gleam",
+        prismLang: "gleam",
+          code: `import gleam/bytes_tree
+import gleam/dynamic/decode
+import gleam/erlang/process
+import gleam/http/request.{type Request}
+import gleam/http/response.{type Response}
+import gleam/int
+import gleam/json
+import gleam/list
+import mist
+import simplifile
+
+pub fn main() {
+  let decoder = decode.at(["rosa_rumorosa"], decode.list(decode.string))
+
+  let phrases = case simplifile.read("/app/phrases/phrases.json") {
+    Ok(content) -> {
+      case json.parse(from: content, using: decoder) {
+        Ok(list) -> list
+        Error(_) -> ["Error decoding Rosa Rumorosa phrases."]
+      }
     }
+    Error(_) -> ["Error reading JSON file."]
+  }
+
+  let web_service = fn(_req: Request(mist.Connection)) -> Response(mist.ResponseData) {
+    let count = list.length(phrases)
+    let random_index = int.random(count)
+    let phrase = case list.first(list.drop(phrases, random_index)) {
+      Ok(p) -> p
+      Error(_) -> "Rosa Rumorosa no comando!"
+    }
+
+    response.new(200)
+    |> response.set_header("access-control-allow-origin", "*")
+    |> response.set_header("content-type", "text/plain; charset=utf-8")
+    |> response.set_body(mist.Bytes(bytes_tree.from_string(phrase)))
+  }
+
+  let assert Ok(_) =
+    mist.new(web_service)
+    |> mist.bind("0.0.0.0")
+    |> mist.port(8000)
+    |> mist.start
+
+  process.sleep_forever()
+}`
+}
 };

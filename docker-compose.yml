@@ -229,6 +229,16 @@ services:
     volumes:
       - ./phrases:/app/phrases
 
+  gleam:
+    build:
+      context: ./backend/gleam
+    ports:
+      - 8023:8000
+    restart: unless-stopped
+    container_name: chaves.gleam
+    volumes:
+      - ./phrases:/app/phrases
+
 
 
 
