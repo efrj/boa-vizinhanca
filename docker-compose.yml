@@ -219,5 +219,16 @@ services:
     volumes:
       - ./phrases:/app/phrases
 
+  freepascal:
+    build:
+      context: ./backend/freepascal
+    ports:
+      - 8022:8000
+    restart: unless-stopped
+    container_name: chaves.freepascal
+    volumes:
+      - ./phrases:/app/phrases
+
+
 
 

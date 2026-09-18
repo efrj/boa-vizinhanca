@@ -42,7 +42,8 @@ document.addEventListener('alpine:init', () => {
             { id: 18, name: 'Alma Negra', port: 8020, lang: 'Zig', series: 'chapolin', avatar: '/img/avatar/alma-negra.png', langLogo: '/img/programming-languages/zig.webp', phrase: 'Carregando...', loading: true, status: 'loading', style: 'card-theme-alma-negra' },
             { id: 19, name: 'Super Sam', port: 8019, lang: 'Nim', series: 'chapolin', avatar: '/img/avatar/super-sam.png', langLogo: '/img/programming-languages/nim.webp', phrase: 'Carregando...', loading: true, status: 'loading', style: 'card-theme-super-sam' },
             { id: 20, name: 'Racha Cuca', port: 8016, lang: 'Scala', series: 'chapolin', avatar: '/img/avatar/racha-cuca.png', langLogo: '/img/programming-languages/scala.webp', phrase: 'Carregando...', loading: true, status: 'loading', style: 'card-theme-racha-cuca' },
-            { id: 21, name: 'Dr. Chapatin', port: 8015, lang: 'Dart', series: 'chapolin', avatar: '/img/avatar/dr-chapatin.png', langLogo: '/img/programming-languages/dart.webp', phrase: 'Carregando...', loading: true, status: 'loading', style: 'card-theme-dr-chapatin' }
+            { id: 21, name: 'Dr. Chapatin', port: 8015, lang: 'Dart', series: 'chapolin', avatar: '/img/avatar/dr-chapatin.png', langLogo: '/img/programming-languages/dart.webp', phrase: 'Carregando...', loading: true, status: 'loading', style: 'card-theme-dr-chapatin' },
+            { id: 22, name: 'Poucas Trancas', port: 8022, lang: 'Free Pascal', series: 'chapolin', avatar: '/img/avatar/poucas-trancas.png', langLogo: '/img/programming-languages/freepascal.webp', phrase: 'Carregando...', loading: true, status: 'loading', style: 'card-theme-poucas-trancas' }
         ],
 
         async init() {

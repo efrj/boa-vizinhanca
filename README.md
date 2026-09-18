@@ -140,6 +140,12 @@ Cada personagem do seriado "Chaves" exibe uma frase retornada de uma aplicação
         <td style="text-align: center;"><img src="frontend/img/dart.png" alt="Dart" height="50"></td>
         <td style="text-align: center;">http://localhost:8015</td>
     </tr>
+    <tr>
+        <td style="text-align: center;"><img src="frontend/img/avatar/poucas-trancas.png" alt="Poucas Trancas" height="100"></td>
+        <td style="text-align: center;">Poucas Trancas</td>
+        <td style="text-align: center;"><img src="frontend/img/programming-languages/freepascal.webp" alt="Free Pascal" height="50"></td>
+        <td style="text-align: center;">http://localhost:8022</td>
+    </tr>
 </table> 
  
 
