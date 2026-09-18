@@ -167,7 +167,7 @@ Cada personagem do seriado "Chaves" exibe uma frase retornada de uma aplicação
 1. Clone o repositório:
 
 ```bash
-git clone https://github.com/seu-usuario/boa-vizinhanca.git
+git clone https://github.com/efrj/boa-vizinhanca.git
 cd boa-vizinhanca
 ```
 
