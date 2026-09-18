@@ -15,57 +15,57 @@ Cada personagem do seriado "Chaves" exibe uma frase retornada de uma aplicação
         <th style="text-align: center;">URL</th>
     </tr>
     <tr>
-        <td style="text-align: center;"><img src="frontend/img/chaves.png" alt="Chaves" height="100"></td>
+        <td style="text-align: center;"><img src="frontend/img/avatar/chaves.png" alt="Chaves" height="100"></td>
         <td style="text-align: center;">Chaves</td>
-        <td style="text-align: center;"><img src="frontend/img/php.png" alt="PHP" height="50"></td>
+        <td style="text-align: center;"><img src="frontend/img/programming-languages/php.webp" alt="PHP" height="50"></td>
         <td style="text-align: center;">http://localhost:8001</td>
     </tr>
     <tr>
-        <td style="text-align: center;"><img src="frontend/img/seu-madruga.png" alt="Seu Madruga" height="100"></td>
+        <td style="text-align: center;"><img src="frontend/img/avatar/seu-madruga.png" alt="Seu Madruga" height="100"></td>
         <td style="text-align: center;">Seu Madruga</td>
-        <td style="text-align: center;"><img src="frontend/img/asp.png" alt="ASP" height="50"></td>
+        <td style="text-align: center;"><img src="frontend/img/programming-languages/asp.webp" alt="ASP" height="50"></td>
         <td style="text-align: center;">http://localhost:8021</td>
     </tr>
     <tr>
-        <td style="text-align: center;"><img src="frontend/img/quico.png" alt="Quico" height="100"></td>
+        <td style="text-align: center;"><img src="frontend/img/avatar/quico.png" alt="Quico" height="100"></td>
         <td style="text-align: center;">Quico</td>
-        <td style="text-align: center;"><img src="frontend/img/nodejs.png" alt="Node.JS" height="50"></td>
+        <td style="text-align: center;"><img src="frontend/img/programming-languages/nodejs.webp" alt="Node.JS" height="50"></td>
         <td style="text-align: center;">http://localhost:8003</td>
     </tr>
     <tr>
-        <td style="text-align: center;"><img src="frontend/img/chiquinha.png" alt="Chiquinha" height="100"></td>
+        <td style="text-align: center;"><img src="frontend/img/avatar/chiquinha.png" alt="Chiquinha" height="100"></td>
         <td style="text-align: center;">Chiquinha</td>
-        <td style="text-align: center;"><img src="frontend/img/python.png" alt="Python" height="50"></td>
+        <td style="text-align: center;"><img src="frontend/img/programming-languages/python.webp" alt="Python" height="50"></td>
         <td style="text-align: center;">http://localhost:8004</td>
     </tr>
     <tr>
-        <td style="text-align: center;"><img src="frontend/img/dona-florinda.png" alt="Dona Florinda" height="100"></td>
+        <td style="text-align: center;"><img src="frontend/img/avatar/dona-florinda.png" alt="Dona Florinda" height="100"></td>
         <td style="text-align: center;">Dona Florinda</td>
-        <td style="text-align: center;"><img src="frontend/img/java.png" alt="Java" height="50"></td>
+        <td style="text-align: center;"><img src="frontend/img/programming-languages/java.webp" alt="Java" height="50"></td>
         <td style="text-align: center;">http://localhost:8008</td>
     </tr>
     <tr>
-        <td style="text-align: center;"><img src="frontend/img/professor-girafales.png" alt="Professor Girafales" height="100"></td>
+        <td style="text-align: center;"><img src="frontend/img/avatar/professor-girafales.png" alt="Professor Girafales" height="100"></td>
         <td style="text-align: center;">Professor Girafales</td>
-        <td style="text-align: center;"><img src="frontend/img/ruby.png" alt="Ruby" height="50"></td>
+        <td style="text-align: center;"><img src="frontend/img/programming-languages/ruby.webp" alt="Ruby" height="50"></td>
         <td style="text-align: center;">http://localhost:8002</td>
     </tr>
     <tr>
-        <td style="text-align: center;"><img src="frontend/img/seu-barriga.png" alt="Seu Barriga" height="100"></td>
+        <td style="text-align: center;"><img src="frontend/img/avatar/seu-barriga.png" alt="Seu Barriga" height="100"></td>
         <td style="text-align: center;">Seu Barriga</td>
-        <td style="text-align: center;"><img src="frontend/img/c++.png" alt="C++" height="50"></td>
+        <td style="text-align: center;"><img src="frontend/img/programming-languages/cplusplus.webp" alt="C++" height="50"></td>
         <td style="text-align: center;">http://localhost:8014</td>
     </tr>
     <tr>
-        <td style="text-align: center;"><img src="frontend/img/dona-clotilde.png" alt="Dona Clotilde" height="100"></td>
+        <td style="text-align: center;"><img src="frontend/img/avatar/dona-clotilde.png" alt="Dona Clotilde" height="100"></td>
         <td style="text-align: center;">Dona Clotilde</td>
-        <td style="text-align: center;"><img src="frontend/img/perl.png" alt="Perl" height="50"></td>
+        <td style="text-align: center;"><img src="frontend/img/programming-languages/perl.webp" alt="Perl" height="50"></td>
         <td style="text-align: center;">http://localhost:8006</td>
     </tr>
     <tr>
-        <td style="text-align: center;"><img src="frontend/img/nhonho.png" alt="Nhonho" height="100"></td>
+        <td style="text-align: center;"><img src="frontend/img/avatar/nhonho.png" alt="Nhonho" height="100"></td>
         <td style="text-align: center;">Nhonho</td>
-        <td style="text-align: center;"><img src="frontend/img/go.png" alt="Go" height="50"></td>
+        <td style="text-align: center;"><img src="frontend/img/programming-languages/go.webp" alt="Go" height="50"></td>
         <td style="text-align: center;">http://localhost:8007</td>
     </tr>
     <tr>
@@ -75,27 +75,27 @@ Cada personagem do seriado "Chaves" exibe uma frase retornada de uma aplicação
         <td style="text-align: center;">http://localhost:8012</td>
     </tr>
     <tr>
-        <td style="text-align: center;"><img src="frontend/img/jaiminho.png" alt="Carteiro Jaiminho" height="100"></td>
+        <td style="text-align: center;"><img src="frontend/img/avatar/jaiminho.png" alt="Carteiro Jaiminho" height="100"></td>
         <td style="text-align: center;">Carteiro Jaiminho</td>
         <td style="text-align: center;"><img src="frontend/img/programming-languages/clipper.webp" alt="Clipper" height="50"></td>
         <td style="text-align: center;">http://localhost:8010</td>
     </tr>
     <tr>
-        <td style="text-align: center;"><img src="frontend/img/dona-neves.png" alt="Dona Neves" height="100"></td>
+        <td style="text-align: center;"><img src="frontend/img/avatar/dona-neves.png" alt="Dona Neves" height="100"></td>
         <td style="text-align: center;">Dona Neves</td>
-        <td style="text-align: center;"><img src="frontend/img/lua.png" alt="Lua" height="50"></td>
+        <td style="text-align: center;"><img src="frontend/img/programming-languages/lua.webp" alt="Lua" height="50"></td>
         <td style="text-align: center;">http://localhost:8005</td>
     </tr>
     <tr>
-        <td style="text-align: center;"><img src="frontend/img/popis.png" alt="Popis" height="100"></td>
+        <td style="text-align: center;"><img src="frontend/img/avatar/popis.png" alt="Popis" height="100"></td>
         <td style="text-align: center;">Popis</td>
-        <td style="text-align: center;"><img src="frontend/img/coffeescript.png" alt="CoffeeScript" height="50"></td>
+        <td style="text-align: center;"><img src="frontend/img/programming-languages/coffeescript.webp" alt="CoffeeScript" height="50"></td>
         <td style="text-align: center;">http://localhost:8013</td>
     </tr>
     <tr>
-        <td style="text-align: center;"><img src="frontend/img/paty.png" alt="Paty" height="100"></td>
+        <td style="text-align: center;"><img src="frontend/img/avatar/paty.png" alt="Paty" height="100"></td>
         <td style="text-align: center;">Paty</td>
-        <td style="text-align: center;"><img src="frontend/img/crystal.png" alt="Crystal" height="50"></td>
+        <td style="text-align: center;"><img src="frontend/img/programming-languages/crystal.webp" alt="Crystal" height="50"></td>
         <td style="text-align: center;">http://localhost:8011</td>
     </tr>
     <tr>
@@ -105,39 +105,39 @@ Cada personagem do seriado "Chaves" exibe uma frase retornada de uma aplicação
         <td style="text-align: center;">http://localhost:8009</td>
     </tr>
     <tr>
-        <td style="text-align: center;"><img src="frontend/img/tripa-seca.png" alt="Tripa Seca" height="100"></td>
+        <td style="text-align: center;"><img src="frontend/img/avatar/tripa-seca.png" alt="Tripa Seca" height="100"></td>
         <td style="text-align: center;">Tripa Seca</td>
-        <td style="text-align: center;"><img src="frontend/img/haskell.png" alt="Haskell" height="50"></td>
+        <td style="text-align: center;"><img src="frontend/img/programming-languages/haskell.webp" alt="Haskell" height="50"></td>
         <td style="text-align: center;">http://localhost:8017</td>
     </tr>
     <tr>
-        <td style="text-align: center;"><img src="frontend/img/quase-nada.png" alt="Quase Nada" height="100"></td>
+        <td style="text-align: center;"><img src="frontend/img/avatar/quase-nada.png" alt="Quase Nada" height="100"></td>
         <td style="text-align: center;">Quase Nada</td>
-        <td style="text-align: center;"><img src="frontend/img/ocaml.png" alt="OCaml" height="50"></td>
+        <td style="text-align: center;"><img src="frontend/img/programming-languages/ocaml.webp" alt="OCaml" height="50"></td>
         <td style="text-align: center;">http://localhost:8018</td>
     </tr>
     <tr>
-        <td style="text-align: center;"><img src="frontend/img/alma-negra.png" alt="Alma Negra" height="100"></td>
+        <td style="text-align: center;"><img src="frontend/img/avatar/alma-negra.png" alt="Alma Negra" height="100"></td>
         <td style="text-align: center;">Alma Negra</td>
-        <td style="text-align: center;"><img src="frontend/img/zig.png" alt="Zig" height="50"></td>
+        <td style="text-align: center;"><img src="frontend/img/programming-languages/zig.webp" alt="Zig" height="50"></td>
         <td style="text-align: center;">http://localhost:8020</td>
     </tr>
     <tr>
-        <td style="text-align: center;"><img src="frontend/img/super-sam.png" alt="Super Sam" height="100"></td>
+        <td style="text-align: center;"><img src="frontend/img/avatar/super-sam.png" alt="Super Sam" height="100"></td>
         <td style="text-align: center;">Super Sam</td>
-        <td style="text-align: center;"><img src="frontend/img/nim.png" alt="Nim" height="50"></td>
+        <td style="text-align: center;"><img src="frontend/img/programming-languages/nim.webp" alt="Nim" height="50"></td>
         <td style="text-align: center;">http://localhost:8019</td>
     </tr>
     <tr>
-        <td style="text-align: center;"><img src="frontend/img/racha-cuca.png" alt="Racha Cuca" height="100"></td>
+        <td style="text-align: center;"><img src="frontend/img/avatar/racha-cuca.png" alt="Racha Cuca" height="100"></td>
         <td style="text-align: center;">Racha Cuca</td>
-        <td style="text-align: center;"><img src="frontend/img/scala.png" alt="Scala" height="50"></td>
+        <td style="text-align: center;"><img src="frontend/img/programming-languages/scala.webp" alt="Scala" height="50"></td>
         <td style="text-align: center;">http://localhost:8016</td>
     </tr>
     <tr>
-        <td style="text-align: center;"><img src="frontend/img/dr-chapatin.png" alt="Doutor Chapatin" height="100"></td>
+        <td style="text-align: center;"><img src="frontend/img/avatar/dr-chapatin.png" alt="Doutor Chapatin" height="100"></td>
         <td style="text-align: center;">Doutor Chapatin</td>
-        <td style="text-align: center;"><img src="frontend/img/dart.png" alt="Dart" height="50"></td>
+        <td style="text-align: center;"><img src="frontend/img/programming-languages/dart.webp" alt="Dart" height="50"></td>
         <td style="text-align: center;">http://localhost:8015</td>
     </tr>
     <tr>
