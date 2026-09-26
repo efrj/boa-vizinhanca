@@ -2,6 +2,17 @@ FROM haskell:9.6 AS builder
 
 WORKDIR /app
 
+# Fix for aarch64 (Apple Silicon): GCC requires armv8.2-a+crypto+sha3 flags
+# for crypton's ARM NEON intrinsics (vbcaxq_u64, vxarq_u64, eor3) to compile
+RUN if [ "$(uname -m)" = "aarch64" ]; then \
+        mv /usr/bin/gcc /usr/bin/gcc.real && \
+        printf '#!/bin/sh\nexec /usr/bin/gcc.real "$@" -march=armv8.2-a+crypto+sha3\n' > /usr/bin/gcc && \
+        chmod +x /usr/bin/gcc && \
+        mv /usr/bin/as /usr/bin/as.real && \
+        printf '#!/bin/sh\nexec /usr/bin/as.real "$@" -march=armv8.2-a+crypto+sha3\n' > /usr/bin/as && \
+        chmod +x /usr/bin/as; \
+    fi
+
 COPY tripa-seca.cabal .
 RUN cabal update && cabal build --only-dependencies -j
 
