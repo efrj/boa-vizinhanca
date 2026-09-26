@@ -1070,6 +1070,9 @@ void main() async {
 {$mode objfpc}{$H+}
 
 uses
+  {$IFDEF UNIX}
+  cthreads,
+  {$ENDIF}
   Classes, SysUtils, fphttpserver, fpjson, jsonparser;
 
 type
@@ -1077,6 +1080,7 @@ type
   private
     FPhrases: TJSONArray;
     procedure LoadPhrases;
+    procedure RequestErrorHandler(Sender: TObject; E: Exception);
   public
     constructor Create(AOwner: TComponent); override;
     destructor Destroy; override;
@@ -1088,6 +1092,7 @@ constructor TPoucasTrancasServer.Create(AOwner: TComponent);
 begin
   inherited Create(AOwner);
   FPhrases := nil;
+  OnRequestError := @RequestErrorHandler;
   LoadPhrases;
 end;
 
@@ -1098,13 +1103,20 @@ begin
   inherited Destroy;
 end;
 
+procedure TPoucasTrancasServer.RequestErrorHandler(Sender: TObject; E: Exception);
+begin
+  WriteLn('Erro na requisição: ', E.Message);
+  Flush(Output);
+end;
+
 procedure TPoucasTrancasServer.LoadPhrases;
 var
   JsonFile: string;
   FileStream: TFileStream;
   Parser: TJSONParser;
-  Data: TJSONObject;
-  RawData: TJSONData;
+  RootObj: TJSONObject;
+  JsonData: TJSONData;
+  CharacterData: TJSONData;
 begin
   JsonFile := 'phrases/phrases.json';
   if not FileExists(JsonFile) then
@@ -1112,23 +1124,38 @@ begin
 
   if FileExists(JsonFile) then
   begin
-    FileStream := TFileStream.Create(JsonFile, fmOpenRead or fmShareDenyNone);
     try
-      Parser := TJSONParser.Create(FileStream, []);
+      FileStream := TFileStream.Create(JsonFile, fmOpenRead or fmShareDenyNone);
       try
-        RawData := Parser.Parse;
-        if (RawData <> nil) and (RawData is TJSONObject) then
-        begin
-          Data := TJSONObject(RawData);
-          RawData := Data.Find('poucas_trancas');
-          if (RawData <> nil) and (RawData is TJSONArray) then
-            FPhrases := TJSONArray(RawData.Clone);
+        Parser := TJSONParser.Create(FileStream, []);
+        try
+          JsonData := Parser.Parse;
+          try
+            if (JsonData <> nil) and (JsonData is TJSONObject) then
+            begin
+              RootObj := TJSONObject(JsonData);
+              CharacterData := RootObj.Find('poucas_trancas');
+              if (CharacterData <> nil) and (CharacterData is TJSONArray) then
+              begin
+                FPhrases := TJSONArray(CharacterData.Clone);
+              end;
+            end;
+          finally
+            if JsonData <> nil then
+              JsonData.Free;
+          end;
+        finally
+          Parser.Free;
         end;
       finally
-        Parser.Free;
+        FileStream.Free;
       end;
-    finally
-      FileStream.Free;
+    except
+      on E: Exception do
+      begin
+        WriteLn('Erro ao carregar frases: ', E.Message);
+        Flush(Output);
+      end;
     end;
   end;
 end;
@@ -1137,19 +1164,46 @@ procedure TPoucasTrancasServer.HandleRequest(var ARequest: TFPHTTPConnectionRequ
   var AResponse: TFPHTTPConnectionResponse);
 var
   Idx: Integer;
+  SelectedPhrase: string;
 begin
-  AResponse.SetCustomHeader('Access-Control-Allow-Origin', '*');
-  AResponse.ContentType := 'text/html; charset=utf-8';
+  try
+    AResponse.SetCustomHeader('Access-Control-Allow-Origin', '*');
+    AResponse.SetCustomHeader('Access-Control-Allow-Methods', 'GET, OPTIONS');
+    AResponse.SetCustomHeader('Access-Control-Allow-Headers', '*');
+    AResponse.SetCustomHeader('Connection', 'close');
 
-  if (FPhrases <> nil) and (FPhrases.Count > 0) then
-  begin
-    Idx := Random(FPhrases.Count);
-    AResponse.Content := FPhrases.Strings[Idx];
-  end
-  else
-    AResponse.Content := 'Nem o Chapolin Colorado pode com a lei do funil!';
+    if ARequest.Method = 'OPTIONS' then
+    begin
+      AResponse.Code := 204;
+      AResponse.Content := '';
+      AResponse.ContentLength := 0;
+      Exit;
+    end;
 
-  AResponse.SendContent;
+    AResponse.Code := 200;
+    AResponse.ContentType := 'text/plain; charset=utf-8';
+
+    if (FPhrases <> nil) and (FPhrases.Count > 0) then
+    begin
+      Idx := Random(FPhrases.Count);
+      SelectedPhrase := FPhrases.Strings[Idx];
+      AResponse.Content := SelectedPhrase;
+    end
+    else
+    begin
+      AResponse.Content := 'Nem o Chapolin Colorado pode com a lei do funil!';
+    end;
+
+    AResponse.ContentLength := Length(AResponse.Content);
+  except
+    on E: Exception do
+    begin
+      AResponse.Code := 500;
+      AResponse.ContentType := 'text/plain; charset=utf-8';
+      AResponse.Content := 'Erro interno do servidor';
+      AResponse.ContentLength := Length(AResponse.Content);
+    end;
+  end;
 end;
 
 var
@@ -1159,7 +1213,10 @@ begin
   HttpServer := TPoucasTrancasServer.Create(nil);
   try
     HttpServer.Port := 8000;
+    HttpServer.Threaded := True;
+    HttpServer.QueueSize := 128;
     WriteLn('Servidor Free Pascal rodando na porta 8000...');
+    Flush(Output);
     HttpServer.Active := True;
   finally
     HttpServer.Free;
